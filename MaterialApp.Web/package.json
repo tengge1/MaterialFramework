@@ -1,0 +1,35 @@
+{
+  "name": "materialapp.web",
+  "version": "1.0.0",
+  "description": "A web framework using material design and asp.net.",
+  "main": "index.js",
+  "dependencies": {
+    "css-loader": "^0.28.11",
+    "extract-loader": "^2.0.1",
+    "file-loader": "^1.1.11",
+    "material-components-web": "^0.33.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
+    "webpack": "^4.4.1",
+    "webpack-dev-server": "^3.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tengge1/MaterialApp.git"
+  },
+  "keywords": [
+    "material-design",
+    "asp.net"
+  ],
+  "author": "tengge",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tengge1/MaterialApp/issues"
+  },
+  "homepage": "https://github.com/tengge1/MaterialApp#readme"
+}
