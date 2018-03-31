@@ -1,0 +1,91 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <!-- 角色菜单 -->
+  <object id="RoleMenuBLL" type="MaterialApp.BLL.RoleMenuBLL, MaterialApp.BLL">
+    <property name="dal" ref="RoleMenuDAL" />
+    <property name="menuDAL" ref="MenuDAL" />
+  </object>
+
+  <!-- 登录 -->
+  <object id="LoginBLL" type="MaterialApp.BLL.LoginBLL, MaterialApp.BLL">
+    <property name="dal" ref="UserDAL" />
+  </object>
+
+  <!-- 菜单 -->
+  <object id="MenuBLL" type="MaterialApp.BLL.MenuBLL, MaterialApp.BLL">
+    <property name="dal" ref="MenuDAL" />
+    <property name="roleMenuDAL" ref="RoleMenuDAL" />
+  </object>
+
+  <!-- 角色 -->
+  <object id="RoleBLL" type="MaterialApp.BLL.RoleBLL, MaterialApp.BLL">
+    <property name="dal" ref="RoleDAL" />
+  </object>
+
+  <!-- 配置 -->
+  <object id="ConfigBLL" type="MaterialApp.BLL.ConfigBLL, MaterialApp.BLL">
+    <property name="dal" ref="ConfigDAL" />
+  </object>
+
+  <!-- 配置节点 -->
+  <object id="ConfigSectionBLL" type="MaterialApp.BLL.ConfigSectionBLL, MaterialApp.BLL">
+    <property name="dal" ref="ConfigSectionDAL" />
+  </object>
+
+  <!-- 字典 -->
+  <object id="DicBLL" type="MaterialApp.BLL.DicBLL, MaterialApp.BLL">
+    <property name="dal" ref="DicDAL" />
+    <property name="dicItemDAL" ref="DicItemDAL" />
+  </object>
+
+  <!-- 字典项 -->
+  <object id="DicItemBLL" type="MaterialApp.BLL.DicItemBLL, MaterialApp.BLL">
+    <property name="dal" ref="DicItemDAL" />
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogBLL" type="MaterialApp.BLL.LogBLL, MaterialApp.BLL">
+    <property name="dal" ref="LogDAL" />
+  </object>
+
+  <!-- 组织机构 -->
+  <object id="DeptBLL" type="MaterialApp.BLL.DeptBLL, MaterialApp.BLL">
+    <property name="dal" ref="DeptDAL" />
+  </object>
+
+  <!-- 用户 -->
+  <object id="UserBLL" type="MaterialApp.BLL.UserBLL, MaterialApp.BLL">
+    <property name="dal" ref="UserDAL" />
+  </object>
+
+  <!-- 数据库备份 -->
+  <object id="DatabaseBackupBLL" type="MaterialApp.BLL.DatabaseBackupBLL, MaterialApp.BLL">
+    <property name="dal" ref="DatabaseBackupDAL" />
+  </object>
+
+  <!-- 工作流 -->
+  <object id="WorkflowBLL" type="MaterialApp.BLL.WorkflowBLL, MaterialApp.BLL">
+    <property name="dal" ref="WorkflowDAL" />
+  </object>
+
+  <!-- 文件 -->
+  <object id="FilesBLL" type="MaterialApp.BLL.FilesBLL, MaterialApp.BLL">
+    <property name="dal" ref="FilesDAL" />
+  </object>
+
+  <!-- 消息 -->
+  <object id="MessageBLL" type="MaterialApp.BLL.MessageBLL, MaterialApp.BLL">
+    <property name="dal" ref="MessageDAL" />
+  </object>
+
+  <!-- 消息接收 -->
+  <object id="MessageReceiveBLL" type="MaterialApp.BLL.MessageReceiveBLL, MaterialApp.BLL">
+    <property name="dal" ref="MessageReceiveDAL" />
+  </object>
+
+  <!-- 请假 -->
+  <object id="LeaveBLL" type="MaterialApp.BLL.LeaveBLL, MaterialApp.BLL">
+    <property name="dal" ref="LeaveDAL" />
+  </object>
+
+</objects>
