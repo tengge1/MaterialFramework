@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MiniDrawer from './pages/index';
+import Index from './admin/Index';
 
 ReactDOM.render(
-    <MiniDrawer/>, document.querySelector('#root'));
+    <Index/>, document.querySelector('#root'));
