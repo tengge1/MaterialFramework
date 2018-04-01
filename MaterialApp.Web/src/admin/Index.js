@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
 import Drawer from 'material-ui/Drawer';
@@ -14,6 +13,7 @@ import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import {mailFolderListItems, otherMailFolderListItems} from './tileData';
 import withRoot from '../withRoot';
+import Home from './Home';
 
 const drawerWidth = 240;
 
@@ -152,16 +152,11 @@ class Index extends React.Component {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.toolbar}/>
-                    <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+                    <Home />
                 </main>
             </div>
         );
     }
 }
-
-// Index.propTypes = {
-//     classes: PropTypes.object.isRequired,
-//     theme: PropTypes.object.isRequired
-// };
 
 export default withRoot(withStyles(styles, {withTheme: true})(Index));
