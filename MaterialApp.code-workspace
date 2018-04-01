@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "MaterialApp.Web"
+		},
+		{
+			"path": "E:\\github\\material-ui"
 		}
 	],
 	"settings": {}

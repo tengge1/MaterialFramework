@@ -1,22 +1,25 @@
 {
   "name": "materialapp.web",
   "version": "1.0.0",
+  "private": true,
   "description": "A web framework using material design and asp.net.",
   "main": "index.js",
   "dependencies": {
-    "css-loader": "^0.28.11",
-    "extract-loader": "^2.0.1",
-    "file-loader": "^1.1.11",
-    "material-components-web": "^0.33.0",
-    "node-sass": "^4.8.3",
-    "sass-loader": "^6.0.7",
-    "webpack": "^4.4.1",
-    "webpack-dev-server": "^3.1.1"
+    "ajv": "^6.4.0",
+    "material-ui": "^1.0.0-beta.40",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "tar-pack": "^3.4.1"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
