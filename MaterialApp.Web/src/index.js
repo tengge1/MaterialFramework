@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Login from './admin/Login';
 import Index from './admin/Index';
 
 ReactDOM.render(
-    <Index/>, document.querySelector('#root'));
+    <Login />, document.querySelector('#root'));

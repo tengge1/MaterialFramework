@@ -1,9 +1,9 @@
 import React from 'react';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import withRoot from '../withRoot';
 
-const styles = theme => ({root: {}});
+const styles = theme => ({ root: {} });
 
 class Home extends React.Component {
 
