@@ -33,6 +33,7 @@ const Sidebar = ({ ...props }) => {
           [" " + classes.whiteFont]: activeRoute(prop.path)
         });
         return (
+          <div>
           <NavLink
             to={prop.path}
             className={classes.item}
@@ -50,6 +51,26 @@ const Sidebar = ({ ...props }) => {
               />
             </ListItem>
           </NavLink>
+          <NavLink
+            to="http://www.baidu.com"
+            className={classes.item}
+            activeClassName="active"
+            key="baidu"
+          >
+            <ListItem button className={classes.itemLink + listItemClasses}>
+              <ListItemIcon
+                className={classes.itemIcon + whiteFontClasses}
+              >
+                <prop.icon />
+              </ListItemIcon>
+              <ListItemText
+                primary="百度"
+                className={classes.itemText + whiteFontClasses}
+                disableTypography={true}
+              />
+            </ListItem>
+          </NavLink>
+          </div>
         );
       })}
     </List>
