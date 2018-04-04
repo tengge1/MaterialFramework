@@ -8,6 +8,7 @@ import NotificationsPage from "views/Notifications/Notifications.jsx";
 
 import {
     Dashboard,
+    Image,
     Person,
     ContentPaste,
     LibraryBooks,
@@ -24,11 +25,18 @@ const appRoutes = [
         icon: Dashboard,
         component: DashboardPage
     }, {
-        path: "/user",
-        sidebarName: "User Profile",
-        navbarName: "Profile",
-        icon: Person,
-        component: UserProfile
+        path: "",
+        sidebarName: "Pages",
+        navbarName: "Pages",
+        icon: Image,
+        component: UserProfile,
+        children: [{
+            path: "/user",
+            sidebarName: "User Profile",
+            navbarName: "Profile",
+            icon: Person,
+            component: UserProfile
+        }]
     }, {
         path: "/table",
         sidebarName: "Table List",
