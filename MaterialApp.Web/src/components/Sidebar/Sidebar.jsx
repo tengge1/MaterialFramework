@@ -9,9 +9,12 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  CardContent,
+  Typography
 } from "material-ui";
-
+import Collapse from 'material-ui/transitions/Collapse';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import { HeaderLinks } from "components";
 
 import sidebarStyle from "variables/styles/sidebarStyle.jsx";
@@ -22,6 +25,14 @@ const Sidebar = ({ ...props }) => {
     return props.location.pathname.indexOf(routeName) > -1 ? true : false;
   }
   const { classes, color, logo, image, logoText, routes } = props;
+  
+  var state = { expanded: false };
+
+  var handleExpandClick = () => {
+    state.expanded = !state.expanded;
+    //this.setState({ expanded: !this.state.expanded });
+  };
+
   var links = (
     <List className={classes.list}>
       {routes.map((prop, key) => {
@@ -34,42 +45,50 @@ const Sidebar = ({ ...props }) => {
         });
         return (
           <div>
-          <NavLink
-            to={prop.path}
-            className={classes.item}
-            activeClassName="active"
-            key={key}
-          >
-            <ListItem button className={classes.itemLink + listItemClasses}>
-              <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
-                <prop.icon />
-              </ListItemIcon>
-              <ListItemText
-                primary={prop.sidebarName}
-                className={classes.itemText + whiteFontClasses}
-                disableTypography={true}
-              />
-            </ListItem>
-          </NavLink>
-          <NavLink
-            to="http://www.baidu.com"
-            className={classes.item}
-            activeClassName="active"
-            key="baidu"
-          >
-            <ListItem button className={classes.itemLink + listItemClasses}>
-              <ListItemIcon
-                className={classes.itemIcon + whiteFontClasses}
+            <NavLink
+              to={prop.path}
+              className={prop.classes}
+              data-toggle="collapse"
+              activeClassName="active"
+              key={key}
+            >
+              <ListItem button className={classes.itemLink + listItemClasses}>
+                <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
+                  <prop.icon />
+                </ListItemIcon>
+                <ListItemText
+                  primary={prop.sidebarName}
+                  className={classes.itemText + whiteFontClasses}
+                  disableTypography={true}
+                />
+                <ExpandMoreIcon 
+                  onClick={handleExpandClick}
+                />
+              </ListItem>
+            </NavLink>
+            <Collapse
+              in={state.expanded}
+              timeout="auto"
+              unmountOnExit>
+              <NavLink
+                to={prop.path}
+                className={prop.classes}
+                data-toggle="collapse"
+                activeClassName="active"
+                key={key}
               >
-                <prop.icon />
-              </ListItemIcon>
-              <ListItemText
-                primary="百度"
-                className={classes.itemText + whiteFontClasses}
-                disableTypography={true}
-              />
-            </ListItem>
-          </NavLink>
+                <ListItem button className={classes.itemLink + listItemClasses}>
+                  <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
+                    <prop.icon />
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={prop.sidebarName}
+                    className={classes.itemText + whiteFontClasses}
+                    disableTypography={true}
+                  />
+                </ListItem>
+              </NavLink>
+            </Collapse>
           </div>
         );
       })}
