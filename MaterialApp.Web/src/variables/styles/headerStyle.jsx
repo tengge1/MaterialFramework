@@ -1,84 +1,62 @@
-// ##############################
-// // // Header styles
-// #############################
-
 import {
-  container,
-  defaultFont,
-  primaryColor,
-  defaultBoxShadow,
-  infoColor,
-  successColor,
-  warningColor,
-  dangerColor
+    defaultFont,
+    primaryColor,
+    defaultBoxShadow,
+    infoColor,
+    successColor,
+    warningColor,
+    dangerColor,
+    primaryBoxShadow
 } from "variables/styles";
 
 const headerStyle = theme => ({
-  appBar: {
-    top: "-30px",
-    [theme.breakpoints.down("md")]: {
-      top: "-15px"
+    root: {
+        flexGrow: 1
     },
-    backgroundColor: "transparent",
-    boxShadow: "none",
-    borderBottom: "0",
-    marginBottom: "0",
-    position: "absolute",
-    width: "100%",
-    paddingTop: "10px",
-    zIndex: "1029",
-    color: "#555555",
-    border: "0",
-    borderRadius: "3px",
-    padding: "10px 0",
-    transition: "all 150ms ease 0s",
-    minHeight: "50px",
-    display: "block"
-  },
-  container,
-  flex: {
-    flex: 1
-  },
-  title: {
-    ...defaultFont,
-    lineHeight: "30px",
-    fontSize: "18px",
-    borderRadius: "3px",
-    textTransform: "none",
-    color: "inherit",
-    top: "10px",
-    "&:hover,&:focus": {
-      background: "transparent"
+    appBar: {
+        height: "36px",
+        color: "#fff"
+    },
+    toolbar: {
+        minHeight: "36px"
+    },
+    logo: {
+        flex: 1,
+        cursor: "default",
+        userSelect: 'none'
+    },
+    img: {
+        width: "35px",
+        verticalAlign: "middle"
+    },
+    title: {
+        fontSize: "1.15rem",
+        fontWeight: "normal"
+    },
+    links: {
+        width: "24px",
+        height: "24px"
+    },
+    popperClose: {
+        pointerEvents: "none"
+    },
+    badge: {
+        cursor: "pointer"
+    },
+    badgeBadge: {
+        top: "-6px",
+        right: "-6px",
+        width: "16px",
+        height: "16px"
+    },
+    dropdownItem: {
+        fontSize: "12px",
+        whiteSpace: "nowrap",
+        "&:hover": {
+            backgroundColor: primaryColor,
+            color: "#FFFFFF"
+        }
     }
-  },
-  appResponsive: {
-    top: "8px"
-  },
-  primary: {
-    backgroundColor: primaryColor,
-    color: "#FFFFFF",
-    ...defaultBoxShadow
-  },
-  info: {
-    backgroundColor: infoColor,
-    color: "#FFFFFF",
-    ...defaultBoxShadow
-  },
-  success: {
-    backgroundColor: successColor,
-    color: "#FFFFFF",
-    ...defaultBoxShadow
-  },
-  warning: {
-    backgroundColor: warningColor,
-    color: "#FFFFFF",
-    ...defaultBoxShadow
-  },
-  danger: {
-    backgroundColor: dangerColor,
-    color: "#FFFFFF",
-    ...defaultBoxShadow
-  }
 });
 
 export default headerStyle;

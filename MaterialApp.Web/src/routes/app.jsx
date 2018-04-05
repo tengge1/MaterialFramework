@@ -20,7 +20,7 @@ import {
 const appRoutes = [
     {
         path: "/dashboard",
-        sidebarName: "Dashboard",
+        sidebarName: "首页",
         navbarName: "Material Dashboard",
         icon: Dashboard,
         component: DashboardPage

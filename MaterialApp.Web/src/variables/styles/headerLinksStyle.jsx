@@ -1,20 +1,24 @@
-// ##############################
-// // // HeaderLinks styles
+// ############################## // // HeaderLinks styles
 // #############################
 
-import {
-  defaultFont,
-  dangerColor,
-  primaryColor,
-  primaryBoxShadow
-} from "variables/styles";
+import {defaultFont, dangerColor, primaryColor, primaryBoxShadow} from "variables/styles";
 
 const headerLinksStyle = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  flex: {
+    flex: 1
+  },
   popperClose: {
     pointerEvents: "none"
   },
   search: {
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       margin: "10px 15px",
       float: "none !important",
       paddingTop: "1px",
@@ -31,14 +35,22 @@ const headerLinksStyle = theme => ({
   },
   buttonLink: {
     top: "-6px",
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       display: "flex",
       marginLeft: "30px",
       width: "auto"
     }
   },
   searchButton: {
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       top: "-50px !important",
       marginRight: "22px",
       float: "right"
@@ -56,7 +68,11 @@ const headerLinksStyle = theme => ({
     width: "20px",
     height: "20px",
     zIndex: "4",
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       display: "block",
       width: "30px",
       height: "30px",
@@ -66,7 +82,11 @@ const headerLinksStyle = theme => ({
   },
   notifications: {
     zIndex: "4",
-    [theme.breakpoints.up("md")]: {
+    [
+      theme
+        .breakpoints
+        .up("md")
+    ]: {
       position: "absolute",
       top: "5px",
       border: "1px solid #FFF",
@@ -82,7 +102,11 @@ const headerLinksStyle = theme => ({
       verticalAlign: "middle",
       display: "block"
     },
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       ...defaultFont,
       fontSize: "14px",
       marginRight: "8px"
@@ -104,7 +128,11 @@ const headerLinksStyle = theme => ({
     backgroundClip: "padding-box"
   },
   pooperResponsive: {
-    [theme.breakpoints.down("sm")]: {
+    [
+      theme
+        .breakpoints
+        .down("sm")
+    ]: {
       zIndex: "1640",
       position: "static",
       float: "none",
