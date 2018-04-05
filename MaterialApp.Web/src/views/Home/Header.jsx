@@ -14,7 +14,7 @@ import {
     ClickAwayListener,
     Badge
 } from "material-ui";
-import {Person, Notifications} from "material-ui-icons";
+import {Person, Notifications, ExitToApp} from "material-ui-icons";
 import withRoot from '../../withRoot';
 import headerStyle from "variables/styles/headerStyle";
 import logo from "assets/img/reactlogo.png";
@@ -46,8 +46,8 @@ class Header extends React.Component {
         );
 
         var user = (
-            <IconButton color="inherit" aria-label="Person">
-                <Person className={classes.links}/>
+            <IconButton color="inherit" title="用户资料" className={classes.userBtn}>
+                <Person/>
             </IconButton>
         );
 
@@ -61,6 +61,7 @@ class Header extends React.Component {
                     }}
                         badgeContent={5}
                         color="error"
+                        title="通知公告"
                         onClick={this.handleClick}>
                         <Notifications/>
                     </Badge>
@@ -97,6 +98,12 @@ class Header extends React.Component {
             </Manager>
         );
 
+        var exit = (
+            <IconButton color="inherit" title="退出程序" className={classes.logoutBtn}>
+                <ExitToApp/>
+            </IconButton>
+        );
+
         return (
             <div className={classNames(classes.root, className)}>
                 <AppBar position="fixed" color="primary" className={classes.appBar}>
@@ -104,6 +111,7 @@ class Header extends React.Component {
                         {brand}
                         {user}
                         {msg}
+                        {exit}
                     </Toolbar>
                 </AppBar>
             </div>

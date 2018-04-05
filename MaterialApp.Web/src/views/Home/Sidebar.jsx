@@ -35,7 +35,8 @@ const styles = theme => ({
             .create('width', {
                 easing: theme.transitions.easing.sharp,
                 duration: theme.transitions.duration.enteringScreen
-            })
+            }),
+        zIndex: 1
     },
     drawerPaperClose: {
         overflowX: 'hidden',
@@ -46,13 +47,7 @@ const styles = theme => ({
                 duration: theme.transitions.duration.leavingScreen
             }),
         width: theme.spacing.unit * 7,
-        [
-            theme
-                .breakpoints
-                .up('sm')
-        ]: {
-            width: theme.spacing.unit * 9
-        }
+        zIndex: 1
     },
     toolbar: {
         display: 'flex',
@@ -63,7 +58,7 @@ const styles = theme => ({
     }
 });
 
-class NavMenu extends React.Component {
+class Sidebar extends React.Component {
     state = {
         open: true
     };
@@ -88,31 +83,29 @@ class NavMenu extends React.Component {
         const {classes, className} = this.props;
 
         return (
-            <div className={classNames(classes.root, className)}>
-                <Drawer
-                    variant="permanent"
-                    classes={{
-                    paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
-                }}
-                    open={this.state.open}>
-                    <div className={classes.toolbar}>
-                        <Typography noWrap>系统菜单</Typography>
-                        <IconButton onClick={this.toggleDrawer}>
-                            {this.state.open
-                                ? <ChevronLeftIcon/>
-                                : <ChevronRightIcon/>}
-                        </IconButton>
-                    </div>
-                    <Divider/>
-                </Drawer>
-            </div>
+            <Drawer
+                variant="permanent"
+                classes={{
+                paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
+            }}
+                open={this.state.open}>
+                <div className={classes.toolbar}>
+                    <Typography noWrap>系统菜单</Typography>
+                    <IconButton onClick={this.toggleDrawer}>
+                        {this.state.open
+                            ? <ChevronLeftIcon/>
+                            : <ChevronRightIcon/>}
+                    </IconButton>
+                </div>
+                <Divider/>
+            </Drawer>
         );
     }
 }
 
-NavMenu.propTypes = {
+Sidebar.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired
 };
 
-export default withStyles(styles, {withTheme: true})(NavMenu);
+export default withStyles(styles, {withTheme: true})(Sidebar);

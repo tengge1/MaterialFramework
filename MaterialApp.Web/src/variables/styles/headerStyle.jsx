@@ -1,24 +1,16 @@
-import {
-    defaultFont,
-    primaryColor,
-    defaultBoxShadow,
-    infoColor,
-    successColor,
-    warningColor,
-    dangerColor,
-    primaryBoxShadow
-} from "variables/styles";
+import {primaryColor} from "variables/styles";
 
 const headerStyle = theme => ({
     root: {
         flexGrow: 1
     },
     appBar: {
-        height: "36px",
-        color: "#fff"
+        height: "44px",
+        color: "#fff",
+        boxShadow: 'none'
     },
     toolbar: {
-        minHeight: "36px"
+        minHeight: "44px"
     },
     logo: {
         flex: 1,
@@ -27,21 +19,21 @@ const headerStyle = theme => ({
     },
     img: {
         width: "35px",
-        verticalAlign: "middle"
+        verticalAlign: "middle",
+        marginRight: "5px"
     },
-    title: {
-        fontSize: "1.15rem",
-        fontWeight: "normal"
+    userBtn: {
+        width: "24px",
+        height: "24px",
+        marginRight: "20px"
     },
-    links: {
+    logoutBtn: {
         width: "24px",
         height: "24px"
     },
-    popperClose: {
-        pointerEvents: "none"
-    },
     badge: {
-        cursor: "pointer"
+        cursor: "pointer",
+        marginRight: "20px"
     },
     badgeBadge: {
         top: "-6px",
