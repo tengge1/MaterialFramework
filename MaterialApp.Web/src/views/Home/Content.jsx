@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route} from "react-router-dom";
 import {
     withStyles,
     AppBar,
@@ -9,6 +10,8 @@ import {
 } from 'material-ui';
 import classNames from 'classnames';
 import withRoot from '../../withRoot';
+import DashboardPage from "views/Dashboard/Dashboard.jsx";
+import UserProfile from "views/UserProfile/UserProfile.jsx";
 
 const styles = theme => ({
     root: {
@@ -67,7 +70,10 @@ class Content extends React.Component {
                         <Tab label="Item Seven"/>
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer>Item One</TabContainer>}
+                {value === 0 && <TabContainer>
+                    {/* <Route exact path={"/"} component={DashboardPage}></Route>
+                    <Route exact path={"/user"} component={UserProfile}></Route> */}
+                </TabContainer>}
                 {value === 1 && <TabContainer>Item Two</TabContainer>}
                 {value === 2 && <TabContainer>Item Three</TabContainer>}
                 {value === 3 && <TabContainer>Item Four</TabContainer>}

@@ -46,15 +46,22 @@ const styles = theme => ({
         textDecoration: 'none',
         color: '#555'
     },
+    itemClose: {
+        height: 54,
+        paddingLeft: 12,
+        paddingRight: 12,
+        overflow: 'hidden'
+    },
     itemText: {
         fontSize: '14px',
-        lineHeight: "30px"
+        lineHeight: '30px'
     }
 });
 
 class Sidebar extends React.Component {
     state = {
-        open: true
+        open: true,
+        expand: []
     };
 
     openDrawer = () => {
@@ -62,7 +69,7 @@ class Sidebar extends React.Component {
     };
 
     closeDrawer = () => {
-        this.setState({open: false});
+        this.setState({open: false, expand: []});
     };
 
     toggleDrawer = () => {
@@ -73,15 +80,15 @@ class Sidebar extends React.Component {
         }
     };
 
-    // verifies if routeName is the one active (in browser input)
-    activeRoute(routeName) {
-        return true;
-        // return this     .props     .location     .pathname     .indexOf(routeName) >
-        // -1     ? true     : false;
-    }
-
-    handleExpandClick() {
-        // this.setState({     expanded: !this.state.expanded });
+    handleClick = (id) => {
+        var expand = this.state.expand;
+        if (expand.indexOf(id) == -1) {
+            expand.push(id);
+        } else {
+            var index = expand.indexOf(id);
+            expand.splice(index, 1);
+        }
+        this.setState({expand: expand});
     };
 
     render() {
@@ -89,30 +96,64 @@ class Sidebar extends React.Component {
 
         var links = (
             <List component="div">
-                {appRoutes.map((prop, key) => {
+                {appRoutes.map((prop) => {
                     return (
-                        <NavLink
-                            to={prop.path}
-                            data-toggle="collapse"
-                            className={classes.navLink}
-                            activeClassName="active"
-                            key={key}>
-                            <ListItem button onClick={this.handleExpandClick}>
+                        <div key={prop.id}>
+                            <ListItem
+                                button
+                                className={this.state.open
+                                ? ''
+                                : classes.itemClose}
+                                onClick={this
+                                .handleClick
+                                .bind(this, prop.id)}>
                                 <ListItemIcon>
                                     <prop.icon/>
                                 </ListItemIcon>
-                                <ListItemText
-                                    primary={prop.sidebarName}
-                                    className={classes.itemText}
-                                    disableTypography={true}>
-                                    {this.state.open
-                                        ? <ExpandLess/>
-                                        : <ExpandMore/>}
+                                <ListItemText className={classes.itemText} disableTypography={true}>
+                                    <NavLink
+                                        to={prop.path}
+                                        data-toggle="collapse"
+                                        className={classes.navLink}
+                                        activeClassName="active">{prop.name}</NavLink>
                                 </ListItemText>
+                                {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) == -1
+                                    ? <ExpandMore/>
+                                    : <ExpandLess/>)
+}
                             </ListItem>
-                        </NavLink>
+                            {prop.children && (
+                                <Collapse
+                                    in={this
+                                    .state
+                                    .expand
+                                    .indexOf(prop.id) > -1}
+                                    timeout="auto"
+                                    unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        {prop
+                                            .children
+                                            .map((child) => {
+                                                return (
+                                                    <ListItem
+                                                        button
+                                                        key={child.id}
+                                                        onClick={this
+                                                        .handleClick
+                                                        .bind(this, child.id)}>
+                                                        <ListItemText inset>
+                                                            <NavLink to={child.path} className={classes.navLink} activeClassName="active">{child.name}</NavLink>
+                                                        </ListItemText>
+                                                    </ListItem>
+                                                );
+                                            })}
+                                    </List>
+                                </Collapse>
+                            )}
+                        </div>
                     );
-                })}
+                })
+}
             </List>
         );
 
