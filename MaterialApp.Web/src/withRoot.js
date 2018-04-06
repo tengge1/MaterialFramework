@@ -3,35 +3,6 @@ import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
 import purple from 'material-ui/colors/purple';
 import green from 'material-ui/colors/green';
 import CssBaseline from 'material-ui/CssBaseline';
-import {
-    //variables
-    drawerWidth,
-    transition,
-    container,
-    boxShadow,
-    card,
-    defaultFont,
-    primaryColor,
-    warningColor,
-    dangerColor,
-    successColor,
-    infoColor,
-    roseColor,
-    grayColor,
-    primaryBoxShadow,
-    infoBoxShadow,
-    successBoxShadow,
-    warningBoxShadow,
-    dangerBoxShadow,
-    orangeCardHeader,
-    greenCardHeader,
-    redCardHeader,
-    blueCardHeader,
-    purpleCardHeader,
-    cardActions,
-    cardHeader,
-    defaultBoxShadow
-} from './variables/styles.jsx';
 
 // A theme with custom primary and secondary color. It's optional.
 const themeBase = createMuiTheme({

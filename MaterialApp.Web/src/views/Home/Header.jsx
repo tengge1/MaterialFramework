@@ -83,7 +83,7 @@ class Header extends React.Component {
     };
 
     render() {
-        const {classes, className} = this.props;
+        const {classes} = this.props;
         const {open} = this.state;
 
         var brand = (

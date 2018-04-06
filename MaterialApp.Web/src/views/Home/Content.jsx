@@ -25,6 +25,9 @@ const styles = theme => ({
         justifyContent: 'flex-end',
         padding: '0 8px',
         ...theme.mixins.toolbar
+    },
+    hidden: {
+        display: 'none'
     }
 });
 
@@ -40,7 +43,14 @@ function TabContainer(props) {
 
 class Content extends React.Component {
     state = {
-        value: 0
+        totalTabs: [
+            {
+                id: 0,
+                title: '主页',
+                path: '/'
+            }
+        ],
+        current: 0
     };
 
     handleChange = (event, value) => {
@@ -48,38 +58,37 @@ class Content extends React.Component {
     };
 
     render() {
-        const {classes} = this.props;
-        const {value} = this.state;
+        return (
+            <Route path="/" render={this.renderTab}></Route>
+        );
+    }
 
+    renderTab = (route) => {
+        const {classes} = this.props;
+        const {totalTabs, current} = this.state;
+        totalTabs.push({id: route.location.pathname, title: route.location.pathname, path: route.location.pathname});
+        this.state.current++;
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs
-                        value={value}
+                        value={current}
                         onChange={this.handleChange}
                         indicatorColor="primary"
                         textColor="primary"
                         scrollable
                         scrollButtons="auto">
-                        <Tab label="Item One"/>
-                        <Tab label="Item Two"/>
-                        <Tab label="Item Three"/>
-                        <Tab label="Item Four"/>
-                        <Tab label="Item Five"/>
-                        <Tab label="Item Six"/>
-                        <Tab label="Item Seven"/>
+                        {totalTabs.map((tab, index) => {
+                            return <Tab label={tab.title}/>;
+                        })}
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer>
-                    {/* <Route exact path={"/"} component={DashboardPage}></Route>
-                    <Route exact path={"/user"} component={UserProfile}></Route> */}
-                </TabContainer>}
-                {value === 1 && <TabContainer>Item Two</TabContainer>}
-                {value === 2 && <TabContainer>Item Three</TabContainer>}
-                {value === 3 && <TabContainer>Item Four</TabContainer>}
-                {value === 4 && <TabContainer>Item Five</TabContainer>}
-                {value === 5 && <TabContainer>Item Six</TabContainer>}
-                {value === 6 && <TabContainer>Item Seven</TabContainer>}
+                {totalTabs.map((tab, index) => {
+                    return <TabContainer
+                        className={index === current
+                        ? ''
+                        : classes.hidden}>{tab.path}</TabContainer>;
+                })}
             </div>
         );
     }

@@ -82,7 +82,7 @@ class Sidebar extends React.Component {
 
     handleClick = (id) => {
         var expand = this.state.expand;
-        if (expand.indexOf(id) == -1) {
+        if (expand.indexOf(id) === -1) {
             expand.push(id);
         } else {
             var index = expand.indexOf(id);
@@ -117,7 +117,7 @@ class Sidebar extends React.Component {
                                         className={classes.navLink}
                                         activeClassName="active">{prop.name}</NavLink>
                                 </ListItemText>
-                                {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) == -1
+                                {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
                                     ? <ExpandMore/>
                                     : <ExpandLess/>)
 }
