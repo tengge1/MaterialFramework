@@ -30,13 +30,15 @@ const appRoutes = [
         navbarName: "Pages",
         icon: Image,
         component: UserProfile,
-        children: [{
-            path: "/user",
-            sidebarName: "User Profile",
-            navbarName: "Profile",
-            icon: Person,
-            component: UserProfile
-        }]
+        children: [
+            {
+                path: "/user",
+                sidebarName: "User Profile",
+                navbarName: "Profile",
+                icon: Person,
+                component: UserProfile
+            }
+        ]
     }, {
         path: "/table",
         sidebarName: "Table List",
@@ -67,11 +69,6 @@ const appRoutes = [
         navbarName: "Notifications",
         icon: Notifications,
         component: NotificationsPage
-    }, {
-        redirect: true,
-        path: "/",
-        to: "/dashboard",
-        navbarName: "Redirect"
     }
 ];
 

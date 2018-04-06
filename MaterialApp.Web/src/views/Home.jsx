@@ -16,9 +16,6 @@ const styles = theme => ({
         flexGrow: 1,
         height: `calc(100% - 44px)`
     },
-    sideBar: {
-        height: '100%'
-    },
     content: {
         flex: 1
     }
@@ -31,7 +28,7 @@ class Home extends React.Component {
             <div className={classes.root}>
                 <Header/>
                 <div className={classes.box}>
-                    <Sidebar className={classes.sideBar}/>
+                    <Sidebar/>
                     <Content className={classes.content}/>
                 </div>
             </div>
