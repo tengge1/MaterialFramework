@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
 import classNames from 'classnames';
-import Drawer from 'material-ui/Drawer';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
-import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
-import ChevronRightIcon from 'material-ui-icons/ChevronRight';
+import cx from 'classnames';
+import {
+    withStyles,
+    Drawer,
+    Typography,
+    Divider,
+    IconButton,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Collapse,
+    Hidden
+} from 'material-ui';
+import {ChevronLeft, ChevronRight, ExpandLess, ExpandMore} from 'material-ui-icons';
+import {NavLink} from "react-router-dom";
+import appRoutes from '../../routes/app.jsx';
 
 const drawerWidth = 240;
 
@@ -79,8 +89,63 @@ class Sidebar extends React.Component {
         }
     };
 
+    // verifies if routeName is the one active (in browser input)
+    activeRoute(routeName) {
+        return true;
+        // return this     .props     .location     .pathname     .indexOf(routeName) >
+        // -1     ? true     : false;
+    }
+
+    handleExpandClick() {
+        this.setState({
+            expanded: !this.state.expanded
+        });
+    };
+
     render() {
-        const {classes, className} = this.props;
+        const {classes, color, logo, image, logoText} = this.props;
+
+        var links = (
+            <List className={classes.list}>
+                {appRoutes.map((prop, key) => {
+                    if (prop.redirect) 
+                        return null;
+                    const listItemClasses = cx({
+                        [" " + classes[color]]: this.activeRoute(prop.path)
+                    });
+                    const whiteFontClasses = cx({
+                        [" " + classes.whiteFont]: this.activeRoute(prop.path)
+                    });
+                    return (
+                        <div>
+                            <NavLink
+                                to={prop.path}
+                                className={prop.classes}
+                                data-toggle="collapse"
+                                activeClassName="active"
+                                key={key}>
+                                <ListItem
+                                    button
+                                    className={classes.itemLink + listItemClasses}
+                                    onClick={this.handleExpandClick}>
+                                    <ListItemIcon className={classes.itemIcon + whiteFontClasses}>
+                                        <prop.icon/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={prop.sidebarName}
+                                        className={classes.itemText + whiteFontClasses}
+                                        disableTypography={true}>
+                                        {this.state.open
+                                            ? <ExpandLess/>
+                                            : <ExpandMore/>}
+                                    </ListItemText>
+                                </ListItem>
+                            </NavLink>
+                        </div>
+                    );
+                })}
+            </List>
+        );
 
         return (
             <Drawer
@@ -90,14 +155,14 @@ class Sidebar extends React.Component {
             }}
                 open={this.state.open}>
                 <div className={classes.toolbar}>
-                    <Typography noWrap>系统菜单</Typography>
+                    <Typography noWrap></Typography>
                     <IconButton onClick={this.toggleDrawer}>
                         {this.state.open
-                            ? <ChevronLeftIcon/>
-                            : <ChevronRightIcon/>}
+                            ? <ChevronLeft/>
+                            : <ChevronRight/>}
                     </IconButton>
                 </div>
-                <Divider/>
+                <Divider/> {links}
             </Drawer>
         );
     }

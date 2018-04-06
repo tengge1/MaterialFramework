@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import {Manager, Target, Popper} from "react-popper";
 import {
     withStyles,
@@ -15,9 +13,59 @@ import {
     Badge
 } from "material-ui";
 import {Person, Notifications, ExitToApp} from "material-ui-icons";
-import withRoot from '../../withRoot';
-import headerStyle from "variables/styles/headerStyle";
+import {themeBase, withRoot} from '../../withRoot';
 import logo from "assets/img/reactlogo.png";
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1
+    },
+    appBar: {
+        height: "44px",
+        color: "#fff",
+        boxShadow: 'none'
+    },
+    toolbar: {
+        minHeight: "44px"
+    },
+    logo: {
+        flex: 1,
+        cursor: "default",
+        userSelect: 'none'
+    },
+    img: {
+        width: "35px",
+        verticalAlign: "middle",
+        marginRight: "5px"
+    },
+    userBtn: {
+        width: "24px",
+        height: "24px",
+        marginRight: "20px"
+    },
+    logoutBtn: {
+        width: "24px",
+        height: "24px"
+    },
+    badge: {
+        cursor: "pointer",
+        marginRight: "20px"
+    },
+    badgeBadge: {
+        top: "-6px",
+        right: "-6px",
+        width: "16px",
+        height: "16px"
+    },
+    dropdownItem: {
+        fontSize: "12px",
+        whiteSpace: "nowrap",
+        "&:hover": {
+            backgroundColor: themeBase.palette.primary.main,
+            color: "#FFFFFF"
+        }
+    }
+});
 
 class Header extends React.Component {
     state = {
@@ -105,7 +153,7 @@ class Header extends React.Component {
         );
 
         return (
-            <div className={classNames(classes.root, className)}>
+            <div className={classes.root}>
                 <AppBar position="fixed" color="primary" className={classes.appBar}>
                     <Toolbar className={classes.toolbar}>
                         {brand}
@@ -119,8 +167,4 @@ class Header extends React.Component {
     }
 }
 
-Header.propTypes = {
-    classes: PropTypes.object.isRequired
-};
-
-export default withRoot(withStyles(headerStyle)(Header));
+export default withRoot(withStyles(styles)(Header));

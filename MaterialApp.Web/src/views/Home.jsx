@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import {withStyles} from 'material-ui';
 import withRoot from '../withRoot';
 import Header from './Home/Header.jsx';
 import Sidebar from './Home/Sidebar.jsx';
@@ -39,9 +38,5 @@ class Home extends React.Component {
         );
     }
 }
-
-Home.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default withRoot(withStyles(styles)(Home));
