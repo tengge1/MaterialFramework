@@ -10,7 +10,7 @@
 
 于是，我想利用最新的ReactJs和material-ui等框架结合ExtApp的后台做一个后端web开发框架。其中，ReactJs用javascript渲染页面，结合最新的ECMAScript 6.0的语法，方便页面组件化。Material-UI是谷歌Material Design的一个具体实现，各种控件非常大气，富有时代感，定制性强。
 
-然后，设计一种web框架安装包结构，可以想安装手机应用一样直接向框架安装功能，而且可以一键卸载。这种包内部包含html、css、js、cs、sql等各种文件，为了避免冲突，每个包应该只能在该包对应的文件夹中释放文件，并自动向菜单表中添加菜单，方便使用。
+然后，设计一种web框架安装包结构，可以想安装手机应用一样直接向框架安装功能，而且可以一键卸载。这种包内部包含html、css、js、cs、sql等各种文件，为了避免冲突，每个包应该只能在该包对应的文件夹中释放文件，并自动向菜单表中添加菜单，方便安装，而且要支持一键卸载功能。
 
 ## 软件演示
 
@@ -18,7 +18,7 @@
 
 网址：https://timcreative.github.io/material-dashboard-pro-react/#/dashboard
 
-
+![image](https://github.com/tengge1/MaterialApp/blob/master/image/material-dashboard.png)
 
 
 ## 相关项目
