@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles, AppBar, Tabs, Tab, Typography} from 'material-ui';
 import withRoot from '../../withRoot';
-// import DashboardPage from "views/Dashboard/Dashboard.jsx"; import UserProfile
-// from "views/UserProfile/UserProfile.jsx";
+import appRoutes from '../../routes/app.jsx';
 
 const styles = theme => ({
     root: {
@@ -17,13 +16,15 @@ const styles = theme => ({
 });
 
 function TabContainer(props) {
-    return (
-        <Typography component="div" style={{
-            padding: 8 * 3
-        }}>
-            {props.children}
-        </Typography>
-    );
+    const path = props.path,
+        component = appRoutes.filter((item) => {
+            return item.path === path;
+        })[0];
+    debugger
+    if (component == null) {
+        return null;
+    }
+    return component.component;
 }
 
 class Content extends React.Component {
@@ -53,7 +54,7 @@ class Content extends React.Component {
                         })}
                     </Tabs>
                 </AppBar>
-                <TabContainer>{tabs[currentTab].path}</TabContainer>
+                <TabContainer path={tabs[currentTab].path}></TabContainer>
             </div>
         );
     }

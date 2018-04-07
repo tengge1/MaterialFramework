@@ -1,5 +1,5 @@
-import {Dashboard, Home, Person, Face, Notifications} from "material-ui-icons";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
+import {Dashboard, Home, Person, Face, Notifications} from 'material-ui-icons';
+import UserList from '../views/System/User/UserList.jsx';
 
 const appRoutes = [
     {
@@ -13,19 +13,19 @@ const appRoutes = [
                 name: "组织机构管理",
                 path: '/depart',
                 icon: Home,
-                component: UserProfile
+                component: UserList
             }, {
                 id: 12,
                 name: "用户管理",
                 path: '/user',
                 icon: Person,
-                component: UserProfile
+                component: UserList
             }, {
                 id: 13,
                 name: '角色管理',
                 path: '/role',
                 icon: Face,
-                component: UserProfile
+                component: UserList
             }
         ]
     }, {
@@ -33,7 +33,7 @@ const appRoutes = [
         name: '通知公告',
         path: "/notifications",
         icon: Notifications,
-        component: UserProfile
+        component: UserList
     }
 ];
 
