@@ -99,29 +99,33 @@ class Sidebar extends React.Component {
                 {appRoutes.map((prop) => {
                     return (
                         <div key={prop.id}>
-                            <ListItem
-                                button
-                                className={this.state.open
-                                ? ''
-                                : classes.itemClose}
-                                onClick={this
-                                .handleClick
-                                .bind(this, prop.id)}>
-                                <ListItemIcon>
-                                    <prop.icon/>
-                                </ListItemIcon>
-                                <ListItemText className={classes.itemText} disableTypography={true}>
-                                    <NavLink
-                                        to={prop.path}
-                                        data-toggle="collapse"
-                                        className={classes.navLink}
-                                        activeClassName="active">{prop.name}</NavLink>
-                                </ListItemText>
-                                {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
-                                    ? <ExpandMore/>
-                                    : <ExpandLess/>)
+                            <NavLink
+                                to={prop.path}
+                                data-toggle="collapse"
+                                className={classes.navLink}
+                                activeClassName="active"
+                                key={prop.id}>
+                                <ListItem
+                                    button
+                                    className={this.state.open
+                                    ? ''
+                                    : classes.itemClose}
+                                    onClick={this
+                                    .handleClick
+                                    .bind(this, prop.id)}>
+                                    <ListItemIcon>
+                                        <prop.icon/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        className={classes.itemText}
+                                        disableTypography={true}
+                                        primary={prop.name}></ListItemText>
+                                    {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
+                                        ? <ExpandMore/>
+                                        : <ExpandLess/>)
 }
-                            </ListItem>
+                                </ListItem>
+                            </NavLink>
                             {prop.children && (
                                 <Collapse
                                     in={this
@@ -135,16 +139,20 @@ class Sidebar extends React.Component {
                                             .children
                                             .map((child) => {
                                                 return (
-                                                    <ListItem
-                                                        button
-                                                        key={child.id}
-                                                        onClick={this
-                                                        .handleClick
-                                                        .bind(this, child.id)}>
-                                                        <ListItemText inset>
-                                                            <NavLink to={child.path} className={classes.navLink} activeClassName="active">{child.name}</NavLink>
-                                                        </ListItemText>
-                                                    </ListItem>
+                                                    <NavLink
+                                                        to={child.path}
+                                                        className={classes.navLink}
+                                                        activeClassName="active"
+                                                        key={child.id}>
+                                                        <ListItem
+                                                            button
+                                                            key={child.id}
+                                                            onClick={this
+                                                            .handleClick
+                                                            .bind(this, child.id)}>
+                                                            <ListItemText inset primary={child.name}></ListItemText>
+                                                        </ListItem>
+                                                    </NavLink>
                                                 );
                                             })}
                                     </List>

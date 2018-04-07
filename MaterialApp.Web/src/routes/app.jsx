@@ -1,5 +1,4 @@
 import {Dashboard, Home, Person, Face, Notifications} from "material-ui-icons";
-import DashboardPage from "views/Dashboard/Dashboard.jsx";
 import UserProfile from "views/UserProfile/UserProfile.jsx";
 
 const appRoutes = [

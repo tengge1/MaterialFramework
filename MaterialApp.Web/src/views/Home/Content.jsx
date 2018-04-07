@@ -58,9 +58,8 @@ class Content extends React.Component {
     };
 
     render() {
-        return (
-            <Route path="/" render={this.renderTab}></Route>
-        );
+        // return (     <Route path="/" render={this.renderTab}></Route> );
+        return null;
     }
 
     renderTab = (route) => {
