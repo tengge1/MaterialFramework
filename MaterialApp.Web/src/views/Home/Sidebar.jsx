@@ -12,10 +12,12 @@ import {
     ListItemText,
     Collapse
 } from 'material-ui';
-import {ChevronLeft, ChevronRight, ExpandLess, ExpandMore} from 'material-ui-icons';
-import {NavLink} from "react-router-dom";
+import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from 'material-ui-icons';
+import { NavLink } from "react-router-dom";
+import PerfectScrollbar from "perfect-scrollbar";
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 import appRoutes from '../../routes/app.jsx';
-import {withRoot, drawerWidth} from '../../withRoot';
+import { withRoot, drawerWidth } from '../../withRoot';
 
 const styles = theme => ({
     drawerPaper: {
@@ -60,17 +62,23 @@ const styles = theme => ({
 });
 
 class Sidebar extends React.Component {
+
     state = {
         open: true,
         expand: []
     };
 
+    constructor(props) {
+        super(props);
+        this.ref = React.createRef();
+    }
+
     expand = () => { // 展开侧边栏
-        this.setState({open: true});
+        this.setState({ open: true });
     };
 
     collapse = () => { // 关闭侧边栏
-        this.setState({open: false, expand: []});
+        this.setState({ open: false, expand: [] });
     };
 
     toggle = () => { // 展开或关闭侧边栏
@@ -86,7 +94,7 @@ class Sidebar extends React.Component {
         if (expand.indexOf(id) === -1) {
             expand.push(id);
         }
-        this.setState({expand: expand});
+        this.setState({ expand: expand });
     }
 
     collapseItem = (id) => { // 关闭菜单子项
@@ -95,7 +103,7 @@ class Sidebar extends React.Component {
             var index = expand.indexOf(id);
             expand.splice(index, 1);
         }
-        this.setState({expand: expand});
+        this.setState({ expand: expand });
     }
 
     toggleItem = (id) => { // 展开或关闭菜单子项
@@ -120,11 +128,22 @@ class Sidebar extends React.Component {
         }
     }
 
+    // componentDidMount() {
+    //     if (navigator.platform.indexOf('Win') > -1) {
+    //         // eslint-disable-next-line
+    //         const ps = new PerfectScrollbar(this.ref.current);
+    //     }
+    // }
+
+    // componentDidUpdate() {
+    //     this.ref.scrollTop = 0;
+    // }
+
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
         var links = (
-            <List component="div">
+            <List component="div" ref={this.ref}>
                 {appRoutes.map((prop) => {
                     return (
                         <div key={prop.id}>
@@ -137,30 +156,30 @@ class Sidebar extends React.Component {
                                 <ListItem
                                     button
                                     className={this.state.open
-                                    ? ''
-                                    : classes.itemClose}
+                                        ? ''
+                                        : classes.itemClose}
                                     onClick={this
-                                    .handleClick
-                                    .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
+                                        .handleClick
+                                        .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
                                     <ListItemIcon>
-                                        <prop.icon/>
+                                        <prop.icon />
                                     </ListItemIcon>
                                     <ListItemText
                                         className={classes.itemText}
                                         disableTypography={true}
                                         primary={prop.name}></ListItemText>
                                     {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
-                                        ? <ExpandMore/>
-                                        : <ExpandLess/>)
-}
+                                        ? <ExpandMore />
+                                        : <ExpandLess />)
+                                    }
                                 </ListItem>
                             </NavLink>
                             {prop.children && (
                                 <Collapse
                                     in={this
-                                    .state
-                                    .expand
-                                    .indexOf(prop.id) > -1}
+                                        .state
+                                        .expand
+                                        .indexOf(prop.id) > -1}
                                     timeout="auto"
                                     unmountOnExit>
                                     <List component="div" disablePadding>
@@ -176,8 +195,8 @@ class Sidebar extends React.Component {
                                                         <ListItem
                                                             button
                                                             onClick={this
-                                                            .handleClick
-                                                            .bind(this, child.id, child.name, child.path, true)}>
+                                                                .handleClick
+                                                                .bind(this, child.id, child.name, child.path, true)}>
                                                             <ListItemText
                                                                 className={classes.itemText}
                                                                 disableTypography={true}
@@ -193,7 +212,7 @@ class Sidebar extends React.Component {
                         </div>
                     );
                 })
-}
+                }
             </List>
         );
 
@@ -201,17 +220,17 @@ class Sidebar extends React.Component {
             <Drawer
                 variant="permanent"
                 classes={{
-                paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
-            }}
+                    paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose)
+                }}
                 open={this.state.open}>
                 <div className={classes.toolbar}>
                     <IconButton onClick={this.toggle}>
                         {this.state.open
-                            ? <ChevronLeft/>
-                            : <ChevronRight/>}
+                            ? <ChevronLeft />
+                            : <ChevronRight />}
                     </IconButton>
                 </div>
-                <Divider/> {links}
+                <Divider /> {links}
             </Drawer>
         );
     }

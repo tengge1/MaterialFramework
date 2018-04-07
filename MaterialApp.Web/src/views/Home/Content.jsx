@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles, AppBar, Tabs, Tab, Typography} from 'material-ui';
+import { withStyles, AppBar, Tabs, Tab, Typography } from 'material-ui';
+import { Close } from 'material-ui-icons';
 import withRoot from '../../withRoot';
 import appRoutes from '../../routes/app.jsx';
 
@@ -12,6 +13,15 @@ const styles = theme => ({
     },
     hidden: {
         display: 'none'
+    },
+    tab: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    close: {
+        alignItems: 'center',
+        fontSize: '12px'
     }
 });
 
@@ -20,7 +30,6 @@ function TabContainer(props) {
         component = appRoutes.filter((item) => {
             return item.path === path;
         })[0];
-    debugger
     if (component == null) {
         return null;
     }
@@ -38,7 +47,7 @@ class Content extends React.Component {
     };
 
     render() {
-        const {classes, tabs, currentTab} = this.props;
+        const { classes, tabs, currentTab } = this.props;
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
@@ -50,13 +59,21 @@ class Content extends React.Component {
                         scrollable
                         scrollButtons="auto">
                         {tabs.map((tab, index) => {
-                            return <Tab label={tab.name} key={tab.id}/>;
+                            return <Tab label={this.createTabLabel(tab)} key={tab.id} className={classes.tab} />;
                         })}
                     </Tabs>
                 </AppBar>
                 <TabContainer path={tabs[currentTab].path}></TabContainer>
             </div>
         );
+    }
+
+    createTabLabel = (tab) => {
+        const { classes } = this.props;
+        return (<React.Fragment>
+            {tab.name}
+            <Close className={classes.close} />
+        </React.Fragment>);
     }
 }
 
