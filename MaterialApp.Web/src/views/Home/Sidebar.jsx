@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import {
     withStyles,
     Drawer,
@@ -64,32 +65,60 @@ class Sidebar extends React.Component {
         expand: []
     };
 
-    openDrawer = () => {
+    expand = () => { // 展开侧边栏
         this.setState({open: true});
     };
 
-    closeDrawer = () => {
+    collapse = () => { // 关闭侧边栏
         this.setState({open: false, expand: []});
     };
 
-    toggleDrawer = () => {
+    toggle = () => { // 展开或关闭侧边栏
         if (this.state.open === true) {
-            this.closeDrawer();
+            this.collapse();
         } else {
-            this.openDrawer();
+            this.expand();
         }
     };
 
-    handleClick = (id) => {
+    expandItem = (id) => { // 展开菜单子项
         var expand = this.state.expand;
         if (expand.indexOf(id) === -1) {
             expand.push(id);
-        } else {
+        }
+        this.setState({expand: expand});
+    }
+
+    collapseItem = (id) => { // 关闭菜单子项
+        var expand = this.state.expand;
+        if (expand.indexOf(id) !== -1) {
             var index = expand.indexOf(id);
             expand.splice(index, 1);
         }
         this.setState({expand: expand});
+    }
+
+    toggleItem = (id) => { // 展开或关闭菜单子项
+        var expand = this.state.expand;
+        if (expand.indexOf(id) === -1) {
+            this.expandItem(id);
+        } else {
+            this.collapseItem(id);
+        }
     };
+
+    handleClick = (id, name, path, leaf) => { // 点击菜单子项
+        if (leaf) {
+            if (this.props && this.props.onItemClick) {
+                this
+                    .props
+                    .onItemClick
+                    .call(this, id, name, path);
+            }
+        } else {
+            this.toggleItem(id);
+        }
+    }
 
     render() {
         const {classes} = this.props;
@@ -112,7 +141,7 @@ class Sidebar extends React.Component {
                                     : classes.itemClose}
                                     onClick={this
                                     .handleClick
-                                    .bind(this, prop.id)}>
+                                    .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
                                     <ListItemIcon>
                                         <prop.icon/>
                                     </ListItemIcon>
@@ -146,10 +175,9 @@ class Sidebar extends React.Component {
                                                         key={child.id}>
                                                         <ListItem
                                                             button
-                                                            key={child.id}
                                                             onClick={this
                                                             .handleClick
-                                                            .bind(this, child.id)}>
+                                                            .bind(this, child.id, child.name, child.path, true)}>
                                                             <ListItemText inset primary={child.name}></ListItemText>
                                                         </ListItem>
                                                     </NavLink>
@@ -173,7 +201,7 @@ class Sidebar extends React.Component {
             }}
                 open={this.state.open}>
                 <div className={classes.toolbar}>
-                    <IconButton onClick={this.toggleDrawer}>
+                    <IconButton onClick={this.toggle}>
                         {this.state.open
                             ? <ChevronLeft/>
                             : <ChevronRight/>}
@@ -184,5 +212,9 @@ class Sidebar extends React.Component {
         );
     }
 }
+
+Sidebar.propTypes = {
+    onItemClick: PropTypes.func
+};
 
 export default withRoot(withStyles(styles)(Sidebar));

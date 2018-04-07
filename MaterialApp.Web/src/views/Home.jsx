@@ -22,14 +22,50 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
+    state = {
+        tabs: [
+            {
+                id: 0,
+                name: '主页',
+                path: '/'
+            }
+        ],
+        currentTab: 0
+    };
+
+    onMenuItemClick = (id, name, path) => {
+        const tabs = this.state.tabs;
+        const index = tabs.findIndex((item) => {
+            return item.path === path;
+        });
+        if (index === -1) {
+            tabs.push({id: id, name: name, path: path});
+            this.setState({
+                tabs: tabs,
+                currentTab: tabs.length - 1
+            });
+        } else {
+            this.setState({currentTab: index});
+        }
+    }
+
+    onTabIndexChange = (index) => {
+        this.setState({currentTab: index});
+    }
+
     render() {
         const {classes} = this.props;
+        const {tabs, currentTab} = this.state;
         return (
             <div className={classes.root}>
                 <Header/>
                 <div className={classes.box}>
-                    <Sidebar/>
-                    <Content className={classes.content}/>
+                    <Sidebar onItemClick={this.onMenuItemClick}/>
+                    <Content
+                        className={classes.content}
+                        tabs={tabs}
+                        currentTab={currentTab}
+                        onTabIndexChange={this.onTabIndexChange}/>
                 </div>
             </div>
         );

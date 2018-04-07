@@ -1,30 +1,15 @@
 import React from 'react';
-import {Route} from "react-router-dom";
-import {
-    withStyles,
-    AppBar,
-    Paper,
-    Tabs,
-    Tab,
-    Typography
-} from 'material-ui';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import {withStyles, AppBar, Tabs, Tab, Typography} from 'material-ui';
 import withRoot from '../../withRoot';
-import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
+// import DashboardPage from "views/Dashboard/Dashboard.jsx"; import UserProfile
+// from "views/UserProfile/UserProfile.jsx";
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
         padding: 0
-    },
-    toolbar: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-        padding: '0 8px',
-        ...theme.mixins.toolbar
     },
     hidden: {
         display: 'none'
@@ -42,55 +27,43 @@ function TabContainer(props) {
 }
 
 class Content extends React.Component {
-    state = {
-        totalTabs: [
-            {
-                id: 0,
-                title: '主页',
-                path: '/'
-            }
-        ],
-        current: 0
-    };
-
     handleChange = (event, value) => {
-        this.setState({value});
+        if (this.props && this.props.onTabIndexChange) {
+            this
+                .props
+                .onTabIndexChange
+                .call(this, value, event);
+        }
     };
 
     render() {
-        // return (     <Route path="/" render={this.renderTab}></Route> );
-        return null;
-    }
-
-    renderTab = (route) => {
-        const {classes} = this.props;
-        const {totalTabs, current} = this.state;
-        totalTabs.push({id: route.location.pathname, title: route.location.pathname, path: route.location.pathname});
-        this.state.current++;
+        const {classes, tabs, currentTab} = this.props;
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs
-                        value={current}
+                        value={currentTab}
                         onChange={this.handleChange}
                         indicatorColor="primary"
                         textColor="primary"
                         scrollable
                         scrollButtons="auto">
-                        {totalTabs.map((tab, index) => {
-                            return <Tab label={tab.title}/>;
+                        {tabs.map((tab, index) => {
+                            return <Tab label={tab.name} key={tab.id}/>;
                         })}
                     </Tabs>
                 </AppBar>
-                {totalTabs.map((tab, index) => {
-                    return <TabContainer
-                        className={index === current
-                        ? ''
-                        : classes.hidden}>{tab.path}</TabContainer>;
-                })}
+                <TabContainer>{tabs[currentTab].path}</TabContainer>
             </div>
         );
     }
 }
+
+Content.propTypes = {
+    className: PropTypes.string,
+    tabs: PropTypes.array,
+    currentTab: PropTypes.number,
+    onTabIndexChange: PropTypes.func
+};
 
 export default withRoot(withStyles(styles)(Content));
