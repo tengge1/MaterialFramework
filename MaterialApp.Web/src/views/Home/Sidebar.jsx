@@ -178,7 +178,11 @@ class Sidebar extends React.Component {
                                                             onClick={this
                                                             .handleClick
                                                             .bind(this, child.id, child.name, child.path, true)}>
-                                                            <ListItemText inset primary={child.name}></ListItemText>
+                                                            <ListItemText
+                                                                className={classes.itemText}
+                                                                disableTypography={true}
+                                                                inset={true}
+                                                                primary={child.name}></ListItemText>
                                                         </ListItem>
                                                     </NavLink>
                                                 );
