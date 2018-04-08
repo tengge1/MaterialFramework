@@ -21,7 +21,8 @@ const styles = theme => ({
     },
     close: {
         alignItems: 'center',
-        fontSize: '12px'
+        fontSize: '12px',
+        marginLeft: '3px'
     }
 });
 
@@ -59,7 +60,7 @@ class Content extends React.Component {
                         scrollable
                         scrollButtons="auto">
                         {tabs.map((tab, index) => {
-                            return <Tab label={this.createTabLabel(tab)} key={tab.id} className={classes.tab} />;
+                            return <Tab label={this.createTabLabel(tab, index)} key={tab.id} className={classes.tab} />;
                         })}
                     </Tabs>
                 </AppBar>
@@ -68,12 +69,20 @@ class Content extends React.Component {
         );
     }
 
-    createTabLabel = (tab) => {
+    createTabLabel = (tab, index) => {
         const { classes } = this.props;
         return (<React.Fragment>
             {tab.name}
-            <Close className={classes.close} />
+            {tab.closable && (
+                <Close className={classes.close} onClick={this.closeTab.bind(this, tab, index)} />
+            )}
         </React.Fragment>);
+    }
+
+    closeTab = (tab, index) => {
+        if (this.props && this.props.onTabClose) {
+            this.props.onTabClose(tab, index);
+        }
     }
 }
 
@@ -81,7 +90,8 @@ Content.propTypes = {
     className: PropTypes.string,
     tabs: PropTypes.array,
     currentTab: PropTypes.number,
-    onTabIndexChange: PropTypes.func
+    onTabIndexChange: PropTypes.func,
+    onTabClose: PropTypes.func
 };
 
 export default withRoot(withStyles(styles)(Content));

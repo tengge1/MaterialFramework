@@ -1,5 +1,5 @@
 import React from 'react';
-import {withStyles} from 'material-ui';
+import { withStyles } from 'material-ui';
 import withRoot from '../withRoot';
 import Header from './Home/Header.jsx';
 import Sidebar from './Home/Sidebar.jsx';
@@ -27,7 +27,8 @@ class Home extends React.Component {
             {
                 id: 0,
                 name: '主页',
-                path: '/'
+                path: '/',
+                closable: false
             }
         ],
         currentTab: 0
@@ -39,33 +40,46 @@ class Home extends React.Component {
             return item.path === path;
         });
         if (index === -1) {
-            tabs.push({id: id, name: name, path: path});
+            tabs.push({ id: id, name: name, path: path, closable: true });
             this.setState({
                 tabs: tabs,
                 currentTab: tabs.length - 1
             });
         } else {
-            this.setState({currentTab: index});
+            this.setState({ currentTab: index });
         }
     }
 
     onTabIndexChange = (index) => {
-        this.setState({currentTab: index});
+        this.setState({ currentTab: index });
+    }
+
+    onTabClose = (tab, index) => {
+        const { tabs, currentTab } = this.state;
+        debugger
+
+        tabs.splice(index, 1);
+        this.setState({
+            tabs: tabs,
+            currentTab: currentTab - 1
+        });
     }
 
     render() {
-        const {classes} = this.props;
-        const {tabs, currentTab} = this.state;
+        const { classes } = this.props;
+        const { tabs, currentTab } = this.state;
+        debugger
         return (
             <div className={classes.root}>
-                <Header/>
+                <Header />
                 <div className={classes.box}>
-                    <Sidebar onItemClick={this.onMenuItemClick}/>
+                    <Sidebar onItemClick={this.onMenuItemClick} />
                     <Content
                         className={classes.content}
                         tabs={tabs}
                         currentTab={currentTab}
-                        onTabIndexChange={this.onTabIndexChange}/>
+                        onTabIndexChange={this.onTabIndexChange}
+                        onTabClose={this.onTabClose} />
                 </div>
             </div>
         );
