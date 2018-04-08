@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
+import {withStyles} from 'material-ui';
 import withRoot from '../withRoot';
 import Header from './Home/Header.jsx';
 import Sidebar from './Home/Sidebar.jsx';
@@ -23,63 +23,76 @@ const styles = theme => ({
 
 class Home extends React.Component {
     state = {
-        tabs: [
-            {
-                id: 0,
-                name: '主页',
-                path: '/',
-                closable: false
-            }
-        ],
-        currentTab: 0
+        version: new Date().getTime()
     };
 
+    tabs = [
+        {
+            id: 0,
+            name: '主页',
+            path: '/',
+            closable: false
+        }
+    ];
+
+    currentTab = 0;
+
     onMenuItemClick = (id, name, path) => {
-        const tabs = this.state.tabs;
-        const index = tabs.findIndex((item) => {
-            return item.path === path;
-        });
+        const index = this
+            .tabs
+            .findIndex((item) => {
+                return item.path === path;
+            });
         if (index === -1) {
-            tabs.push({ id: id, name: name, path: path, closable: true });
+            this
+                .tabs
+                .push({id: id, name: name, path: path, closable: true});
+            this.currentTab = this.tabs.length - 1;
             this.setState({
-                tabs: tabs,
-                currentTab: tabs.length - 1
+                version: new Date().getTime()
             });
         } else {
-            this.setState({ currentTab: index });
+            this.currentTab = index;
+            this.setState({
+                version: new Date().getTime()
+            });
         }
     }
 
     onTabIndexChange = (index) => {
-        this.setState({ currentTab: index });
+        if (index < this.tabs.length) {
+            this.currentTab = index;
+            this.setState({
+                version: new Date().getTime()
+            });
+        }
     }
 
     onTabClose = (tab, index) => {
-        const { tabs, currentTab } = this.state;
-        debugger
-
-        tabs.splice(index, 1);
+        this
+            .tabs
+            .splice(index, 1);
+        if (this.currentTab >= index) {
+            this.currentTab--;
+        }
         this.setState({
-            tabs: tabs,
-            currentTab: currentTab - 1
+            version: new Date().getTime()
         });
     }
 
     render() {
-        const { classes } = this.props;
-        const { tabs, currentTab } = this.state;
-        debugger
+        const {classes} = this.props;
         return (
             <div className={classes.root}>
-                <Header />
+                <Header/>
                 <div className={classes.box}>
-                    <Sidebar onItemClick={this.onMenuItemClick} />
+                    <Sidebar onItemClick={this.onMenuItemClick}/>
                     <Content
                         className={classes.content}
-                        tabs={tabs}
-                        currentTab={currentTab}
+                        tabs={this.tabs}
+                        currentTab={this.currentTab}
                         onTabIndexChange={this.onTabIndexChange}
-                        onTabClose={this.onTabClose} />
+                        onTabClose={(tab, index) => this.onTabClose.call(this, tab, index)}/>
                 </div>
             </div>
         );
