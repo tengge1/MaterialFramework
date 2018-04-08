@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles, AppBar, Tabs, Tab} from 'material-ui';
-import {Close} from 'material-ui-icons';
+import { withStyles, AppBar, Tabs, Tab } from 'material-ui';
+import { Close } from 'material-ui-icons';
 import withRoot from '../../withRoot';
-import appRoutes from '../../routes/app.jsx';
+import Views from '../Views.jsx';
 
 const styles = theme => ({
     root: {
@@ -27,10 +27,10 @@ const styles = theme => ({
 });
 
 function TabContainer(props) {
-    return null;
-    // const path = props.path,     component = appRoutes.filter((item) => { return
-    // item.path === path;     })[0]; if (component == null) {     return null; }
-    // return component.component;
+    const path = props.path,
+        component = Views.filter((item) => { return item.path === path; })[0];
+    if (component == null || component.component == null) { return null; }
+    return component.component();
 }
 
 class Content extends React.Component {
@@ -44,7 +44,7 @@ class Content extends React.Component {
     };
 
     render() {
-        const {classes, tabs, currentTab} = this.props;
+        const { classes, tabs, currentTab } = this.props;
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
@@ -59,7 +59,7 @@ class Content extends React.Component {
                             return <Tab
                                 label={this.createTabLabel(tab, index)}
                                 key={tab.id}
-                                className={classes.tab}/>;
+                                className={classes.tab} />;
                         })}
                     </Tabs>
                 </AppBar>
@@ -69,16 +69,16 @@ class Content extends React.Component {
     }
 
     createTabLabel = (tab, index) => {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <React.Fragment>
                 {tab.name}
                 {tab.closable && (<Close
                     className={classes.close}
                     onClick={(event) => {
-                    event.stopPropagation();
-                    this.closeTab(tab, index)
-                }}/>)}
+                        event.stopPropagation();
+                        this.closeTab(tab, index)
+                    }} />)}
             </React.Fragment>
         );
     }

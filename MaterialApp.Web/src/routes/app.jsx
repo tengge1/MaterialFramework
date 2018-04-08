@@ -1,5 +1,4 @@
-import {Dashboard, Home, Person, Face, Notifications} from 'material-ui-icons';
-import UserList from '../views/System/User/UserList.jsx';
+import { Dashboard, Home, Person, Face, Notifications } from 'material-ui-icons';
 
 const appRoutes = [
     {
@@ -11,29 +10,25 @@ const appRoutes = [
             {
                 id: 11,
                 name: "组织机构管理",
-                path: '/depart',
-                icon: Home,
-                component: UserList
+                path: '/system/depart',
+                icon: Home
             }, {
                 id: 12,
                 name: "用户管理",
-                path: '/user',
-                icon: Person,
-                component: UserList
+                path: '/system/user',
+                icon: Person
             }, {
                 id: 13,
                 name: '角色管理',
-                path: '/role',
-                icon: Face,
-                component: UserList
+                path: '/system/role',
+                icon: Face
             }
         ]
     }, {
         id: 2,
         name: '通知公告',
-        path: "/notifications",
-        icon: Notifications,
-        component: UserList
+        path: "/system/message",
+        icon: Notifications
     }
 ];
 
