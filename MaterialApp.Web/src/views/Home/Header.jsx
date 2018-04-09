@@ -1,5 +1,5 @@
 import React from 'react';
-import {Manager, Target, Popper} from "react-popper";
+import { Manager, Target, Popper } from "react-popper";
 import {
     withStyles,
     AppBar,
@@ -12,9 +12,9 @@ import {
     ClickAwayListener,
     Badge
 } from "material-ui";
-import {Person, Notifications, ExitToApp} from "material-ui-icons";
+import { Person, Notifications, ExitToApp } from "material-ui-icons";
 import Cookies from 'js-cookie';
-import {themeBase, withRoot} from '../../withRoot';
+import { themeBase, withRoot } from '../../withRoot';
 import logo from "assets/img/reactlogo.png";
 
 const styles = theme => ({
@@ -80,30 +80,30 @@ class Header extends React.Component {
     };
 
     handleClose = () => {
-        this.setState({open: false});
+        this.setState({ open: false });
     };
 
-    logout = function () {
-        Cookies.set('isLogin', true);
+    logout = () => {
+        Cookies.remove('isLogin');
         window
             .location
             .reload();
     }
 
     render() {
-        const {classes} = this.props;
-        const {open} = this.state;
+        const { classes } = this.props;
+        const { open } = this.state;
 
         var brand = (
             <div className={classes.logo}>
-                <img src={logo} alt="logo" className={classes.img}/>
+                <img src={logo} alt="logo" className={classes.img} />
                 权限管理平台
             </div>
         );
 
         var user = (
             <IconButton color="inherit" title="用户资料" className={classes.userBtn}>
-                <Person/>
+                <Person />
             </IconButton>
         );
 
@@ -113,13 +113,13 @@ class Header extends React.Component {
                     <Badge
                         className={classes.badge}
                         classes={{
-                        badge: classes.badgeBadge
-                    }}
+                            badge: classes.badgeBadge
+                        }}
                         badgeContent={5}
                         color="error"
                         title="通知公告"
                         onClick={this.handleClick}>
-                        <Notifications/>
+                        <Notifications />
                     </Badge>
                 </Target>
                 <Popper>
@@ -127,8 +127,8 @@ class Header extends React.Component {
                         <Grow
                             in={open}
                             style={{
-                            transformOrigin: "0 0 0"
-                        }}>
+                                transformOrigin: "0 0 0"
+                            }}>
                             <Paper>
                                 <MenuList role="menu">
                                     <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
@@ -159,8 +159,8 @@ class Header extends React.Component {
                 color="inherit"
                 title="注销登录"
                 className={classes.logoutBtn}
-                onClick={this.logout()}>
-                <ExitToApp/>
+                onClick={this.logout}>
+                <ExitToApp />
             </IconButton>
         );
 
