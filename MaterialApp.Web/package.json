@@ -10,6 +10,7 @@
     "ajv": "^6.4.0",
     "chartist": "^0.10.1",
     "classnames": "^2.2.5",
+    "js-cookie": "^2.2.0",
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",
     "node-pre-gyp": "^0.9.0",

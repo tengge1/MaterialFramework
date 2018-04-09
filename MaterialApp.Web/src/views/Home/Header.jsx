@@ -13,6 +13,7 @@ import {
     Badge
 } from "material-ui";
 import {Person, Notifications, ExitToApp} from "material-ui-icons";
+import Cookies from 'js-cookie';
 import {themeBase, withRoot} from '../../withRoot';
 import logo from "assets/img/reactlogo.png";
 
@@ -82,6 +83,13 @@ class Header extends React.Component {
         this.setState({open: false});
     };
 
+    logout = function () {
+        Cookies.set('isLogin', true);
+        window
+            .location
+            .reload();
+    }
+
     render() {
         const {classes} = this.props;
         const {open} = this.state;
@@ -147,7 +155,11 @@ class Header extends React.Component {
         );
 
         var exit = (
-            <IconButton color="inherit" title="退出程序" className={classes.logoutBtn}>
+            <IconButton
+                color="inherit"
+                title="注销登录"
+                className={classes.logoutBtn}
+                onClick={this.logout()}>
                 <ExitToApp/>
             </IconButton>
         );
