@@ -63,17 +63,29 @@ const styles = {
 class Login extends React.Component {
 
     state = {
+        username: '',
+        password: '',
         showPassword: false
     };
 
-    login = () => {
+    handleInputChange = (event) => {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        this.setState({[name]: value});
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
         Cookies.set('isLogin', true);
         window
             .location
             .reload();
     }
 
-    reset = () => {}
+    reset = () => {
+        this.setState({username: '', password: ''});
+    }
 
     handleShowPassword = () => {
         this.setState({
@@ -102,36 +114,46 @@ class Login extends React.Component {
 
         return (
             <div className={classes.root}>
-                <Card className={classes.card} raised={true} square={false}>
-                    <CardHeader title={''} className={classes.header} avatar={avatar}/>
-                    <CardContent className={classes.content}>
-                        <FormControl className={classNames(classes.margin, classes.textField)}>
-                            <InputLabel>用户名</InputLabel>
-                            <Input type={'text'} fullWidth={true}/>
-                        </FormControl>
-                        <FormControl className={classNames(classes.margin, classes.textField)}>
-                            <InputLabel>密码</InputLabel>
-                            <Input
-                                type={this.state.showPassword
-                                ? 'text'
-                                : 'password'}
-                                fullWidth={true}
-                                endAdornment={passwordAdornment}/>
-                        </FormControl>
-                    </CardContent>
-                    <CardActions className={classes.action}>
-                        <Button
-                            variant="raised"
-                            color="primary"
-                            className={classes.button}
-                            onClick={this.login}>
-                            登录
-                        </Button>
-                        <Button variant="raised" className={classes.button} onClick={this.reset}>
-                            清空
-                        </Button>
-                    </CardActions>
-                </Card>
+                <form method="POST" onSubmit={this.handleSubmit}>
+                    <Card className={classes.card} raised={true} square={false}>
+                        <CardHeader title={''} className={classes.header} avatar={avatar}/>
+                        <CardContent className={classes.content}>
+                            <FormControl className={classNames(classes.margin, classes.textField)}>
+                                <InputLabel>用户名</InputLabel>
+                                <Input
+                                    type={'text'}
+                                    name={'username'}
+                                    value={this.state.username}
+                                    fullWidth={true}
+                                    onChange={this.handleInputChange}/>
+                            </FormControl>
+                            <FormControl className={classNames(classes.margin, classes.textField)}>
+                                <InputLabel>密码</InputLabel>
+                                <Input
+                                    type={this.state.showPassword
+                                    ? 'text'
+                                    : 'password'}
+                                    name={'password'}
+                                    value={this.state.password}
+                                    fullWidth={true}
+                                    endAdornment={passwordAdornment}
+                                    onChange={this.handleInputChange}/>
+                            </FormControl>
+                        </CardContent>
+                        <CardActions className={classes.action}>
+                            <Button
+                                type="submit"
+                                variant="raised"
+                                color="primary"
+                                className={classes.button}>
+                                登录
+                            </Button>
+                            <Button variant="raised" className={classes.button} onClick={this.reset}>
+                                清空
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </form>
             </div>
         );
     }
