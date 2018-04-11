@@ -14,9 +14,9 @@
 
 ## 软件演示
 
-正在开发中，请暂时参照Material Dashboard的样式。
+正在开发中。
 
-网址：https://timcreative.github.io/material-dashboard-pro-react/#/dashboard
+演示Demo：https://tengge1.github.io/MaterialApp/
 
 ![image](https://github.com/tengge1/MaterialApp/blob/master/image/material-dashboard.png)
 
