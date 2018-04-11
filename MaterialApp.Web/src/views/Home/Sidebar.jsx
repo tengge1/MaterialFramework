@@ -13,8 +13,8 @@ import {
     Collapse
 } from 'material-ui';
 import {ChevronLeft, ChevronRight, ExpandLess, ExpandMore} from 'material-ui-icons';
-import PerfectScrollbar from "perfect-scrollbar";
-import "perfect-scrollbar/css/perfect-scrollbar.css";
+import 'perfect-scrollbar/css/perfect-scrollbar.css';
+import PerfectScrollbar from 'perfect-scrollbar';
 import appRoutes from '../../routes/app.jsx';
 import {withRoot, drawerWidth} from '../../withRoot';
 
@@ -127,70 +127,91 @@ class Sidebar extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.scrollbar = new PerfectScrollbar(this.ref.current);
+        this
+            .scrollbar
+            .update();
+    }
+
+    componentWillUnmount() {
+        if (this.scrollbar) {
+            delete this.scrollbar;
+        }
+    }
+
+    componentDidUpdate() {
+        this
+            .scrollbar
+            .update();
+    }
+
     render() {
         const {classes} = this.props;
 
         var links = (
-            <List component="div" ref={this.ref}>
-                {appRoutes.map((prop) => {
-                    return (
-                        <div key={prop.id}>
-                            <ListItem
-                                button
-                                key={prop.id}
-                                className={this.state.open
-                                ? ''
-                                : classes.itemClose}
-                                onClick={this
-                                .handleClick
-                                .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
-                                <ListItemIcon>
-                                    <prop.icon/>
-                                </ListItemIcon>
-                                <ListItemText
-                                    className={classes.itemText}
-                                    disableTypography={true}
-                                    primary={prop.name}></ListItemText>
-                                {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
-                                    ? <ExpandMore/>
-                                    : <ExpandLess/>)
+            <div ref={this.ref}>
+                <List component="div">
+                    {appRoutes.map((prop) => {
+                        return (
+                            <div key={prop.id}>
+                                <ListItem
+                                    button
+                                    key={prop.id}
+                                    className={this.state.open
+                                    ? ''
+                                    : classes.itemClose}
+                                    onClick={this
+                                    .handleClick
+                                    .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
+                                    <ListItemIcon>
+                                        <prop.icon/>
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        className={classes.itemText}
+                                        disableTypography={true}
+                                        primary={prop.name}></ListItemText>
+                                    {(prop.children != null && prop.children.length > 0) && (this.state.expand.indexOf(prop.id) === -1
+                                        ? <ExpandMore/>
+                                        : <ExpandLess/>)
 }
-                            </ListItem>
-                            {prop.children && (
-                                <Collapse
-                                    in={this
-                                    .state
-                                    .expand
-                                    .indexOf(prop.id) > -1}
-                                    timeout="auto"
-                                    unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        {prop
-                                            .children
-                                            .map((child) => {
-                                                return (
-                                                    <ListItem
-                                                        button
-                                                        key={child.id}
-                                                        onClick={this
-                                                        .handleClick
-                                                        .bind(this, child.id, child.name, child.path, true)}>
-                                                        <ListItemText
-                                                            className={classes.itemText}
-                                                            disableTypography={true}
-                                                            inset={true}
-                                                            primary={child.name}></ListItemText>
-                                                    </ListItem>
-                                                );
-                                            })}
-                                    </List>
-                                </Collapse>
-                            )}
-                        </div>
-                    );
-                })
+                                </ListItem>
+                                {prop.children && (
+                                    <Collapse
+                                        in={this
+                                        .state
+                                        .expand
+                                        .indexOf(prop.id) > -1}
+                                        timeout="auto"
+                                        unmountOnExit>
+                                        <List component="div" disablePadding>
+                                            {prop
+                                                .children
+                                                .map((child) => {
+                                                    return (
+                                                        <ListItem
+                                                            button
+                                                            key={child.id}
+                                                            onClick={this
+                                                            .handleClick
+                                                            .bind(this, child.id, child.name, child.path, true)}>
+                                                            <ListItemText
+                                                                className={classes.itemText}
+                                                                disableTypography={true}
+                                                                inset={true}
+                                                                primary={child.name}></ListItemText>
+                                                        </ListItem>
+                                                    );
+                                                })}
+                                        </List>
+                                    </Collapse>
+                                )}
+                            </div>
+                        );
+                    })
 }
-            </List>
+                </List>
+            </div>
         );
 
         return (
