@@ -10,7 +10,6 @@ import {
     Button,
     withStyles,
     FormControl,
-    FormLabel,
     Input,
     InputAdornment,
     IconButton,
