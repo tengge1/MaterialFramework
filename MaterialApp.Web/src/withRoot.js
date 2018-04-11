@@ -65,6 +65,6 @@ export {
     cardHeader,
     defaultBoxShadow
 }
-from './variables/styles.jsx';
+from './assets/css/styles.jsx';
 
 export default withRoot;
