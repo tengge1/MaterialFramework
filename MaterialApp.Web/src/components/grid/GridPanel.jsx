@@ -22,48 +22,6 @@ import FilterListIcon from 'material-ui-icons/FilterList';
 import { lighten } from 'material-ui/styles/colorManipulator';
 import withRoot from '../../../withRoot';
 
-let counter = 0;
-function createData(name, calories, fat, carbs, protein) {
-    counter += 1;
-    return {
-        id: counter,
-        name,
-        calories,
-        fat,
-        carbs,
-        protein
-    };
-}
-
-const columnData = [
-    {
-        id: 'name',
-        numeric: false,
-        disablePadding: true,
-        label: 'Dessert (100g serving)'
-    }, {
-        id: 'calories',
-        numeric: true,
-        disablePadding: false,
-        label: 'Calories'
-    }, {
-        id: 'fat',
-        numeric: true,
-        disablePadding: false,
-        label: 'Fat (g)'
-    }, {
-        id: 'carbs',
-        numeric: true,
-        disablePadding: false,
-        label: 'Carbs (g)'
-    }, {
-        id: 'protein',
-        numeric: true,
-        disablePadding: false,
-        label: 'Protein (g)'
-    }
-];
-
 class EnhancedTableHead extends React.Component {
     createSortHandler = property => event => {
         this
@@ -103,16 +61,6 @@ class EnhancedTableHead extends React.Component {
     }
 }
 
-EnhancedTableHead.propTypes = {
-    numSelected: PropTypes.number.isRequired,
-    onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    order: PropTypes.string.isRequired,
-    orderBy: PropTypes.string.isRequired,
-    rowCount: PropTypes.number.isRequired
-};
-
-
 const styles = theme => ({
     root: {
         width: '100%',
@@ -126,7 +74,7 @@ const styles = theme => ({
     }
 });
 
-class UserList extends React.Component {
+class GridPanel extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -300,8 +248,8 @@ class UserList extends React.Component {
     }
 }
 
-UserList.propTypes = {
+GridPanel.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(UserList));
+export default withRoot(withStyles(styles)(GridPanel));
