@@ -1,0 +1,88 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <!-- 角色菜单 -->
+  <object type="MaterialFramework.Controller.RoleMenuController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="RoleMenuBLL" />
+  </object>
+
+  <!-- 登录 -->
+  <object type="MaterialFramework.Controller.LoginController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="LoginBLL" />
+  </object>
+
+  <!-- 菜单 -->
+  <object type="MaterialFramework.Controller.MenuController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="MenuBLL" />
+  </object>
+
+  <!-- 角色 -->
+  <object type="MaterialFramework.Controller.RoleController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="RoleBLL" />
+  </object>
+
+  <!-- 配置 -->
+  <object type="MaterialFramework.Controller.ConfigController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="ConfigBLL" />
+  </object>
+
+  <!-- 配置节点 -->
+  <object type="MaterialFramework.Controller.ConfigSectionController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="ConfigSectionBLL" />
+  </object>
+
+  <!-- 字典 -->
+  <object type="MaterialFramework.Controller.DicController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="DicBLL" />
+  </object>
+
+  <!-- 字典项 -->
+  <object type="MaterialFramework.Controller.DicItemController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="DicItemBLL" />
+  </object>
+
+  <!-- 日志 -->
+  <object type="MaterialFramework.Controller.LogController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="LogBLL" />
+  </object>
+
+  <!-- 机构 -->
+  <object type="MaterialFramework.Controller.DeptController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="DeptBLL" />
+  </object>
+
+  <!-- 用户 -->
+  <object type="MaterialFramework.Controller.UserController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="UserBLL" />
+  </object>
+
+  <!-- 数据库备份 -->
+  <object type="MaterialFramework.Controller.DatabaseBackupController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="DatabaseBackupBLL" />
+  </object>
+
+  <!-- 工作流 -->
+  <object type="MaterialFramework.Controller.WorkflowController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="WorkflowBLL" />
+  </object>
+
+  <!-- 文件 -->
+  <object type="MaterialFramework.Controller.FilesController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="FilesBLL" />
+  </object>
+
+  <!-- 消息 -->
+  <object type="MaterialFramework.Controller.MessageController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="MessageBLL" />
+  </object>
+
+  <!-- 消息接收 -->
+  <object type="MaterialFramework.Controller.MessageReceiveController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="MessageReceiveBLL" />
+  </object>
+
+  <!-- 请假 -->
+  <object type="MaterialFramework.Controller.LeaveController, MaterialFramework.Controller" singleton="false">
+    <property name="bll" ref="LeaveBLL" />
+  </object>
+</objects>
+

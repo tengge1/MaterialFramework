@@ -1,0 +1,67 @@
+﻿<objects xmlns="http://www.springframework.net">
+
+  <!-- 角色菜单 -->
+  <object id="RoleMenuDAL" type="MaterialFramework.DAL.RoleMenuDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 菜单 -->
+  <object id="MenuDAL" type="MaterialFramework.DAL.MenuDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 角色 -->
+  <object id="RoleDAL" type="MaterialFramework.DAL.RoleDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 配置 -->
+  <object id="ConfigDAL" type="MaterialFramework.DAL.ConfigDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 配置节点 -->
+  <object id="ConfigSectionDAL" type="MaterialFramework.DAL.ConfigSectionDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 字典 -->
+  <object id="DicDAL" type="MaterialFramework.DAL.DicDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 字典项 -->
+  <object id="DicItemDAL" type="MaterialFramework.DAL.DicItemDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 日志 -->
+  <object id="LogDAL" type="MaterialFramework.DAL.LogDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 机构 -->
+  <object id="DeptDAL" type="MaterialFramework.DAL.DeptDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 用户 -->
+  <object id="UserDAL" type="MaterialFramework.DAL.UserDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 数据库备份 -->
+  <object id="DatabaseBackupDAL" type="MaterialFramework.DAL.DatabaseBackupDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 工作流 -->
+  <object id="WorkflowDAL" type="MaterialFramework.DAL.WorkflowDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 文件 -->
+  <object id="FilesDAL" type="MaterialFramework.DAL.FilesDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 消息 -->
+  <object id="MessageDAL" type="MaterialFramework.DAL.MessageDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 消息接收 -->
+  <object id="MessageReceiveDAL" type="MaterialFramework.DAL.MessageReceiveDAL, MaterialFramework.DAL">
+  </object>
+
+  <!-- 请假 -->
+  <object id="LeaveDAL" type="MaterialFramework.DAL.LeaveDAL, MaterialFramework.DAL">
+  </object>
+
+</objects>
