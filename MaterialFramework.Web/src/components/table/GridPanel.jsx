@@ -54,7 +54,7 @@ class GridPanel extends React.Component {
 
         var tableBody =
             <TableBody>
-                <TableRow>
+                <TableRow hover={true} selected={true}>
                     <TableCell padding="checkbox">
                         <Checkbox />
                     </TableCell>

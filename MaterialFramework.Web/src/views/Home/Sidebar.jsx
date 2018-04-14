@@ -16,12 +16,12 @@ import {ChevronLeft, ChevronRight, ExpandLess, ExpandMore} from 'material-ui-ico
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PerfectScrollbar from 'perfect-scrollbar';
 import appRoutes from '../../routes/app.jsx';
-import {withRoot, drawerWidth} from '../../withRoot';
+import {withRoot} from '../../withRoot';
 
 const styles = theme => ({
     drawerPaper: {
         position: 'relative',
-        width: drawerWidth,
+        width: 260,
         overflowX: 'hidden',
         transition: theme
             .transitions
