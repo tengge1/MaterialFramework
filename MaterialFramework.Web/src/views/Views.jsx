@@ -1,6 +1,6 @@
 import UserList from './System/User/UserList.jsx';
 import RoleList from './System/Role/RoleList.jsx';
-import Component from './Demo/Component.jsx';
+import Components from './Demo/Components.jsx';
 
 const Views = [
     {
@@ -17,7 +17,7 @@ const Views = [
         component: RoleList
     }, {
         path: '/demo/component',
-        component: Component
+        component: Components
     }
 ];
 
