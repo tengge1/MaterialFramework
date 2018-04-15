@@ -1,4 +1,4 @@
-import { Dashboard, Home, Person, Face, Notifications } from 'material-ui-icons';
+import {Dashboard, Home, Person, Face, Notifications} from 'material-ui-icons';
 
 const appRoutes = [
     {
@@ -26,9 +26,16 @@ const appRoutes = [
         ]
     }, {
         id: 2,
-        name: '通知公告',
-        path: "/system/message",
-        icon: Notifications
+        name: 'Demo',
+        path: '',
+        icon: Notifications,
+        children: [
+            {
+                id: '21',
+                name: '组件',
+                path: '/demo/component'
+            }
+        ]
     }
 ];
 
