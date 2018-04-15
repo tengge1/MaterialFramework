@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from './Button.jsx';
+import Button from './Button.jsx';
 
 class RoundButton extends React.Component {
     render() {
@@ -11,4 +11,4 @@ class RoundButton extends React.Component {
     }
 }
 
-export {RoundButton};
+export default RoundButton;

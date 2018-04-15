@@ -36,6 +36,4 @@ class Button extends React.Component {
     }
 }
 
-const StyledButton = withStyles(styles)(Button);
-
-export {StyledButton as Button};
+export default withStyles(styles)(Button);

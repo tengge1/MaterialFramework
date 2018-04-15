@@ -11,4 +11,4 @@ class Grid extends React.Component {
     }
 }
 
-export {Grid};
+export default Grid;

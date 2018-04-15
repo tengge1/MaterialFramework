@@ -1,7 +1,14 @@
 import React from 'react';
 import {withStyles} from 'material-ui';
 import {withRoot} from '../../withRoot';
-import {Grid, Button, FlatButton, RoundButton} from '../../Components';
+import {
+    Grid,
+    Button,
+    FlatButton,
+    RoundButton,
+    AppBar,
+    Toolbar
+} from '../../Components';
 
 const styles = theme => ({
     root: {
@@ -49,6 +56,41 @@ class Components extends React.Component {
             </Grid>
         </Grid>;
 
+        const appBarColor = <Grid container item spacing={8}>
+            <Grid item xs={12}>
+                <AppBar color={'default'}>Default AppBar</AppBar>
+            </Grid>
+            <Grid item xs={12}>
+                <AppBar color={'primary'}>Primary AppBar</AppBar>
+            </Grid>
+            <Grid item xs={12}>
+                <AppBar color={'secondary'}>Secondary AppBar</AppBar>
+            </Grid>
+        </Grid>;
+
+        const appBarSize = <Grid container item spacing={8}>
+            <Grid item xs={12}>
+                <AppBar color={'default'} size={'small'}>Small AppBar</AppBar>
+            </Grid>
+            <Grid item xs={12}>
+                <AppBar color={'primary'} size={'medium'}>Medium AppBar</AppBar>
+            </Grid>
+            <Grid item xs={12}>
+                <AppBar color={'secondary'} size={'large'}>Large AppBar</AppBar>
+            </Grid>
+        </Grid>;
+
+        const toolbar = <Grid container item spacing={8}>
+            <Grid item xs={12}>
+                <Toolbar color={'default'}>
+                    <Button color={'primary'} size={'small'}>Add</Button>
+                    <Button color={'primary'} size={'small'}>Edit</Button>
+                    <Button color={'primary'} size={'small'}>Search</Button>
+                    <Button color={'primary'} size={'small'}>Delete</Button>
+                </Toolbar>
+            </Grid>
+        </Grid>;
+
         return <div className={classes.root}>
             <Grid
                 container
@@ -59,6 +101,9 @@ class Components extends React.Component {
                 {buttonColor}
                 {buttonSize}
                 {buttonType}
+                {appBarColor}
+                {appBarSize}
+                {toolbar}
             </Grid>
         </div>;
     }
