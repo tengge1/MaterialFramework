@@ -2,6 +2,9 @@ import React from 'react';
 import {Button as MaterialButton, withStyles} from 'material-ui';
 
 const styles = theme => ({
+    root: {
+        textTransform: 'none'
+    },
     raised: {
         color: theme
             .palette
@@ -29,9 +32,12 @@ class Button extends React.Component {
             color={color}
             classes={(color === 'default' || color === undefined)
             ? {
+                root: classes.root,
                 raised: classes.raised
             }
-            : null}
+            : {
+                root: classes.root
+            }}
             {...others}>{children || 'Button'}</MaterialButton>;
     }
 }
