@@ -7,14 +7,25 @@ import {
     FlatButton,
     RoundButton,
     AppBar,
-    Toolbar
+    Toolbar,
+    Avatar,
+    Icon,
+    SvgIcon
 } from '../../Components';
+import Man from '../../assets/img/faces/marc.jpg';
+import Woman from '../../assets/img/faces/avatar.jpg';
 
 const styles = theme => ({
     root: {
         padding: 16
     }
 });
+
+function HomeIcon(props) {
+    return <SvgIcon {...props}>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+    </SvgIcon>;
+}
 
 class Components extends React.Component {
     render() {
@@ -83,11 +94,62 @@ class Components extends React.Component {
         const toolbar = <Grid container item spacing={8}>
             <Grid item xs={12}>
                 <Toolbar color={'default'}>
-                    <Button color={'primary'} size={'small'}>Add</Button>
-                    <Button color={'primary'} size={'small'}>Edit</Button>
-                    <Button color={'primary'} size={'small'}>Search</Button>
-                    <Button color={'primary'} size={'small'}>Delete</Button>
+                    <Button color={'default'} size={'small'}>Add</Button>
+                    <Button color={'default'} size={'small'}>Edit</Button>
+                    <Button color={'default'} size={'small'}>Search</Button>
+                    <Button color={'default'} size={'small'}>Delete</Button>
                 </Toolbar>
+            </Grid>
+        </Grid>;
+
+        const avatar = <Grid container item spacing={8}>
+            <Grid item>
+                <Avatar src={Man} alt={'avatar'}/>
+            </Grid>
+            <Grid item>
+                <Avatar src={Woman} alt={'avatar'}/>
+            </Grid>
+            <Grid item>
+                <Avatar src={Man} size={'small'}/>
+            </Grid>
+            <Grid item>
+                <Avatar src={Woman} size={'small'}/>
+            </Grid>
+            <Grid item>
+                <Avatar src={Man} size={'large'}/>
+            </Grid>
+            <Grid item>
+                <Avatar src={Woman} size={'large'}/>
+            </Grid>
+        </Grid>;
+
+        const icon = <Grid container item spacing={8}>
+            <Grid item>
+                <Icon color={'primary'}>person</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'secondary'}>lock</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'action'}>star</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'contrast'}>home</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'disabled'}>add</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'error'}>edit</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'contrast'}>search</Icon>
+            </Grid>
+            <Grid item>
+                <Icon color={'primary'}>delete</Icon>
+            </Grid>
+            <Grid item>
+                <HomeIcon/>
             </Grid>
         </Grid>;
 
@@ -104,6 +166,8 @@ class Components extends React.Component {
                 {appBarColor}
                 {appBarSize}
                 {toolbar}
+                {avatar}
+                {icon}
             </Grid>
         </div>;
     }

@@ -12,3 +12,12 @@ export {default as AppBar}
 from './components/toolbar/AppBar.jsx';
 export {default as Toolbar}
 from './components/toolbar/Toolbar.jsx';
+
+export {default as Avatar}
+from './components/avatar/Avatar.jsx';
+
+export {default as Icon}
+from './components/icon/Icon.jsx';
+
+export {default as SvgIcon}
+from './components/icon/SvgIcon.jsx';
