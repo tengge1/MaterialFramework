@@ -1,24 +1,63 @@
-import {Dashboard, Home, Person, Face, Notifications} from 'material-ui-icons';
+import {
+    Home,
+    Person,
+    Face,
+    Widgets,
+    Computer,
+    Build
+} from 'material-ui-icons';
 
 const appRoutes = [
     {
         id: 1,
-        name: '权限管理',
+        name: '常用组件',
         path: '',
-        icon: Dashboard,
+        icon: Widgets,
         children: [
             {
-                id: 11,
+                id: '11',
+                name: '按钮',
+                path: '/demo/buttons'
+            }, {
+                id: '12',
+                name: '导航栏',
+                path: '/demo/buttons'
+            }, {
+                id: '13',
+                name: '面板',
+                path: '/demo/buttons'
+            }, {
+                id: '14',
+                name: '表单',
+                path: '/demo/buttons'
+            }, {
+                id: '15',
+                name: '表格',
+                path: '/demo/buttons'
+            }, {
+                id: '16',
+                name: '小组件',
+                path: '/demo/buttons'
+            }
+        ]
+    }, {
+        id: 2,
+        name: '常用页面',
+        path: '',
+        icon: Computer,
+        children: [
+            {
+                id: 21,
                 name: "组织机构管理",
                 path: '/system/depart',
                 icon: Home
             }, {
-                id: 12,
+                id: 22,
                 name: "用户管理",
                 path: '/system/user',
                 icon: Person
             }, {
-                id: 13,
+                id: 23,
                 name: '角色管理',
                 path: '/system/role',
                 icon: Face
@@ -26,16 +65,9 @@ const appRoutes = [
         ]
     }, {
         id: 2,
-        name: 'Demo',
+        name: '皮肤编辑器',
         path: '',
-        icon: Notifications,
-        children: [
-            {
-                id: '21',
-                name: '组件',
-                path: '/demo/component'
-            }
-        ]
+        icon: Build
     }
 ];
 

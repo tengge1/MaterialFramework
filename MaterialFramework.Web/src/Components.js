@@ -16,3 +16,9 @@ export { default as Badge } from './components/badge/Badge.jsx';
 export { default as Icon } from './components/icon/Icon.jsx';
 export { default as SvgIcon } from './components/icon/SvgIcon.jsx';
 export * from 'material-ui-icons';
+
+export { default as Card } from './components/card/Card.jsx';
+export { default as CardActions } from './components/card/CardActions.jsx';
+export { default as CardContent } from './components/card/CardContent.jsx';
+export { default as CardHeader } from './components/card/CardHeader.jsx';
+export { default as CardMedia } from './components/card/CardMedia.jsx';
