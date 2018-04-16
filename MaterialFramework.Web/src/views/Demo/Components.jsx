@@ -1,16 +1,19 @@
 import React from 'react';
-import {withStyles} from 'material-ui';
-import {withRoot} from '../../withRoot';
+import { withStyles } from 'material-ui';
+import { withRoot } from '../../withRoot';
 import {
     Grid,
     Button,
     FlatButton,
     RoundButton,
+    IconButton,
     AppBar,
     Toolbar,
     Avatar,
     Icon,
-    SvgIcon
+    SvgIcon,
+    Mail,
+    Badge
 } from '../../Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Woman from '../../assets/img/faces/avatar.jpg';
@@ -18,18 +21,24 @@ import Woman from '../../assets/img/faces/avatar.jpg';
 const styles = theme => ({
     root: {
         padding: 16
+    },
+    badge: {
+        top: '-12px',
+        right: '-12px',
+        width: '16px',
+        height: '16px'
     }
 });
 
 function HomeIcon(props) {
     return <SvgIcon {...props}>
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
     </SvgIcon>;
 }
 
 class Components extends React.Component {
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
         const buttonColor = <Grid container item spacing={8}>
             <Grid item>
@@ -104,22 +113,22 @@ class Components extends React.Component {
 
         const avatar = <Grid container item spacing={8}>
             <Grid item>
-                <Avatar src={Man} alt={'avatar'}/>
+                <Avatar src={Man} alt={'avatar'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} alt={'avatar'}/>
+                <Avatar src={Woman} alt={'avatar'} />
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'small'}/>
+                <Avatar src={Man} size={'small'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'small'}/>
+                <Avatar src={Woman} size={'small'} />
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'large'}/>
+                <Avatar src={Man} size={'large'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'large'}/>
+                <Avatar src={Woman} size={'large'} />
             </Grid>
         </Grid>;
 
@@ -134,22 +143,53 @@ class Components extends React.Component {
                 <Icon color={'action'}>star</Icon>
             </Grid>
             <Grid item>
-                <Icon color={'contrast'}>home</Icon>
-            </Grid>
-            <Grid item>
                 <Icon color={'disabled'}>add</Icon>
             </Grid>
             <Grid item>
-                <Icon color={'error'}>edit</Icon>
+                <Icon color={'primary'}>edit</Icon>
             </Grid>
             <Grid item>
-                <Icon color={'contrast'}>search</Icon>
+                <Icon color={'secondary'}>search</Icon>
             </Grid>
             <Grid item>
-                <Icon color={'primary'}>delete</Icon>
+                <Icon color={'action'}>delete</Icon>
             </Grid>
             <Grid item>
-                <HomeIcon/>
+                <HomeIcon />
+            </Grid>
+            <Grid item>
+                <IconButton />
+            </Grid>
+        </Grid>;
+
+        const badge = <Grid container item spacing={8}>
+            <Grid item>
+                <IconButton>
+                    <Badge badgeContent={10} color={'default'} className={classes.badge}>
+                        <Mail />
+                    </Badge>
+                </IconButton>
+            </Grid>
+            <Grid item>
+                <IconButton>
+                    <Badge badgeContent={10} color={'primary'} className={classes.badge}>
+                        <Mail />
+                    </Badge>
+                </IconButton>
+            </Grid>
+            <Grid item>
+                <IconButton>
+                    <Badge badgeContent={10} color={'secondary'} className={classes.badge}>
+                        <Mail />
+                    </Badge>
+                </IconButton>
+            </Grid>
+            <Grid item>
+                <IconButton>
+                    <Badge badgeContent={10} color={'error'} className={classes.badge}>
+                        <Mail />
+                    </Badge>
+                </IconButton>
             </Grid>
         </Grid>;
 
@@ -168,6 +208,7 @@ class Components extends React.Component {
                 {toolbar}
                 {avatar}
                 {icon}
+                {badge}
             </Grid>
         </div>;
     }

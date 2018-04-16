@@ -1,8 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import {Button, Card, CardActions, withStyles} from 'material-ui';
-import {Add, Edit, Search, Delete} from 'material-ui-icons';
+import { Button, Card, CardActions, withStyles } from 'material-ui';
+import { Add, Edit, Search, Delete } from 'material-ui-icons';
 import GridPanel from '../../../components/table/GridPanel';
 import withRoot from '../../../withRoot';
 
@@ -15,22 +13,22 @@ const styles = theme => ({
 
 class UserList extends React.Component {
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         const buttons = <CardActions>
             <Button variant="raised" color="primary" className={classes.button}>
-                <Add/>
+                <Add />
                 添加
             </Button>
             <Button variant="raised" color="primary" className={classes.button}>
-                <Edit/>
+                <Edit />
                 编辑
             </Button>
             <Button variant="raised" color="primary" className={classes.button}>
-                <Search/>
+                <Search />
                 查询
             </Button>
             <Button variant="raised" color="primary" className={classes.button}>
-                <Delete/>
+                <Delete />
                 删除
             </Button>
         </CardActions>;
@@ -38,7 +36,7 @@ class UserList extends React.Component {
         return (
             <Card>
                 {buttons}
-                <GridPanel className={classes.root}/>
+                <GridPanel className={classes.root} />
             </Card>
         );
     }

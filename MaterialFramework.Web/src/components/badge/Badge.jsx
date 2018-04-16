@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge as MaterialBadge, withStyles} from 'material-ui';
+import { Badge as MaterialBadge, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
@@ -26,10 +26,10 @@ class Badge extends React.Component {
 
         return <MaterialBadge
             className={size === 'small'
-            ? classes.small
-            : (size === 'large'
-                ? classes.large
-                : classes.medium)}
+                ? classes.small
+                : (size === 'large'
+                    ? classes.large
+                    : classes.medium)}
             {...others}></MaterialBadge>;
     }
 }
