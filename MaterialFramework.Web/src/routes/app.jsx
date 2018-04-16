@@ -20,8 +20,8 @@ const appRoutes = [
                 path: '/demo/buttons'
             }, {
                 id: '12',
-                name: '导航栏',
-                path: '/demo/buttons'
+                name: '工具栏',
+                path: '/demo/toolbars'
             }, {
                 id: '13',
                 name: '面板',
