@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
-import { withRoot } from '../../withRoot';
+import {withStyles} from 'material-ui';
+import {withRoot} from '../../withRoot';
 import {
     Grid,
     Button,
@@ -13,32 +13,44 @@ import {
     Icon,
     SvgIcon,
     Mail,
-    Badge
+    Badge,
+    BottomNavigation,
+    BottomNavigationAction,
+    Restore,
+    Favorite,
+    LocationOn
 } from '../../Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Woman from '../../assets/img/faces/avatar.jpg';
 
 const styles = theme => ({
     root: {
-        padding: 16
+        height: '100%',
+        padding: 16,
+        overflow: 'scroll'
     },
-    badge: {
-        top: '-12px',
-        right: '-12px',
-        width: '16px',
-        height: '16px'
+    grid: {
+        marginBottom: 100
+    },
+    badgeBadge: {
+        top: -8,
+        right: -8
     }
 });
 
 function HomeIcon(props) {
     return <SvgIcon {...props}>
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
     </SvgIcon>;
 }
 
 class Components extends React.Component {
+    state = {
+        bottomNavigation1_value: 0
+    }
+
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         const buttonColor = <Grid container item spacing={8}>
             <Grid item>
@@ -113,22 +125,22 @@ class Components extends React.Component {
 
         const avatar = <Grid container item spacing={8}>
             <Grid item>
-                <Avatar src={Man} alt={'avatar'} />
+                <Avatar src={Man} alt={'avatar'}/>
             </Grid>
             <Grid item>
-                <Avatar src={Woman} alt={'avatar'} />
+                <Avatar src={Woman} alt={'avatar'}/>
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'small'} />
+                <Avatar src={Man} size={'small'}/>
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'small'} />
+                <Avatar src={Woman} size={'small'}/>
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'large'} />
+                <Avatar src={Man} size={'large'}/>
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'large'} />
+                <Avatar src={Woman} size={'large'}/>
             </Grid>
         </Grid>;
 
@@ -155,41 +167,68 @@ class Components extends React.Component {
                 <Icon color={'action'}>delete</Icon>
             </Grid>
             <Grid item>
-                <HomeIcon />
+                <HomeIcon/>
             </Grid>
             <Grid item>
-                <IconButton />
+                <IconButton/>
             </Grid>
         </Grid>;
 
         const badge = <Grid container item spacing={8}>
             <Grid item>
                 <IconButton>
-                    <Badge badgeContent={10} color={'default'} className={classes.badge}>
-                        <Mail />
+                    <Badge
+                        badgeContent={10}
+                        color={'default'}
+                        classes={{
+                        badge: classes.badgeBadge
+                    }}>
+                        <Mail/>
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
-                    <Badge badgeContent={10} color={'primary'} className={classes.badge}>
-                        <Mail />
+                    <Badge badgeContent={10} color={'primary'}>
+                        <Mail/>
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
-                    <Badge badgeContent={10} color={'secondary'} className={classes.badge}>
-                        <Mail />
+                    <Badge badgeContent={10} color={'secondary'}>
+                        <Mail/>
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
-                    <Badge badgeContent={10} color={'error'} className={classes.badge}>
-                        <Mail />
+                    <Badge badgeContent={10} color={'error'}>
+                        <Mail/>
                     </Badge>
                 </IconButton>
+            </Grid>
+        </Grid>;
+
+        const bottomNavigation = <Grid container item spacing={8}>
+            <Grid item>
+                <BottomNavigation
+                    value={this.state.bottomNavigation1_value}
+                    onChange={this.handleBottomNavigationChange}>
+                    <BottomNavigationAction label="Recents" icon={< Restore />}/>
+                    <BottomNavigationAction label="Favorites" icon={< Favorite />}/>
+                    <BottomNavigationAction label="Nearby" icon={< LocationOn />}/>
+                </BottomNavigation>
+            </Grid>
+            <Grid item>
+                <BottomNavigation
+                    showLabels={true}
+                    value={this.state.bottomNavigation1_value}
+                    onChange={this.handleBottomNavigationChange}>
+                    <BottomNavigationAction label="Recents" icon={< Restore />}/>
+                    <BottomNavigationAction label="Favorites" icon={< Favorite />}/>
+                    <BottomNavigationAction label="Nearby" icon={< LocationOn />}/>
+                </BottomNavigation>
             </Grid>
         </Grid>;
 
@@ -199,6 +238,7 @@ class Components extends React.Component {
                 direction={'column'}
                 alignContent={'flex-start'}
                 alignItems={'flex-start'}
+                className={classes.grid}
                 spacing={16}>
                 {buttonColor}
                 {buttonSize}
@@ -209,8 +249,13 @@ class Components extends React.Component {
                 {avatar}
                 {icon}
                 {badge}
+                {bottomNavigation}
             </Grid>
         </div>;
+    }
+
+    handleBottomNavigationChange = (event, value) => {
+        this.setState({bottomNavigation1_value: value});
     }
 }
 
