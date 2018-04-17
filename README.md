@@ -1,4 +1,4 @@
-# MaterialApp
+# Material Framework
 
 随着时代的发展进步，我们程序员面临一系列严重问题：
 
@@ -16,11 +16,11 @@
 
 正在开发中。
 
-演示Demo：https://tengge1.github.io/MaterialApp/
+演示Demo：https://tengge1.github.io/MaterialFramework/
 
-![image](https://github.com/tengge1/MaterialApp/blob/master/image/login-page.png)
+![image](https://github.com/tengge1/MaterialFramework/blob/master/image/login-page.png)
 
-![image](https://github.com/tengge1/MaterialApp/blob/master/image/main-page.png)
+![image](https://github.com/tengge1/MaterialFramework/blob/master/image/main-page.png)
 
 ## 相关项目
 
