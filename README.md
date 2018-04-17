@@ -20,7 +20,7 @@
 
 ![image](https://github.com/tengge1/MaterialFramework/blob/master/image/login-page.png)
 
-![image](https://github.com/tengge1/MaterialFramework/blob/master/image/main-page.png)
+![image](https://github.com/tengge1/MaterialFramework/blob/master/image/main_page20180417.png)
 
 ## 相关项目
 
