@@ -36,6 +36,10 @@ const appRoutes = [
                 path: '/demo/tables'
             }, {
                 id: '16',
+                name: '进度条',
+                path: '/demo/progresses'
+            }, {
+                id: '16',
                 name: '小部件',
                 path: '/demo/widgets'
             }
