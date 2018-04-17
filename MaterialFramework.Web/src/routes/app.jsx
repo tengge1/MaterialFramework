@@ -29,7 +29,7 @@ const appRoutes = [
             }, {
                 id: '14',
                 name: '表单',
-                path: '/demo/buttons'
+                path: '/demo/forms'
             }, {
                 id: '15',
                 name: '表格',
