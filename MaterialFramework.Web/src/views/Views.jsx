@@ -1,5 +1,6 @@
 import Buttons from './Demo/Buttons.jsx';
 import Toolbars from './Demo/Toolbars.jsx';
+import Cards from './Demo/Cards.jsx';
 import UserList from './System/User/UserList.jsx';
 import RoleList from './System/Role/RoleList.jsx';
 
@@ -9,6 +10,9 @@ const Views = [{
 }, {
     path: '/demo/toolbars',
     component: Toolbars
+}, {
+    path: '/demo/cards',
+    component: Cards
 }, {
     path: '/',
     component: null

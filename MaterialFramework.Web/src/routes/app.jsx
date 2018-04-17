@@ -25,7 +25,7 @@ const appRoutes = [
             }, {
                 id: '13',
                 name: '面板',
-                path: '/demo/buttons'
+                path: '/demo/cards'
             }, {
                 id: '14',
                 name: '表单',
