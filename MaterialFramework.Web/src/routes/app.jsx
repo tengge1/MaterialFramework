@@ -33,11 +33,11 @@ const appRoutes = [
             }, {
                 id: '15',
                 name: '表格',
-                path: '/demo/buttons'
+                path: '/demo/tables'
             }, {
                 id: '16',
-                name: '小组件',
-                path: '/demo/buttons'
+                name: '小部件',
+                path: '/demo/widgets'
             }
         ]
     }, {
@@ -64,7 +64,7 @@ const appRoutes = [
             }
         ]
     }, {
-        id: 2,
+        id: 3,
         name: '皮肤编辑器',
         path: '',
         icon: Build

@@ -25,3 +25,5 @@ export { default as CardMedia } from './components/card/CardMedia.jsx';
 
 export { default as Checkbox } from './components/form/Checkbox.jsx';
 export { default as Chip } from './components/form/Chip.jsx';
+
+export { default as CircularProgress } from './components/progress/CircularProgress.jsx';

@@ -44,7 +44,7 @@ function HomeIcon(props) {
     </SvgIcon>;
 }
 
-class Components extends React.Component {
+class Tables extends React.Component {
     state = {
         bottomNavigation1_value: 0
     }
@@ -259,4 +259,4 @@ class Components extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(Components));
+export default withRoot(withStyles(styles)(Tables));
