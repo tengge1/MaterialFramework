@@ -27,3 +27,6 @@ export { default as Checkbox } from './components/form/Checkbox.jsx';
 export { default as Chip } from './components/form/Chip.jsx';
 
 export { default as CircularProgress } from './components/progress/CircularProgress.jsx';
+
+export { default as ClickAwayListener } from './components/utils/ClickAwayListener.jsx';
+export { ajax, get, post } from './components/utils/Ajax.jsx';

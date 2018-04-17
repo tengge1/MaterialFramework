@@ -7,9 +7,9 @@ function ajax(params) {
     var xhr = new XMLHttpRequest();
     xhr.open(method, url, true);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
+        if (xhr.readyState === 4) {
             var data = xhr.responseText;
-            typeof(callback) == 'function' && callback(data);
+            typeof (callback) === 'function' && callback(data);
         }
     }
 
@@ -30,11 +30,11 @@ function ajax(params) {
 }
 
 function get(url, callback) {
-    ajax({url: url, callback: callback});
+    ajax({ url: url, callback: callback });
 }
 
 function post(url, data, callback) {
-    ajax({url: url, method: 'POST', data: data, callback: callback});
+    ajax({ url: url, method: 'POST', data: data, callback: callback });
 }
 
-export {ajax, get, post};
+export { ajax, get, post };

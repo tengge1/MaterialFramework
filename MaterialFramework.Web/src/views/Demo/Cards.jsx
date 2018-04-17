@@ -3,6 +3,7 @@ import { withStyles } from 'material-ui';
 import { withRoot } from '../../withRoot';
 import {
     Grid,
+    Button,
     FlatButton,
     Card,
     CardHeader,
@@ -72,6 +73,10 @@ class Cards extends React.Component {
             </CardActions>
         </Card>;
 
+        const collapse = <div>
+
+        </div>;
+
         return <div className={classes.root}>
             <Grid
                 container
@@ -82,6 +87,7 @@ class Cards extends React.Component {
                 spacing={16}>
                 {card1}
                 {card2}
+                {collapse}
             </Grid>
         </div>;
     }
