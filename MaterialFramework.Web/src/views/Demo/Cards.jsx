@@ -12,7 +12,8 @@ import {
     CardActions,
     Avatar,
     IconButton,
-    MoreVert
+    MoreVert,
+    Collapse
 } from '../../Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Cover from '../../assets/img/cover.jpeg';
@@ -37,7 +38,7 @@ const styles = theme => ({
 
 class Cards extends React.Component {
     state = {
-        bottomNavigation1_value: 0
+        collapseOpen: false
     }
 
     render() {
@@ -73,9 +74,16 @@ class Cards extends React.Component {
             </CardActions>
         </Card>;
 
-        const collapse = <div>
-
-        </div>;
+        const collapse = <Grid container item>
+            <Grid xs={12}>
+                <Button onClick={this.toggleCollapse}>切换</Button>
+            </Grid>
+            <Grid xs={12}>
+                <Collapse in={this.state.collapseOpen}>
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica
+                </Collapse>
+            </Grid>
+        </Grid>;
 
         return <div className={classes.root}>
             <Grid
@@ -90,6 +98,12 @@ class Cards extends React.Component {
                 {collapse}
             </Grid>
         </div>;
+    }
+
+    toggleCollapse = () => {
+        this.setState({
+            collapseOpen: !this.state.collapseOpen
+        });
     }
 }
 
