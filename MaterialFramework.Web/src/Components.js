@@ -1,5 +1,8 @@
 // grid
 export { default as Grid } from './components/grid/Grid.jsx';
+export { default as GridList } from './components/grid/GridList.jsx';
+export { default as GridListTile } from './components/grid/GridListTile.jsx';
+export { default as GridListTileBar } from './components/grid/GridListTileBar.jsx';
 
 // button
 export { default as Button } from './components/button/Button.jsx';
@@ -51,12 +54,26 @@ export { default as FormControlLabel } from './components/form/FormControlLabel.
 export { default as FormGroup } from './components/form/FormGroup.jsx';
 export { default as FromHelperText } from './components/form/FormHelperText.jsx';
 export { default as FormLabel } from './components/form/FormLabel.jsx';
+export { default as Input } from './components/form/Input.jsx';
+export { default as InputAdornment } from './components/form/InputAdornment.jsx';
+export { default as InputLabel } from './components/form/InputLabel.jsx';
 
 // list
+export { default as List } from './components/list/List.jsx';
+export { default as ListItem } from './components/list/ListItem.jsx';
+export { default as ListItemAvatar } from './components/list/ListItemAvatar.jsx';
+export { default as ListItemIcon } from './components/list/ListItemIcon.jsx';
+export { default as ListItemSecondaryAction } from './components/list/ListItemSecondaryAction';
+export { default as ListItemText } from './components/list/ListItemText.jsx';
+export { default as ListSubheader } from './components/list/ListSubheader.jsx';
 export { default as Divider } from './components/list/Divider.jsx';
+
+// popover
+export { default as Grow } from './components/popover/Grow.jsx';
 
 // progress
 export { default as CircularProgress } from './components/progress/CircularProgress.jsx';
+export { default as LinearProgress } from './components/progress/LinearProgress.jsx';
 
 // utils
 export { default as ClickAwayListener } from './components/utils/ClickAwayListener.jsx';
