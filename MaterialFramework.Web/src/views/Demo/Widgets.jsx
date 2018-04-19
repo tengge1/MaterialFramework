@@ -9,7 +9,7 @@ import {
     SvgIcon,
     Mail,
     Badge
-} from '../../Components';
+} from '../../components/Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Woman from '../../assets/img/faces/avatar.jpg';
 

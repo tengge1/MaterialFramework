@@ -14,7 +14,7 @@ import {
     IconButton,
     MoreVert,
     Collapse
-} from '../../Components';
+} from '../../components/Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Cover from '../../assets/img/cover.jpeg';
 

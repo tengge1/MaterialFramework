@@ -11,7 +11,7 @@ import {
     Edit,
     Search,
     Delete
-} from '../../Components';
+} from '../../components/Components';
 
 const styles = theme => ({
     root: {
