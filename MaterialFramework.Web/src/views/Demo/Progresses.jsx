@@ -1,7 +1,7 @@
 import React from 'react';
 import {withStyles} from 'material-ui';
 import {withRoot} from '../../withRoot';
-import {Grid, CircularProgress} from '../../components/Components';
+import {Grid, CircularProgress} from '../../components/Components.jsx';
 
 const styles = theme => ({
     root: {

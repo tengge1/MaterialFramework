@@ -1,6 +1,6 @@
 import React from 'react';
-import {withStyles} from 'material-ui';
-import {withRoot} from '../../withRoot';
+import { withStyles } from 'material-ui';
+import { withRoot } from '../../withRoot';
 import {
     Grid,
     IconButton,
@@ -9,7 +9,7 @@ import {
     SvgIcon,
     Mail,
     Badge
-} from '../../components/Components';
+} from '../../components/Components.jsx';
 import Man from '../../assets/img/faces/marc.jpg';
 import Woman from '../../assets/img/faces/avatar.jpg';
 
@@ -30,7 +30,7 @@ const styles = theme => ({
 
 function HomeIcon(props) {
     return <SvgIcon {...props}>
-        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
     </SvgIcon>;
 }
 
@@ -40,26 +40,26 @@ class Widgets extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
         const avatar = <Grid container item spacing={8}>
             <Grid item>
-                <Avatar src={Man} alt={'avatar'}/>
+                <Avatar src={Man} alt={'avatar'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} alt={'avatar'}/>
+                <Avatar src={Woman} alt={'avatar'} />
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'small'}/>
+                <Avatar src={Man} size={'small'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'small'}/>
+                <Avatar src={Woman} size={'small'} />
             </Grid>
             <Grid item>
-                <Avatar src={Man} size={'large'}/>
+                <Avatar src={Man} size={'large'} />
             </Grid>
             <Grid item>
-                <Avatar src={Woman} size={'large'}/>
+                <Avatar src={Woman} size={'large'} />
             </Grid>
         </Grid>;
 
@@ -86,10 +86,10 @@ class Widgets extends React.Component {
                 <Icon color={'action'}>delete</Icon>
             </Grid>
             <Grid item>
-                <HomeIcon/>
+                <HomeIcon />
             </Grid>
             <Grid item>
-                <IconButton/>
+                <IconButton />
             </Grid>
         </Grid>;
 
@@ -100,30 +100,30 @@ class Widgets extends React.Component {
                         badgeContent={10}
                         color={'default'}
                         classes={{
-                        badge: classes.badgeBadge
-                    }}>
-                        <Mail/>
+                            badge: classes.badgeBadge
+                        }}>
+                        <Mail />
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
                     <Badge badgeContent={10} color={'primary'}>
-                        <Mail/>
+                        <Mail />
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
                     <Badge badgeContent={10} color={'secondary'}>
-                        <Mail/>
+                        <Mail />
                     </Badge>
                 </IconButton>
             </Grid>
             <Grid item>
                 <IconButton>
                     <Badge badgeContent={10} color={'error'}>
-                        <Mail/>
+                        <Mail />
                     </Badge>
                 </IconButton>
             </Grid>

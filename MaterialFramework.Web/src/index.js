@@ -8,12 +8,12 @@ class MaterialFramework extends React.Component {
     render() {
         const isLogin = Cookies.get('isLogin');
         if (isLogin) {
-            return <Home/>
+            return <Home />
         } else {
-            return <Login/>
+            return <Login />
         }
     }
 }
 
 ReactDOM.render(
-    <MaterialFramework/>, document.getElementById("root"));
+    <MaterialFramework />, document.getElementById("root"));

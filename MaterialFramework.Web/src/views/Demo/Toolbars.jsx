@@ -11,7 +11,7 @@ import {
     Restore,
     Favorite,
     LocationOn
-} from '../../components/Components';
+} from '../../components/Components.jsx';
 
 const styles = theme => ({
     root: {

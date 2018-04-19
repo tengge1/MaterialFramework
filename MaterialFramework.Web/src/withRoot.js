@@ -1,5 +1,5 @@
 import React from 'react';
-import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import CssBaseline from 'material-ui/CssBaseline';
 
 const themeBase = createMuiTheme({
@@ -14,8 +14,8 @@ function withRoot(Component) {
     function WithRoot(props) {
         return (
             <MuiThemeProvider theme={themeBase}>
-                <CssBaseline/>
-                <Component {...props}/>
+                <CssBaseline />
+                <Component {...props} />
             </MuiThemeProvider>
         );
     }
@@ -23,6 +23,6 @@ function withRoot(Component) {
     return WithRoot;
 }
 
-export {themeBase, withRoot};
+export { themeBase, withRoot };
 
 export default withRoot;
