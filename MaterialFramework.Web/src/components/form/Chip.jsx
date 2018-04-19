@@ -1,5 +1,5 @@
 import React from 'react';
-import {Chip as MaterialChip} from 'material-ui';
+import { Chip as MaterialChip } from 'material-ui';
 
 class Chip extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Chip extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialChip {...others}/>;
+        return <MaterialChip {...others} />;
     }
 }
 

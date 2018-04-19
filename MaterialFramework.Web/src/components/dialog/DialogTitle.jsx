@@ -1,5 +1,5 @@
 import React from 'react';
-import {DialogTitle as MaterialDialogTitle} from 'material-ui';
+import { DialogTitle as MaterialDialogTitle } from 'material-ui';
 
 class DialogTitle extends React.Component {
     render() {

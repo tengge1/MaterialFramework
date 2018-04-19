@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormGroup as MaterialFormGroup} from 'material-ui';
+import { FormGroup as MaterialFormGroup } from 'material-ui';
 
 class FormGroup extends React.Component {
     render() {

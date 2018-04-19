@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar as MaterialAppBar, Toolbar as MaterialToolbar, withStyles} from 'material-ui';
+import { AppBar as MaterialAppBar, Toolbar as MaterialToolbar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
@@ -26,12 +26,12 @@ class AppBar extends React.Component {
         return <MaterialAppBar position={position || 'static'} {...others}>
             <MaterialToolbar
                 classes={{
-                root: size === 'small'
-                    ? classes.small
-                    : (size === 'large'
-                        ? classes.large
-                        : classes.medium)
-            }}>
+                    root: size === 'small'
+                        ? classes.small
+                        : (size === 'large'
+                            ? classes.large
+                            : classes.medium)
+                }}>
                 {children}
             </MaterialToolbar>
         </MaterialAppBar>;

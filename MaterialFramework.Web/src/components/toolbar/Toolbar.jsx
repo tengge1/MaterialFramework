@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper, withStyles} from 'material-ui';
+import { Paper, withStyles } from 'material-ui';
 import Grid from '../grid/Grid.jsx';
 
 const styles = theme => ({
@@ -16,7 +16,7 @@ class Toolbar extends React.Component {
             ...others
         } = this.props;
 
-        const items = typeof(children) === 'string'
+        const items = typeof (children) === 'string'
             ? <label>{children}</label>
             : children.map(function (n, index) {
                 return <Grid item key={index}>{n}</Grid>;
@@ -26,8 +26,8 @@ class Toolbar extends React.Component {
             elevation={2}
             square={true}
             classes={{
-            root: classes.root
-        }}>
+                root: classes.root
+            }}>
             <Grid
                 container
                 direction={'row'}

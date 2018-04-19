@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControlLabel as MaterialFormControlLabel} from 'material-ui';
+import { FormControlLabel as MaterialFormControlLabel } from 'material-ui';
 
 class FormControlLabel extends React.Component {
     render() {

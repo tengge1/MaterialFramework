@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormHelperText as MaterialFormHelperText} from 'material-ui';
+import { FormHelperText as MaterialFormHelperText } from 'material-ui';
 
 class FormHelperText extends React.Component {
     render() {

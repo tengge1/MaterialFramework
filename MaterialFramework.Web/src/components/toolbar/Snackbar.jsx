@@ -1,5 +1,5 @@
 import React from 'react';
-import {Snackbar as MaterialSnackbar} from 'material-ui';
+import { Snackbar as MaterialSnackbar } from 'material-ui';
 
 class Snackbar extends React.Component {
     render() {

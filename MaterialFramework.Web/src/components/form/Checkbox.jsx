@@ -1,5 +1,5 @@
 import React from 'react';
-import {Checkbox as MaterialCheckbox} from 'material-ui';
+import { Checkbox as MaterialCheckbox } from 'material-ui';
 
 class Checkbox extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Checkbox extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCheckbox {...others}/>;
+        return <MaterialCheckbox {...others} />;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button as MaterialButton, withStyles} from 'material-ui';
+import { Button as MaterialButton, withStyles } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -31,13 +31,13 @@ class Button extends React.Component {
             variant={variant || 'raised'}
             color={color}
             classes={(color === 'default' || color === undefined)
-            ? {
-                root: classes.root,
-                raised: classes.raised
-            }
-            : {
-                root: classes.root
-            }}
+                ? {
+                    root: classes.root,
+                    raised: classes.raised
+                }
+                : {
+                    root: classes.root
+                }}
             {...others}>{children || 'Button'}</MaterialButton>;
     }
 }

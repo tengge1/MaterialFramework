@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormControl as MaterialFormControl} from 'material-ui';
+import { FormControl as MaterialFormControl } from 'material-ui';
 
 class FormControl extends React.Component {
     render() {

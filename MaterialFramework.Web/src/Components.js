@@ -127,8 +127,9 @@ export { default as Slide } from './components/transition/Slide.jsx';
 export { default as Zoom } from './components/transition/Zoom.jsx';
 
 // utils
-export { default as ClickAwayListener } from './components/utils/ClickAwayListener.jsx';
 export { ajax, get, post } from './components/utils/Ajax.jsx';
+export { default as ClickAwayListener } from './components/utils/ClickAwayListener.jsx';
 export { default as CssBaseline } from './components/utils/CssBaseline.jsx';
+export { default as Hidden } from './components/utils/Hidden.jsx';
 export { default as MuiThemeProvider } from './components/utils/MuiThemeProvider.jsx';
 export { default as Portal } from './components/utils/Portal.jsx';

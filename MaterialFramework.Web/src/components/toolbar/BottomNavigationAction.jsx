@@ -1,5 +1,5 @@
 import React from 'react';
-import {BottomNavigationAction as MaterialBottomNavigationAction} from 'material-ui';
+import { BottomNavigationAction as MaterialBottomNavigationAction } from 'material-ui';
 
 class BottomNavigationAction extends React.Component {
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Fade as MaterialFade} from 'material-ui';
+import { Fade as MaterialFade } from 'material-ui';
 
 class Fade extends React.Component {
     render() {

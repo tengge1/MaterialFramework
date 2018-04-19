@@ -1,5 +1,5 @@
 import React from 'react';
-import {ExpansionPanel as MaterialExpansionPanel} from 'material-ui';
+import { ExpansionPanel as MaterialExpansionPanel } from 'material-ui';
 
 class ExpansionPanel extends React.Component {
     render() {

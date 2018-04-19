@@ -1,5 +1,5 @@
 import React from 'react';
-import {Step as MaterialStep} from 'material-ui';
+import { Step as MaterialStep } from 'material-ui';
 
 class Step extends React.Component {
     render() {

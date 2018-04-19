@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar as MaterialAvatar, withStyles} from 'material-ui';
+import { Avatar as MaterialAvatar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
@@ -26,10 +26,10 @@ class Avatar extends React.Component {
 
         return <MaterialAvatar
             className={size === 'small'
-            ? classes.small
-            : (size === 'large'
-                ? classes.large
-                : classes.medium)}
+                ? classes.small
+                : (size === 'large'
+                    ? classes.large
+                    : classes.medium)}
             {...others}></MaterialAvatar>;
     }
 }

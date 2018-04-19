@@ -1,5 +1,5 @@
 import React from 'react';
-import {SvgIcon as MaterialSvgIcon} from 'material-ui';
+import { SvgIcon as MaterialSvgIcon } from 'material-ui';
 
 class SvgIcon extends React.Component {
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardHeader as MaterialCardHeader} from 'material-ui';
+import { CardHeader as MaterialCardHeader } from 'material-ui';
 
 class CardHeader extends React.Component {
     render() {

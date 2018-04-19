@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardContent as MaterialCardContent} from 'material-ui';
+import { CardContent as MaterialCardContent } from 'material-ui';
 
 class CardContent extends React.Component {
     render() {

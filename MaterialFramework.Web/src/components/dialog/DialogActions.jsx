@@ -1,5 +1,5 @@
 import React from 'react';
-import {DialogActions as MaterialDialogActions} from 'material-ui';
+import { DialogActions as MaterialDialogActions } from 'material-ui';
 
 class DialogActions extends React.Component {
     render() {
