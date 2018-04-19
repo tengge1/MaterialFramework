@@ -1,5 +1,5 @@
 import React from 'react';
-import {Drawer as MaterialDrawer} from 'material-ui';
+import { Drawer as MaterialDrawer } from 'material-ui';
 
 class Drawer extends React.Component {
     render() {
