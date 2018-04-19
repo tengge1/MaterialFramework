@@ -44,7 +44,7 @@ export { default as DialogActions } from './components/dialog/DialogActions.jsx'
 export { default as DialogContent } from './components/dialog/DialogContent.jsx';
 export { default as DialogContentText } from './components/dialog/DialogContentText.jsx';
 export { default as DialogTitle } from './components/dialog/DialogTitle.jsx';
-export { default as Fade } from './components/dialog/Fade.jsx';
+export { default as Modal } from './components/dialog/Modal.jsx';
 
 // form
 export { default as Checkbox } from './components/form/Checkbox.jsx';
@@ -57,6 +57,9 @@ export { default as FormLabel } from './components/form/FormLabel.jsx';
 export { default as Input } from './components/form/Input.jsx';
 export { default as InputAdornment } from './components/form/InputAdornment.jsx';
 export { default as InputLabel } from './components/form/InputLabel.jsx';
+export { default as Radio } from './components/form/Radio.jsx';
+export { default as RadioGroup } from './components/form/RadioGroup.jsx';
+export { default as Select } from './components/form/Select.jsx';
 
 // list
 export { default as List } from './components/list/List.jsx';
@@ -68,14 +71,33 @@ export { default as ListItemText } from './components/list/ListItemText.jsx';
 export { default as ListSubheader } from './components/list/ListSubheader.jsx';
 export { default as Divider } from './components/list/Divider.jsx';
 
+// paper
+export { default as Paper } from './components/paper/Paper.jsx';
+
 // popover
-export { default as Grow } from './components/popover/Grow.jsx';
+export { default as Popover } from './components/popover/Popover.jsx';
+
+// menu
+export { default as Menu } from './components/menu/Menu.jsx';
+export { default as MenuItem } from './components/menu/MenuItem.jsx';
+export { default as MenuList } from './components/menu/MenuList.jsx';
 
 // progress
 export { default as CircularProgress } from './components/progress/CircularProgress.jsx';
 export { default as LinearProgress } from './components/progress/LinearProgress.jsx';
 
+// stepper
+export { default as MobileStepper } from './components/stepper/MobileStepper.jsx';
+
+// transition
+export { default as Fade } from './components/transition/Fade.jsx';
+export { default as Grow } from './components/transition/Grow.jsx';
+export { default as Slide } from './components/transition/Slide.jsx';
+export { default as Zoom } from './components/transition/Zoom.jsx';
+
 // utils
 export { default as ClickAwayListener } from './components/utils/ClickAwayListener.jsx';
 export { ajax, get, post } from './components/utils/Ajax.jsx';
 export { default as CssBaseline } from './components/utils/CssBaseline.jsx';
+export { default as MuiThemeProvider } from './components/utils/MuiThemeProvider.jsx';
+export { default as Portal } from './components/utils/Portal.jsx';
