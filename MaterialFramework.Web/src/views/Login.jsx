@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import Cookies from 'js-cookie';
 import {
     Card,
@@ -40,10 +39,6 @@ const styles = {
     },
     header: {
         paddingBottom: 0
-    },
-    avatar: {
-        width: '64px',
-        height: '64px'
     },
     content: {
         width: '260px',
@@ -98,7 +93,7 @@ class Login extends React.Component {
     render() {
         const { classes } = this.props;
 
-        const avatar = <Avatar src={face} alt={'头像'} className={classes.avatar} />;
+        const avatar = <Avatar src={face} size={'large'} alt={'头像'} />;
 
         var passwordAdornment = <InputAdornment position="end">
             <IconButton
@@ -116,7 +111,7 @@ class Login extends React.Component {
                     <Card className={classes.card} raised={true} square={false}>
                         <CardHeader title={''} className={classes.header} avatar={avatar} />
                         <CardContent className={classes.content}>
-                            <FormControl className={classNames(classes.margin, classes.textField)}>
+                            <FormControl className={classes.textField}>
                                 <InputLabel>用户名</InputLabel>
                                 <Input
                                     type={'text'}
@@ -125,7 +120,7 @@ class Login extends React.Component {
                                     fullWidth={true}
                                     onChange={this.handleInputChange} />
                             </FormControl>
-                            <FormControl className={classNames(classes.margin, classes.textField)}>
+                            <FormControl className={classes.textField}>
                                 <InputLabel>密码</InputLabel>
                                 <Input
                                     type={this.state.showPassword
