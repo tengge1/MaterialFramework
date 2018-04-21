@@ -18,9 +18,7 @@
 
 演示Demo：https://tengge1.github.io/MaterialFramework/
 
-![image](https://github.com/tengge1/MaterialFramework/blob/master/image/login-page.png)
-
-![image](https://github.com/tengge1/MaterialFramework/blob/master/image/main_page20180417.png)
+![image](https://github.com/tengge1/MaterialFramework/blob/master/image/home-20180421.png)
 
 ## 相关项目
 
