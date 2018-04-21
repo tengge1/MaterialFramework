@@ -1,6 +1,5 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
-import { Grid, Checkbox, Chip, Avatar } from '../../components/Components.jsx';
+import { withStyles, Grid, Checkbox, Chip, Avatar } from '../../components/Components';
 import Man from '../../assets/img/faces/marc.jpg';
 
 const styles = theme => ({

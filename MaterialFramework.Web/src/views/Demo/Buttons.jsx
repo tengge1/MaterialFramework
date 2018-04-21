@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
 import {
+    withStyles,
     Grid,
     Button,
     FlatButton,
@@ -10,7 +10,7 @@ import {
     Edit,
     Search,
     Delete
-} from '../../components/Components.jsx';
+} from '../../components/Components';
 
 const styles = theme => ({
     root: {

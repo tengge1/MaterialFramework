@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
 import {
+    withStyles,
     Grid,
     Button,
     FlatButton,
@@ -18,7 +18,7 @@ import {
     Restore,
     Favorite,
     LocationOn
-} from '../../components/Components.jsx';
+} from '../../components/Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Woman from '../../assets/img/faces/avatar.jpg';
 

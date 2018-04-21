@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import {
     withStyles,
     Drawer,
@@ -10,12 +9,15 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    Collapse
-} from 'material-ui';
-import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from 'material-ui-icons';
+    Collapse,
+    ChevronLeft,
+    ChevronRight,
+    ExpandLess,
+    ExpandMore
+} from '../../components/Components';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PerfectScrollbar from 'perfect-scrollbar';
-import appRoutes from '../../routes/app.jsx';
+import appRoutes from '../../routes/app';
 
 const styles = theme => ({
     drawerPaper: {
@@ -232,9 +234,5 @@ class Sidebar extends React.Component {
         );
     }
 }
-
-Sidebar.propTypes = {
-    onItemClick: PropTypes.func
-};
 
 export default withStyles(styles)(Sidebar);

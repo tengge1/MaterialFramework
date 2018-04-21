@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
 import {
+    withStyles,
     Grid,
     Button,
     AppBar,
@@ -10,7 +10,7 @@ import {
     Restore,
     Favorite,
     LocationOn
-} from '../../components/Components.jsx';
+} from '../../components/Components';
 
 const styles = theme => ({
     root: {

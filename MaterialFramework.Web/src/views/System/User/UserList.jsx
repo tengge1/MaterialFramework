@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Card, CardActions, withStyles } from 'material-ui';
-import { Add, Edit, Search, Delete } from 'material-ui-icons';
+import { withStyles, Button, Card, CardActions, Add, Edit, Search, Delete } from '../../../components/Components';
 import GridPanel from '../../../components/table/GridPanel';
 
 const styles = theme => ({

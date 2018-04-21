@@ -1,25 +1,25 @@
 import React from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Table, {
+import {
+    withStyles,
+    Table,
     TableBody,
     TableCell,
     TableFooter,
     TableHead,
     TablePagination,
     TableRow,
-    TableSortLabel
-} from 'material-ui/Table';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Paper from 'material-ui/Paper';
-import Checkbox from 'material-ui/Checkbox';
-import IconButton from 'material-ui/IconButton';
-import Tooltip from 'material-ui/Tooltip';
-import DeleteIcon from 'material-ui-icons/Delete';
-import FilterListIcon from 'material-ui-icons/FilterList';
-import { lighten } from 'material-ui/styles/colorManipulator';
+    TableSortLabel,
+    Toolbar,
+    Typography,
+    Paper,
+    Checkbox,
+    IconButton,
+    Tooltip,
+    DeleteIcon,
+    FilterListIcon,
+    lighten
+} from '../../../components/Components';
 
 let counter = 0;
 function createData(name, calories, fat, carbs, protein) {
@@ -115,15 +115,6 @@ class EnhancedTableHead extends React.Component {
     }
 }
 
-EnhancedTableHead.propTypes = {
-    numSelected: PropTypes.number.isRequired,
-    onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    order: PropTypes.string.isRequired,
-    orderBy: PropTypes.string.isRequired,
-    rowCount: PropTypes.number.isRequired
-};
-
 const toolbarStyles = theme => ({
     root: {
         paddingRight: theme.spacing.unit
@@ -188,11 +179,6 @@ let EnhancedTableToolbar = props => {
             </div>
         </Toolbar>
     );
-};
-
-EnhancedTableToolbar.propTypes = {
-    classes: PropTypes.object.isRequired,
-    numSelected: PropTypes.number.isRequired
 };
 
 EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
@@ -390,9 +376,5 @@ class RoleList extends React.Component {
         );
     }
 }
-
-RoleList.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(RoleList);

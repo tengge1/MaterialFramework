@@ -1,7 +1,7 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
-import Header from './Home/Header.jsx';
-import Sidebar from './Home/Sidebar.jsx';
+import { withStyles } from '../components/Components';
+import Header from './Home/Header';
+import Sidebar from './Home/Sidebar';
 import Content from './Home/Content';
 
 const styles = theme => ({

@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'js-cookie';
 import { Manager, Target, Popper } from "react-popper";
 import {
     withStyles,
@@ -10,10 +11,11 @@ import {
     Grow,
     Paper,
     ClickAwayListener,
-    Badge
-} from "material-ui";
-import { Person, Notifications, ExitToApp } from "material-ui-icons";
-import Cookies from 'js-cookie';
+    Badge,
+    Person,
+    Notifications,
+    ExitToApp
+} from "../../components/Components";
 import logo from "assets/img/reactlogo.png";
 
 const styles = theme => ({

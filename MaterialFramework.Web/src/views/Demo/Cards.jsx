@@ -1,6 +1,6 @@
 import React from 'react';
-import { withStyles } from 'material-ui';
 import {
+    withStyles,
     Grid,
     Button,
     FlatButton,
@@ -13,7 +13,7 @@ import {
     IconButton,
     MoreVert,
     Collapse
-} from '../../components/Components.jsx';
+} from '../../components/Components';
 import Man from '../../assets/img/faces/marc.jpg';
 import Cover from '../../assets/img/cover.jpeg';
 

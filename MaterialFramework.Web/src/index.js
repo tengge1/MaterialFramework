@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cookies from 'js-cookie';
-import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green } from './components/Components.jsx';
-import Home from './views/Home.jsx';
-import Login from './views/Login.jsx';
+import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green } from './components/Components';
+import Home from './views/Home';
+import Login from './views/Login';
 
 const themeBase = createMuiTheme({
     palette: {

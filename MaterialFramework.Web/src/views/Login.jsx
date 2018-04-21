@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Cookies from 'js-cookie';
 import {
     Card,
     CardHeader,
@@ -13,10 +13,10 @@ import {
     Input,
     InputAdornment,
     IconButton,
-    InputLabel
-} from 'material-ui';
-import { VisibilityOff, Visibility } from 'material-ui-icons';
-import Cookies from 'js-cookie';
+    InputLabel,
+    VisibilityOff,
+    Visibility
+} from '../components/Components';
 import cover from '../assets/img/cover.jpeg';
 import face from '../assets/img/faces/avatar.jpg';
 
@@ -156,9 +156,5 @@ class Login extends React.Component {
         );
     }
 }
-
-Login.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(Login);

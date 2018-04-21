@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles, AppBar, Tabs, Tab } from 'material-ui';
-import { Close } from 'material-ui-icons';
-import Views from '../Views.jsx';
+import { withStyles, AppBar, Tabs, Tab, Close } from '../../components/Components';
+import Views from '../Views';
 
 const styles = theme => ({
     root: {
@@ -94,13 +92,5 @@ class Content extends React.Component {
         }
     }
 }
-
-Content.propTypes = {
-    className: PropTypes.string,
-    tabs: PropTypes.array,
-    currentTab: PropTypes.number,
-    onTabIndexChange: PropTypes.func,
-    onTabClose: PropTypes.func
-};
 
 export default withStyles(styles)(Content);
