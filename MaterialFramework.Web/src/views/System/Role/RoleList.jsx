@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles';
 import Table, {
     TableBody,
     TableCell,
@@ -19,8 +19,7 @@ import IconButton from 'material-ui/IconButton';
 import Tooltip from 'material-ui/Tooltip';
 import DeleteIcon from 'material-ui-icons/Delete';
 import FilterListIcon from 'material-ui-icons/FilterList';
-import {lighten} from 'material-ui/styles/colorManipulator';
-import withRoot from '../../../withRoot';
+import { lighten } from 'material-ui/styles/colorManipulator';
 
 let counter = 0;
 function createData(name, calories, fat, carbs, protein) {
@@ -72,7 +71,7 @@ class EnhancedTableHead extends React.Component {
     };
 
     render() {
-        const {onSelectAllClick, order, orderBy, numSelected, rowCount} = this.props;
+        const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
 
         return (
             <TableHead>
@@ -81,7 +80,7 @@ class EnhancedTableHead extends React.Component {
                         <Checkbox
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
-                            onChange={onSelectAllClick}/>
+                            onChange={onSelectAllClick} />
                     </TableCell>
                     {columnData.map(column => {
                         return (
@@ -89,16 +88,16 @@ class EnhancedTableHead extends React.Component {
                                 key={column.id}
                                 numeric={column.numeric}
                                 padding={column.disablePadding
-                                ? 'none'
-                                : 'default'}
+                                    ? 'none'
+                                    : 'default'}
                                 sortDirection={orderBy === column.id
-                                ? order
-                                : false}>
+                                    ? order
+                                    : false}>
                                 <Tooltip
                                     title="Sort"
                                     placement={column.numeric
-                                    ? 'bottom-end'
-                                    : 'bottom-start'}
+                                        ? 'bottom-end'
+                                        : 'bottom-start'}
                                     enterDelay={300}>
                                     <TableSortLabel
                                         active={orderBy === column.id}
@@ -150,13 +149,13 @@ const toolbarStyles = theme => ({
 });
 
 let EnhancedTableToolbar = props => {
-    const {numSelected, classes} = props;
+    const { numSelected, classes } = props;
 
     return (
         <Toolbar
             className={classNames(classes.root, {
-            [classes.highlight]: numSelected > 0
-        })}>
+                [classes.highlight]: numSelected > 0
+            })}>
             <div className={classes.title}>
                 {numSelected > 0
                     ? (
@@ -169,20 +168,20 @@ let EnhancedTableToolbar = props => {
                         <Typography variant="title">Nutrition</Typography>
                     )}
             </div>
-            <div className={classes.spacer}/>
+            <div className={classes.spacer} />
             <div className={classes.actions}>
                 {numSelected > 0
                     ? (
                         <Tooltip title="Delete">
                             <IconButton aria-label="Delete">
-                                <DeleteIcon/>
+                                <DeleteIcon />
                             </IconButton>
                         </Tooltip>
                     )
                     : (
                         <Tooltip title="Filter list">
                             <IconButton aria-label="Filter list">
-                                <FilterListIcon/>
+                                <FilterListIcon />
                             </IconButton>
                         </Tooltip>
                     )}
@@ -263,7 +262,7 @@ class RoleList extends React.Component {
                     ? -1
                     : 1));
 
-        this.setState({data, order, orderBy});
+        this.setState({ data, order, orderBy });
     };
 
     handleSelectAllClick = (event, checked) => {
@@ -276,11 +275,11 @@ class RoleList extends React.Component {
             });
             return;
         }
-        this.setState({selected: []});
+        this.setState({ selected: [] });
     };
 
     handleClick = (event, id) => {
-        const {selected} = this.state;
+        const { selected } = this.state;
         const selectedIndex = selected.indexOf(id);
         let newSelected = [];
 
@@ -291,18 +290,18 @@ class RoleList extends React.Component {
         } else if (selectedIndex === selected.length - 1) {
             newSelected = newSelected.concat(selected.slice(0, -1));
         } else if (selectedIndex > 0) {
-            newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1),);
+            newSelected = newSelected.concat(selected.slice(0, selectedIndex), selected.slice(selectedIndex + 1), );
         }
 
-        this.setState({selected: newSelected});
+        this.setState({ selected: newSelected });
     };
 
     handleChangePage = (event, page) => {
-        this.setState({page});
+        this.setState({ page });
     };
 
     handleChangeRowsPerPage = event => {
-        this.setState({rowsPerPage: event.target.value});
+        this.setState({ rowsPerPage: event.target.value });
     };
 
     isSelected = id => this
@@ -311,7 +310,7 @@ class RoleList extends React.Component {
         .indexOf(id) !== -1;
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         const {
             data,
             order,
@@ -324,7 +323,7 @@ class RoleList extends React.Component {
 
         return (
             <Paper className={classes.root}>
-                <EnhancedTableToolbar numSelected={selected.length}/>
+                <EnhancedTableToolbar numSelected={selected.length} />
                 <div className={classes.tableWrapper}>
                     <Table className={classes.table}>
                         <EnhancedTableHead
@@ -333,7 +332,7 @@ class RoleList extends React.Component {
                             orderBy={orderBy}
                             onSelectAllClick={this.handleSelectAllClick}
                             onRequestSort={this.handleRequestSort}
-                            rowCount={data.length}/>
+                            rowCount={data.length} />
                         <TableBody>
                             {data
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -349,7 +348,7 @@ class RoleList extends React.Component {
                                             key={n.id}
                                             selected={isSelected}>
                                             <TableCell padding="checkbox">
-                                                <Checkbox checked={isSelected}/>
+                                                <Checkbox checked={isSelected} />
                                             </TableCell>
                                             <TableCell padding="none">{n.name}</TableCell>
                                             <TableCell numeric>{n.calories}</TableCell>
@@ -362,9 +361,9 @@ class RoleList extends React.Component {
                             {emptyRows > 0 && (
                                 <TableRow
                                     style={{
-                                    height: 49 * emptyRows
-                                }}>
-                                    <TableCell colSpan={6}/>
+                                        height: 49 * emptyRows
+                                    }}>
+                                    <TableCell colSpan={6} />
                                 </TableRow>
                             )}
                         </TableBody>
@@ -376,13 +375,13 @@ class RoleList extends React.Component {
                                     rowsPerPage={rowsPerPage}
                                     page={page}
                                     backIconButtonProps={{
-                                    'aria-label': 'Previous Page'
-                                }}
+                                        'aria-label': 'Previous Page'
+                                    }}
                                     nextIconButtonProps={{
-                                    'aria-label': 'Next Page'
-                                }}
+                                        'aria-label': 'Next Page'
+                                    }}
                                     onChangePage={this.handleChangePage}
-                                    onChangeRowsPerPage={this.handleChangeRowsPerPage}/>
+                                    onChangeRowsPerPage={this.handleChangeRowsPerPage} />
                             </TableRow>
                         </TableFooter>
                     </Table>
@@ -396,4 +395,4 @@ RoleList.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(RoleList));
+export default withStyles(styles)(RoleList);

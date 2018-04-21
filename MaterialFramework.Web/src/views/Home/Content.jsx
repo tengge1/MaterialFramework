@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles, AppBar, Tabs, Tab} from 'material-ui';
-import {Close} from 'material-ui-icons';
-import withRoot from '../../withRoot';
+import { withStyles, AppBar, Tabs, Tab } from 'material-ui';
+import { Close } from 'material-ui-icons';
 import Views from '../Views.jsx';
 
 const styles = theme => ({
@@ -48,7 +47,7 @@ class Content extends React.Component {
     };
 
     render() {
-        const {classes, tabs, currentTab} = this.props;
+        const { classes, tabs, currentTab } = this.props;
         return (
             <div className={classes.root}>
                 <AppBar position="static" color="default">
@@ -63,7 +62,7 @@ class Content extends React.Component {
                             return <Tab
                                 label={this.createTabLabel(tab, index)}
                                 key={tab.id}
-                                className={classes.tab}/>;
+                                className={classes.tab} />;
                         })}
                     </Tabs>
                 </AppBar>
@@ -73,16 +72,16 @@ class Content extends React.Component {
     }
 
     createTabLabel = (tab, index) => {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <React.Fragment>
                 {tab.name}
                 {tab.closable && (<Close
                     className={classes.close}
                     onClick={(event) => {
-                    event.stopPropagation();
-                    this.closeTab(tab, index)
-                }}/>)}
+                        event.stopPropagation();
+                        this.closeTab(tab, index)
+                    }} />)}
             </React.Fragment>
         );
     }
@@ -104,4 +103,4 @@ Content.propTypes = {
     onTabClose: PropTypes.func
 };
 
-export default withRoot(withStyles(styles)(Content));
+export default withStyles(styles)(Content);

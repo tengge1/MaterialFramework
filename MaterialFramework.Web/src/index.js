@@ -1,17 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cookies from 'js-cookie';
+import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green } from './components/Components.jsx';
 import Home from './views/Home.jsx';
 import Login from './views/Login.jsx';
+
+const themeBase = createMuiTheme({
+    palette: {
+        primary: {
+            light: purple[300],
+            main: purple[500],
+            dark: purple[700]
+        }, secondary: {
+            light: green[300],
+            main: green[500],
+            dark: green[700]
+        }
+    }
+});
 
 class MaterialFramework extends React.Component {
     render() {
         const isLogin = Cookies.get('isLogin');
-        if (isLogin) {
-            return <Home />
-        } else {
-            return <Login />
-        }
+        const view = isLogin ? <Home /> : <Login />;
+
+        return <MuiThemeProvider theme={themeBase}>
+            <CssBaseline />
+            {view}
+        </MuiThemeProvider>;
     }
 }
 

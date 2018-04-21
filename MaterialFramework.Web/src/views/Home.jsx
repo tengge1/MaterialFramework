@@ -1,6 +1,5 @@
 import React from 'react';
-import {withStyles} from 'material-ui';
-import withRoot from '../withRoot';
+import { withStyles } from 'material-ui';
 import Header from './Home/Header.jsx';
 import Sidebar from './Home/Sidebar.jsx';
 import Content from './Home/Content';
@@ -46,7 +45,7 @@ class Home extends React.Component {
         if (index === -1) {
             this
                 .tabs
-                .push({id: id, name: name, path: path, closable: true});
+                .push({ id: id, name: name, path: path, closable: true });
             this.currentTab = this.tabs.length - 1;
             this.setState({
                 version: new Date().getTime()
@@ -81,22 +80,22 @@ class Home extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <div className={classes.root}>
-                <Header/>
+                <Header />
                 <div className={classes.box}>
-                    <Sidebar onItemClick={this.onMenuItemClick}/>
+                    <Sidebar onItemClick={this.onMenuItemClick} />
                     <Content
                         className={classes.content}
                         tabs={this.tabs}
                         currentTab={this.currentTab}
                         onTabIndexChange={this.onTabIndexChange}
-                        onTabClose={(tab, index) => this.onTabClose.call(this, tab, index)}/>
+                        onTabClose={(tab, index) => this.onTabClose.call(this, tab, index)} />
                 </div>
             </div>
         );
     }
 }
 
-export default withRoot(withStyles(styles)(Home));
+export default withStyles(styles)(Home);

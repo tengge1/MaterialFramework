@@ -14,7 +14,6 @@ import {
 } from "material-ui";
 import { Person, Notifications, ExitToApp } from "material-ui-icons";
 import Cookies from 'js-cookie';
-import { themeBase, withRoot } from '../../withRoot';
 import logo from "assets/img/reactlogo.png";
 
 const styles = theme => ({
@@ -62,7 +61,7 @@ const styles = theme => ({
         fontSize: "12px",
         whiteSpace: "nowrap",
         "&:hover": {
-            backgroundColor: themeBase.palette.primary.main,
+            backgroundColor: theme.palette.primary.main,
             color: "#FFFFFF"
         }
     }
@@ -179,4 +178,4 @@ class Header extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(Header));
+export default withStyles(styles)(Header);

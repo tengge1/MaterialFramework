@@ -1,3 +1,7 @@
+// theme
+export * from 'material-ui/colors';
+export { createMuiTheme } from 'material-ui';
+
 // grid
 export { default as Grid } from './grid/Grid.jsx';
 export { default as GridList } from './grid/GridList.jsx';

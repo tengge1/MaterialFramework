@@ -13,7 +13,6 @@ import {
     TableRow,
     withStyles
 } from 'material-ui';
-import withRoot from '../../withRoot';
 
 const styles = theme => ({
     root: {
@@ -101,4 +100,4 @@ GridPanel.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(GridPanel));
+export default withStyles(styles)(GridPanel);

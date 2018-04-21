@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from 'material-ui';
-import { withRoot } from '../../withRoot';
 import {
     Grid,
     Button,
@@ -108,4 +107,4 @@ class Buttons extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(Buttons));
+export default withStyles(styles)(Buttons);

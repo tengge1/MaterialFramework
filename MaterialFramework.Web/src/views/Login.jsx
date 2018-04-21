@@ -15,9 +15,8 @@ import {
     IconButton,
     InputLabel
 } from 'material-ui';
-import {VisibilityOff, Visibility} from 'material-ui-icons';
+import { VisibilityOff, Visibility } from 'material-ui-icons';
 import Cookies from 'js-cookie';
-import withRoot from '../withRoot';
 import cover from '../assets/img/cover.jpeg';
 import face from '../assets/img/faces/avatar.jpg';
 
@@ -71,7 +70,7 @@ class Login extends React.Component {
         const target = event.target;
         const name = target.name;
         const value = target.value;
-        this.setState({[name]: value});
+        this.setState({ [name]: value });
     }
 
     handleSubmit = (event) => {
@@ -83,7 +82,7 @@ class Login extends React.Component {
     }
 
     reset = () => {
-        this.setState({username: '', password: ''});
+        this.setState({ username: '', password: '' });
     }
 
     handleShowPassword = () => {
@@ -97,17 +96,17 @@ class Login extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
-        const avatar = <Avatar src={face} alt={'头像'} className={classes.avatar}/>;
+        const avatar = <Avatar src={face} alt={'头像'} className={classes.avatar} />;
 
         var passwordAdornment = <InputAdornment position="end">
             <IconButton
                 onClick={this.handleShowPassword}
                 onMouseDown={this.handleMouseDownPassword}>
                 {this.state.showPassword
-                    ? <VisibilityOff/>
-                    : <Visibility/>}
+                    ? <VisibilityOff />
+                    : <Visibility />}
             </IconButton>
         </InputAdornment>;
 
@@ -115,7 +114,7 @@ class Login extends React.Component {
             <div className={classes.root}>
                 <form method="POST" onSubmit={this.handleSubmit}>
                     <Card className={classes.card} raised={true} square={false}>
-                        <CardHeader title={''} className={classes.header} avatar={avatar}/>
+                        <CardHeader title={''} className={classes.header} avatar={avatar} />
                         <CardContent className={classes.content}>
                             <FormControl className={classNames(classes.margin, classes.textField)}>
                                 <InputLabel>用户名</InputLabel>
@@ -124,19 +123,19 @@ class Login extends React.Component {
                                     name={'username'}
                                     value={this.state.username}
                                     fullWidth={true}
-                                    onChange={this.handleInputChange}/>
+                                    onChange={this.handleInputChange} />
                             </FormControl>
                             <FormControl className={classNames(classes.margin, classes.textField)}>
                                 <InputLabel>密码</InputLabel>
                                 <Input
                                     type={this.state.showPassword
-                                    ? 'text'
-                                    : 'password'}
+                                        ? 'text'
+                                        : 'password'}
                                     name={'password'}
                                     value={this.state.password}
                                     fullWidth={true}
                                     endAdornment={passwordAdornment}
-                                    onChange={this.handleInputChange}/>
+                                    onChange={this.handleInputChange} />
                             </FormControl>
                         </CardContent>
                         <CardActions className={classes.action}>
@@ -162,4 +161,4 @@ Login.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withRoot(withStyles(styles)(Login));
+export default withStyles(styles)(Login);

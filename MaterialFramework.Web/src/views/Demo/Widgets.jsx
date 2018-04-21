@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from 'material-ui';
-import { withRoot } from '../../withRoot';
 import {
     Grid,
     IconButton,
@@ -145,4 +144,4 @@ class Widgets extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(Widgets));
+export default withStyles(styles)(Widgets);

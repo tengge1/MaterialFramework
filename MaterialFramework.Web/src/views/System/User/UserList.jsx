@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Card, CardActions, withStyles } from 'material-ui';
 import { Add, Edit, Search, Delete } from 'material-ui-icons';
 import GridPanel from '../../../components/table/GridPanel';
-import withRoot from '../../../withRoot';
 
 const styles = theme => ({
     root: {
@@ -42,4 +41,4 @@ class UserList extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(UserList));
+export default withStyles(styles)(UserList);

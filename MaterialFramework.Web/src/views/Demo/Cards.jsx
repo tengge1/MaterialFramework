@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from 'material-ui';
-import { withRoot } from '../../withRoot';
 import {
     Grid,
     Button,
@@ -107,4 +106,4 @@ class Cards extends React.Component {
     }
 }
 
-export default withRoot(withStyles(styles)(Cards));
+export default withStyles(styles)(Cards);
