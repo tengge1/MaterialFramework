@@ -16,7 +16,7 @@ class TablePagination extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTablePagination labelDisplayedRows={this.labelDisplayedRows} labelRowsPerPage={'每页条数'} {...others}>{children}</MaterialTablePagination>;
+        return <MaterialTablePagination labelDisplayedRows={this.labelDisplayedRows} labelRowsPerPage={'每页条数'} rowsPerPageOptions={[10,20,50,100]} {...others}>{children}</MaterialTablePagination>;
     }
 }
 
