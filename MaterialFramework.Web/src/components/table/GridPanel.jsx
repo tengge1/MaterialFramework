@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { withStyles } from 'material-ui';
 import Card from '../card/Card';
 import CardActions from '../card/CardActions';
-import CardContent from '../card/CardContent';
+import Paper from '../paper/Paper';
 import Checkbox from '../form/Checkbox';
 import Table from './Table';
 import TableHead from './TableHead';
@@ -12,10 +12,6 @@ import TableRow from './TableRow';
 import TableCell from './TableCell';
 import TableFooter from './TableFooter';
 import TablePagination from './TablePagination';
-import TopBar from '../placeholder/TopBar';
-import BottomBar from '../placeholder/Placeholder';
-import Columns from '../placeholder/Columns';
-import Column from '../placeholder/Column';
 
 const styles = theme => ({
     root: {
@@ -31,9 +27,6 @@ class GridPanel extends React.Component {
     }
 
     parseTopBar = (n) => {
-        // n.props.children.forEach(function (m) {
-        //     m.props.size = 'small';
-        // });
         return <CardActions>{n.props.children}</CardActions>;
     }
 
@@ -41,25 +34,49 @@ class GridPanel extends React.Component {
 
     }
 
-    parseColumns = (n) => {
+    parseTableHead = (n) => {
+        var tableRow = <TableRow>{n.props.children.map((m, index) => {
+            if (m.props.checkbox) {
+                return <TableCell padding={'checkbox'} key={index}><Checkbox /></TableCell>;
+            } else {
+                return <TableCell key={index}>{m.props.children}</TableCell>;
+            }
+        })}</TableRow>;
 
+        return <TableHead>{tableRow}</TableHead>;
+    }
+
+    parseTableBody = (data, tableHead) => {
+        var tableRows = data.map((row, rowIndex) => {
+            return <TableRow hover={true} selected={rowIndex % 2 === 0 ? true : false} key={rowIndex}>{tableHead.props.children.map((col, colIndex) => {
+                if (col.props.checkbox) {
+                    return <TableCell padding={'checkbox'} key={colIndex}><Checkbox /></TableCell>;
+                } else {
+                    return <TableCell key={colIndex}>{row[col.props.name]}</TableCell>;
+                }
+            })}</TableRow>;
+        });
+
+        return <TableBody>{tableRows}</TableBody>;
     }
 
     render() {
-        const { classes, className, children, ...others } = this.props;
+        const { classes, className, children, data, ...others } = this.props;
 
         var topBar = null;
-        var columns = null;
+        var tableHead = null;
+        var tableBody = null;
         var bottomBar = null;
 
         if (children != null && Array.isArray(children)) {
             children.forEach((n) => {
-                if (n.type.name === 'TopBar') {
+                if (n.type.name === 'TopBar') { // ../placeholder/TopBar
                     topBar = this.parseTopBar(n);
-                } else if (n.type.name === 'BottomBar') {
+                } else if (n.type.name === 'BottomBar') { // ../placeholder/BottomBar
                     bottomBar = this.parseBottomBar(n);
-                } else if (n.type.name === 'Columns') {
-                    columns = this.parseColumns(n);
+                } else if (n.type.name === 'Columns') { // ../placeholder/Columns
+                    tableHead = this.parseTableHead(n);
+                    tableBody = this.parseTableBody(data, n);
                 }
             });
         } else if (children != null && !Array.isArray(children)) {
@@ -68,51 +85,10 @@ class GridPanel extends React.Component {
             } else if (children.type.name === 'BottomBar') {
                 bottomBar = this.parseBottomBar(children);
             } else if (children.type.name === 'Columns') {
-                columns = this.parseColumns(children);
+                tableHead = this.parseTableHead(children);
+                tableBody = this.parseTableBody(data, children);
             }
         }
-
-        var tableHead =
-            <TableHead>
-                <TableRow>
-                    <TableCell padding="checkbox">
-                        <Checkbox />
-                    </TableCell>
-                    <TableCell>
-                        姓名
-                    </TableCell>
-                    <TableCell>
-                        性别
-                    </TableCell>
-                    <TableCell>
-                        手机号
-                    </TableCell>
-                    <TableCell>
-                        地址
-                    </TableCell>
-                </TableRow>
-            </TableHead>;
-
-        var tableBody =
-            <TableBody>
-                <TableRow hover={true} selected={true}>
-                    <TableCell padding="checkbox">
-                        <Checkbox />
-                    </TableCell>
-                    <TableCell>
-                        王一
-                    </TableCell>
-                    <TableCell>
-                        女
-                    </TableCell>
-                    <TableCell>
-                        10086
-                    </TableCell>
-                    <TableCell>
-                        北京市
-                    </TableCell>
-                </TableRow>
-            </TableBody>;
 
         var tableFooter =
             <TableFooter>
@@ -127,13 +103,15 @@ class GridPanel extends React.Component {
             </TableFooter>;
 
         return (
-            <Card raised={true} className={classNames(classes.root, className)}>
+            <Card raised={true} className={classNames(classes.root, className)} {...others}>
                 {topBar}
-                <Table className={classes.table}>
-                    {tableHead}
-                    {tableBody}
-                    {tableFooter}
-                </Table>
+                <Paper>
+                    <Table className={classes.table}>
+                        {tableHead}
+                        {tableBody}
+                        {tableFooter}
+                    </Table>
+                </Paper>
             </Card>
         );
     }

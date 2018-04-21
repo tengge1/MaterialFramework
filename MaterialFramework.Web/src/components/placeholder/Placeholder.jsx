@@ -3,10 +3,11 @@ import React from 'react';
 class Placeholder extends React.Component {
     render() {
         const {
-            children
+            children,
+            ...others
         } = this.props;
 
-        return <React.Fragment>
+        return <React.Fragment {...others}>
             {children}
         </React.Fragment>;
     }

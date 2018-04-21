@@ -4,10 +4,11 @@ import Placeholder from './Placeholder';
 class Columns extends React.Component {
     render() {
         const {
-            children
+            children,
+            others
         } = this.props;
 
-        return <Placeholder>
+        return <Placeholder {...others}>
             {children}
         </Placeholder>;
     }

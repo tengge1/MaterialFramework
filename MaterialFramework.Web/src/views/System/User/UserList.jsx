@@ -8,12 +8,35 @@ const styles = theme => ({
     }
 });
 
+const userData = [{
+    id: 1,
+    username: 'admin',
+    name: '管理员',
+    sex: '男',
+    phone: '12345678',
+    imei: '61111111111'
+}, {
+    id: 2,
+    username: 'test',
+    name: '测试',
+    sex: '女',
+    phone: '8888888888',
+    imei: '3337777777'
+}, {
+    id: 3,
+    username: 'wang',
+    name: '王总',
+    sex: '男',
+    phone: '666666666',
+    imei: '55555552'
+}];
+
 class UserList extends React.Component {
     render() {
         const { classes } = this.props;
 
         return (
-            <GridPanel className={classes.root}>
+            <GridPanel className={classes.root} data={userData}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -34,11 +57,11 @@ class UserList extends React.Component {
                 </TopBar>
                 <Columns>
                     <Column checkbox={true}></Column>
-                    <Column>用户名</Column>
-                    <Column>姓名</Column>
-                    <Column>性别</Column>
-                    <Column>手机号</Column>
-                    <Column>手机串号</Column>
+                    <Column name={'username'}>用户名</Column>
+                    <Column name={'name'}>姓名</Column>
+                    <Column name={'sex'}>性别</Column>
+                    <Column name={'phone'}>手机号</Column>
+                    <Column name={'imei'}>手机串号</Column>
                 </Columns>
                 <BottomBar>
 
