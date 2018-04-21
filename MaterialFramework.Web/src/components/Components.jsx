@@ -1,6 +1,10 @@
-// theme
-export * from 'material-ui/colors';
-export { createMuiTheme, withStyles, lighten } from 'material-ui';
+// color and style
+export * from './color/Colors';
+export { default as lighten } from './style/lighten';
+export { default as createMuiTheme } from './style/createMuiTheme';
+export { default as withStyles } from './style/withStyles';
+export { default as CssBaseline } from './style/CssBaseline';
+export { default as MuiThemeProvider } from './style/MuiThemeProvider';
 
 // grid
 export { default as Grid } from './grid/Grid';
@@ -30,7 +34,7 @@ export { default as Tooltip } from './tooltip/Tooltip';
 // icon
 export { default as Icon } from './icon/Icon';
 export { default as SvgIcon } from './icon/SvgIcon';
-export * from 'material-ui-icons';
+export * from './icon/Icons';
 
 // card
 export { default as Card } from './card/Card';
@@ -112,6 +116,7 @@ export { default as TabelPagination } from './table/TablePagination';
 export { default as TabelRow } from './table/TableRow';
 export { default as TableSortLabel } from './table/TableSortLabel';
 export { default as GridPanel } from './table/GridPanel';
+export { default as TablePaginationActions } from './table/TablePaginationActions';
 
 // progress
 export { default as CircularProgress } from './progress/CircularProgress';
@@ -142,7 +147,5 @@ export { default as Column } from './placeholder/Column';
 // utils
 export { ajax, get, post } from './utils/Ajax';
 export { default as ClickAwayListener } from './utils/ClickAwayListener';
-export { default as CssBaseline } from './utils/CssBaseline';
 export { default as Hidden } from './utils/Hidden';
-export { default as MuiThemeProvider } from './utils/MuiThemeProvider';
 export { default as Portal } from './utils/Portal';

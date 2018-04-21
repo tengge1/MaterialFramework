@@ -12,11 +12,10 @@ import TableRow from './TableRow';
 import TableCell from './TableCell';
 import TableFooter from './TableFooter';
 import TablePagination from './TablePagination';
+import TablePaginationActions from './TablePaginationActions';
 
 const styles = theme => ({
     root: {
-    },
-    table: {
     }
 });
 
@@ -31,7 +30,7 @@ class GridPanel extends React.Component {
     }
 
     parseBottomBar = (n) => {
-
+        return <CardActions>{n.props.children}</CardActions>;
     }
 
     parseTableHead = (n) => {
@@ -61,7 +60,7 @@ class GridPanel extends React.Component {
     }
 
     render() {
-        const { classes, className, children, data, ...others } = this.props;
+        const { classes, className, children, data } = this.props;
 
         var topBar = null;
         var tableHead = null;
@@ -98,12 +97,13 @@ class GridPanel extends React.Component {
                         page={0}
                         rowsPerPage={10}
                         onChangePage={this.onChangePage}
+                        Actions={TablePaginationActions}
                     />
                 </TableRow>
             </TableFooter>;
 
         return (
-            <Card raised={true} className={classNames(classes.root, className)} {...others}>
+            <Card raised={true} className={classNames(classes.root, className)}>
                 {topBar}
                 <Paper>
                     <Table className={classes.table}>

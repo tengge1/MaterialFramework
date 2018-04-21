@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, GridPanel, TopBar, BottomBar, Columns, Column, Button, Add, Edit, Search, Delete } from '../../../components/Components';
+import { withStyles, GridPanel, TopBar, Columns, Column, Button, Add, Edit, Search, Delete } from '../../../components/Components';
 
 const styles = theme => ({
     root: {
@@ -29,6 +29,20 @@ const userData = [{
     sex: '男',
     phone: '666666666',
     imei: '55555552'
+}, {
+    id: 4,
+    username: 'liu',
+    name: '刘经理',
+    sex: '男',
+    phone: '99996666',
+    imei: 'fdfd'
+}, {
+    id: 5,
+    username: 'wangfei',
+    name: '王飞',
+    sex: '男',
+    phone: '4444555666',
+    imei: '43748344444'
 }];
 
 class UserList extends React.Component {
@@ -36,7 +50,7 @@ class UserList extends React.Component {
         const { classes } = this.props;
 
         return (
-            <GridPanel className={classes.root} data={userData}>
+            <GridPanel className={classes.root} data={userData} paging={true}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -63,9 +77,6 @@ class UserList extends React.Component {
                     <Column name={'phone'}>手机号</Column>
                     <Column name={'imei'}>手机串号</Column>
                 </Columns>
-                <BottomBar>
-
-                </BottomBar>
             </GridPanel>
         );
     }
