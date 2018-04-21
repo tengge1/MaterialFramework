@@ -1,6 +1,6 @@
 // theme
 export * from 'material-ui/colors';
-export { createMuiTheme, withStyles } from 'material-ui';
+export { createMuiTheme, withStyles, lighten } from 'material-ui';
 
 // grid
 export { default as Grid } from './grid/Grid';
@@ -111,6 +111,7 @@ export { default as TableHead } from './table/TableHead';
 export { default as TabelPagination } from './table/TablePagination';
 export { default as TabelRow } from './table/TableRow';
 export { default as TableSortLabel } from './table/TableSortLabel';
+export { default as GridPanel } from './table/GridPanel';
 
 // progress
 export { default as CircularProgress } from './progress/CircularProgress';
@@ -130,6 +131,13 @@ export { default as Fade } from './transition/Fade';
 export { default as Grow } from './transition/Grow';
 export { default as Slide } from './transition/Slide';
 export { default as Zoom } from './transition/Zoom';
+
+// placeholder
+export { default as Placeholder } from './placeholder/Placeholder';
+export { default as TopBar } from './placeholder/TopBar';
+export { default as BottomBar } from './placeholder/BottomBar';
+export { default as Columns } from './placeholder/Columns';
+export { default as Column } from './placeholder/Column';
 
 // utils
 export { ajax, get, post } from './utils/Ajax';

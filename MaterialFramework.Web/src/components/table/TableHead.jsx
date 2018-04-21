@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table as MaterialTableHead } from 'material-ui';
+import { TableHead as MaterialTableHead } from 'material-ui';
 
 class TableHead extends React.Component {
     render() {

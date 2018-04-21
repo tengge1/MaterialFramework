@@ -1,6 +1,5 @@
 import React from 'react';
-import { withStyles, Button, Card, CardActions, Add, Edit, Search, Delete } from '../../../components/Components';
-import GridPanel from '../../../components/table/GridPanel';
+import { withStyles, GridPanel, TopBar, BottomBar, Columns, Column, Button, Add, Edit, Search, Delete } from '../../../components/Components';
 
 const styles = theme => ({
     root: {
@@ -12,30 +11,39 @@ const styles = theme => ({
 class UserList extends React.Component {
     render() {
         const { classes } = this.props;
-        const buttons = <CardActions>
-            <Button variant="raised" color="primary" className={classes.button}>
-                <Add />
-                添加
-            </Button>
-            <Button variant="raised" color="primary" className={classes.button}>
-                <Edit />
-                编辑
-            </Button>
-            <Button variant="raised" color="primary" className={classes.button}>
-                <Search />
-                查询
-            </Button>
-            <Button variant="raised" color="primary" className={classes.button}>
-                <Delete />
-                删除
-            </Button>
-        </CardActions>;
 
         return (
-            <Card>
-                {buttons}
-                <GridPanel className={classes.root} />
-            </Card>
+            <GridPanel className={classes.root}>
+                <TopBar>
+                    <Button>
+                        <Add />
+                        添加
+                    </Button>
+                    <Button>
+                        <Edit />
+                        编辑
+                    </Button>
+                    <Button>
+                        <Search />
+                        查询
+                    </Button>
+                    <Button>
+                        <Delete />
+                        删除
+                    </Button>
+                </TopBar>
+                <Columns>
+                    <Column checkbox={true}></Column>
+                    <Column>用户名</Column>
+                    <Column>姓名</Column>
+                    <Column>性别</Column>
+                    <Column>手机号</Column>
+                    <Column>手机串号</Column>
+                </Columns>
+                <BottomBar>
+
+                </BottomBar>
+            </GridPanel>
         );
     }
 }
