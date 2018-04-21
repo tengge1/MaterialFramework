@@ -126,18 +126,6 @@ class Header extends React.Component {
                     <FlatButton className={classes.navBtn}>工作中心</FlatButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>人力资源管理</FlatButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>请销假系统</FlatButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>物资管理系统</FlatButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>财务报账系统</FlatButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
                     <FlatButton className={classes.navBtn}>系统管理</FlatButton>
                 </Grid>
             </Grid>;
