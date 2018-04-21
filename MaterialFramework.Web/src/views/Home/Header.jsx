@@ -1,6 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { Manager, Target, Popper } from "react-popper";
+import { Manager, Target, Popper } from 'react-popper';
 import {
     withStyles,
     AppBar,
@@ -15,20 +15,16 @@ import {
     Person,
     Notifications,
     ExitToApp
-} from "../../components/Components";
-import logo from "assets/img/reactlogo.png";
+} from '../../components/Components';
+import logo from 'assets/img/reactlogo.png';
 
 const styles = theme => ({
     root: {
         flexGrow: 1
     },
     appBar: {
-        height: "44px",
-        color: "#fff",
+        color: '#fff',
         boxShadow: 'none'
-    },
-    toolbar: {
-        minHeight: "44px"
     },
     logo: {
         flex: 1,
@@ -167,8 +163,8 @@ class Header extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="fixed" color="primary" className={classes.appBar}>
-                    <Toolbar className={classes.toolbar}>
+                <AppBar position={'fixed'} color={'primary'} size={'medium'} className={classes.appBar}>
+                    <Toolbar size={'medium'}>
                         {brand}
                         {user}
                         {msg}

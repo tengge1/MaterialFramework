@@ -10,10 +10,10 @@ const styles = theme => ({
         height: '100%'
     },
     box: {
-        marginTop: 44,
+        marginTop: 48,
         display: 'flex',
         flexGrow: 1,
-        height: `calc(100% - 44px)`
+        height: `calc(100% - 48px)`
     },
     content: {
         flex: 1

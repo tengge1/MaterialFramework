@@ -1,15 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
 import { AppBar as MaterialAppBar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
-        minHeight: 32
+        height: 32
     },
     medium: {
-        minHeight: 48
+        height: 48
     },
     large: {
-        minHeight: 64
+        height: 64
     }
 });
 
@@ -18,11 +19,22 @@ class AppBar extends React.Component {
         const {
             position,
             size,
+            classes,
+            className,
             children,
             ...others
         } = this.props;
 
-        return <MaterialAppBar position={position || 'static'} {...others}>
+        var sizeCls = '';
+        if (size === 'small') {
+            sizeCls = classes.small;
+        } else if (size === 'large') {
+            sizeCls = classes.large;
+        } else {
+            sizeCls = classes.medium;
+        }
+
+        return <MaterialAppBar position={position || 'static'} className={classNames(sizeCls, className)} {...others}>
             {children}
         </MaterialAppBar>;
     }
