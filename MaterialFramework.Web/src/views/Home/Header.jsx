@@ -5,18 +5,21 @@ import {
     withStyles,
     AppBar,
     Toolbar,
-    IconButton,
     MenuList,
     MenuItem,
+    IconButton,
     Grow,
     Paper,
     ClickAwayListener,
     Badge,
-    Person,
     Notifications,
-    ExitToApp
+    ExitToApp,
+    Grid,
+    FlatButton,
+    Avatar
 } from '../../components/Components';
 import logo from 'assets/img/reactlogo.png';
+import Face from '../../assets/img/faces/marc.jpg';
 
 const styles = theme => ({
     root: {
@@ -27,36 +30,53 @@ const styles = theme => ({
         boxShadow: 'none'
     },
     logo: {
-        flex: 1,
         cursor: "default",
-        userSelect: 'none'
+        userSelect: 'none',
+        width: 400
     },
     img: {
-        width: "35px",
+        width: 35,
         verticalAlign: "middle",
-        marginRight: "5px"
+        marginRight: 5
     },
-    userBtn: {
-        width: "24px",
-        height: "24px",
-        marginRight: "20px"
+    navItem: {
+        margin: '0 20px'
+    },
+    navBtn: {
+        color: 'white'
+    },
+    user: {
+        width: 260,
+        flex: 'none'
+    },
+    userText: {
+        color: '#fff',
+        marginLeft: 10,
+        paddingTop: 4,
+        fontSize: 12
+    },
+    userDept: {
+        fontWeight: 300
+    },
+    userName: {
+        marginLeft: 5
     },
     logoutBtn: {
-        width: "24px",
-        height: "24px"
+        width: 24,
+        height: 24
     },
     badge: {
-        cursor: "pointer",
-        marginRight: "20px"
+        cursor: 'pointer',
+        marginRight: 20
     },
     badgeBadge: {
-        top: "-6px",
-        right: "-6px",
-        width: "16px",
-        height: "16px"
+        top: -6,
+        right: -6,
+        width: 16,
+        height: 16
     },
     dropdownItem: {
-        fontSize: "12px",
+        fontSize: 12,
         whiteSpace: "nowrap",
         "&:hover": {
             backgroundColor: theme.palette.primary.main,
@@ -91,20 +111,48 @@ class Header extends React.Component {
         const { classes } = this.props;
         const { open } = this.state;
 
-        var brand = (
+        const brand =
             <div className={classes.logo}>
                 <img src={logo} alt="logo" className={classes.img} />
                 权限管理平台
-            </div>
-        );
+            </div>;
 
-        var user = (
-            <IconButton color="inherit" title="用户资料" className={classes.userBtn}>
-                <Person />
-            </IconButton>
-        );
+        const navMenu =
+            <Grid container>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>地理信息系统</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>工作中心</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>人力资源管理</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>请销假系统</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>物资管理系统</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>财务报账系统</FlatButton>
+                </Grid>
+                <Grid item className={classes.navItem}>
+                    <FlatButton className={classes.navBtn}>系统管理</FlatButton>
+                </Grid>
+            </Grid>;
 
-        var msg = (
+        const user =
+            <Grid container className={classes.user}>
+                <Grid item className={classes.userIcon}>
+                    <Avatar src={Face} size={'small'} />
+                </Grid>
+                <Grid item className={classes.userText}>
+                    <span className={classes.userDept}>中国移动公司</span> <span className={classes.userName}>管理员</span>
+                </Grid>
+            </Grid>;
+
+        const msg = (
             <Manager>
                 <Target>
                     <Badge
@@ -166,6 +214,7 @@ class Header extends React.Component {
                 <AppBar position={'fixed'} color={'primary'} size={'medium'} className={classes.appBar}>
                     <Toolbar size={'medium'}>
                         {brand}
+                        {navMenu}
                         {user}
                         {msg}
                         {exit}

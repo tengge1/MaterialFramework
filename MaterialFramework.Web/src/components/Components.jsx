@@ -3,137 +3,138 @@ export * from 'material-ui/colors';
 export { createMuiTheme, withStyles } from 'material-ui';
 
 // grid
-export { default as Grid } from './grid/Grid.jsx';
-export { default as GridList } from './grid/GridList.jsx';
-export { default as GridListTile } from './grid/GridListTile.jsx';
-export { default as GridListTileBar } from './grid/GridListTileBar.jsx';
+export { default as Grid } from './grid/Grid';
+export { default as GridList } from './grid/GridList';
+export { default as GridListTile } from './grid/GridListTile';
+export { default as GridListTileBar } from './grid/GridListTileBar';
 
 // button
-export { default as Button } from './button/Button.jsx';
-export { default as FlatButton } from './button/FlatButton.jsx';
-export { default as RoundButton } from './button/RoundButton.jsx';
-export { default as IconButton } from './button/IconButton.jsx';
+export { default as Button } from './button/Button';
+export { default as FlatButton } from './button/FlatButton';
+export { default as RoundButton } from './button/RoundButton';
+export { default as IconButton } from './button/IconButton';
 
 // toolbar
-export { default as AppBar } from './toolbar/AppBar.jsx';
-export { default as Toolbar } from './toolbar/Toolbar.jsx';
-export { default as BottomNavigation } from './toolbar/BottomNavigation.jsx';
-export { default as BottomNavigationAction } from './toolbar/BottomNavigationAction.jsx';
-export { default as Snackbar } from './toolbar/Snackbar.jsx';
-export { default as SnackbarContent } from './toolbar/SnackbarContent.jsx';
+export { default as AppBar } from './toolbar/AppBar';
+export { default as Toolbar } from './toolbar/Toolbar';
+export { default as BottomNavigation } from './toolbar/BottomNavigation';
+export { default as BottomNavigationAction } from './toolbar/BottomNavigationAction';
+export { default as Snackbar } from './toolbar/Snackbar';
+export { default as SnackbarContent } from './toolbar/SnackbarContent';
 
 // widget
-export { default as Avatar } from './avatar/Avatar.jsx';
-export { default as Badge } from './badge/Badge.jsx';
-export { default as Tooltip } from './tooltip/Tooltip.jsx';
+export { default as Avatar } from './avatar/Avatar';
+export { default as Badge } from './badge/Badge';
+export { default as Tooltip } from './tooltip/Tooltip';
 
 // icon
-export { default as Icon } from './icon/Icon.jsx';
-export { default as SvgIcon } from './icon/SvgIcon.jsx';
+export { default as Icon } from './icon/Icon';
+export { default as SvgIcon } from './icon/SvgIcon';
 export * from 'material-ui-icons';
 
 // card
-export { default as Card } from './card/Card.jsx';
-export { default as CardActions } from './card/CardActions.jsx';
-export { default as CardContent } from './card/CardContent.jsx';
-export { default as CardHeader } from './card/CardHeader.jsx';
-export { default as CardMedia } from './card/CardMedia.jsx';
-export { default as Collapse } from './card/Collapse.jsx';
-export { default as ExpansionPanel } from './card/ExpansionPanel.jsx';
-export { default as ExpansionPanelActions } from './card/ExpansionPanelActions.jsx';
-export { default as ExpansionPanelDetails } from './card/ExpansionPanelDetails.jsx';
-export { default as ExpansionPanelSummary } from './card/ExpansionPanelSummary.jsx';
+export { default as Card } from './card/Card';
+export { default as CardActions } from './card/CardActions';
+export { default as CardContent } from './card/CardContent';
+export { default as CardHeader } from './card/CardHeader';
+export { default as CardMedia } from './card/CardMedia';
+export { default as Collapse } from './card/Collapse';
+export { default as ExpansionPanel } from './card/ExpansionPanel';
+export { default as ExpansionPanelActions } from './card/ExpansionPanelActions';
+export { default as ExpansionPanelDetails } from './card/ExpansionPanelDetails';
+export { default as ExpansionPanelSummary } from './card/ExpansionPanelSummary';
 
 // drawer
-export { default as Drawer } from './drawer/Drawer.jsx';
-export { default as SwipeableDrawer } from './drawer/SwipeableDrawer.jsx';
+export { default as Drawer } from './drawer/Drawer';
+export { default as SwipeableDrawer } from './drawer/SwipeableDrawer';
 
 // dialog
-export { default as Dialog } from './dialog/Dialog.jsx';
-export { default as DialogActions } from './dialog/DialogActions.jsx';
-export { default as DialogContent } from './dialog/DialogContent.jsx';
-export { default as DialogContentText } from './dialog/DialogContentText.jsx';
-export { default as DialogTitle } from './dialog/DialogTitle.jsx';
-export { default as Modal } from './dialog/Modal.jsx';
+export { default as Dialog } from './dialog/Dialog';
+export { default as DialogActions } from './dialog/DialogActions';
+export { default as DialogContent } from './dialog/DialogContent';
+export { default as DialogContentText } from './dialog/DialogContentText';
+export { default as DialogTitle } from './dialog/DialogTitle';
+export { default as Modal } from './dialog/Modal';
 
 // form
-export { default as Checkbox } from './form/Checkbox.jsx';
-export { default as Chip } from './form/Chip.jsx';
-export { default as FormControl } from './form/FormControl.jsx';
-export { default as FormControlLabel } from './form/FormControlLabel.jsx';
-export { default as FormGroup } from './form/FormGroup.jsx';
-export { default as FromHelperText } from './form/FormHelperText.jsx';
-export { default as FormLabel } from './form/FormLabel.jsx';
-export { default as Input } from './form/Input.jsx';
-export { default as InputAdornment } from './form/InputAdornment.jsx';
-export { default as InputLabel } from './form/InputLabel.jsx';
-export { default as Radio } from './form/Radio.jsx';
-export { default as RadioGroup } from './form/RadioGroup.jsx';
-export { default as Select } from './form/Select.jsx';
-export { default as Switch } from './form/Switch.jsx';
-export { default as TextField } from './form/TextField.jsx';
+export { default as Checkbox } from './form/Checkbox';
+export { default as Chip } from './form/Chip';
+export { default as FormControl } from './form/FormControl';
+export { default as FormControlLabel } from './form/FormControlLabel';
+export { default as FormGroup } from './form/FormGroup';
+export { default as FromHelperText } from './form/FormHelperText';
+export { default as FormLabel } from './form/FormLabel';
+export { default as Input } from './form/Input';
+export { default as InputAdornment } from './form/InputAdornment';
+export { default as InputLabel } from './form/InputLabel';
+export { default as Radio } from './form/Radio';
+export { default as RadioGroup } from './form/RadioGroup';
+export { default as Select } from './form/Select';
+export { default as Switch } from './form/Switch';
+export { default as TextField } from './form/TextField';
 
 // text
-export { default as Typography } from './text/Typography.jsx';
+export { default as Typography } from './text/Typography';
+export { default as Text } from './text/Text';
 
 // list
-export { default as List } from './list/List.jsx';
-export { default as ListItem } from './list/ListItem.jsx';
-export { default as ListItemAvatar } from './list/ListItemAvatar.jsx';
-export { default as ListItemIcon } from './list/ListItemIcon.jsx';
+export { default as List } from './list/List';
+export { default as ListItem } from './list/ListItem';
+export { default as ListItemAvatar } from './list/ListItemAvatar';
+export { default as ListItemIcon } from './list/ListItemIcon';
 export { default as ListItemSecondaryAction } from './list/ListItemSecondaryAction';
-export { default as ListItemText } from './list/ListItemText.jsx';
-export { default as ListSubheader } from './list/ListSubheader.jsx';
-export { default as Divider } from './list/Divider.jsx';
+export { default as ListItemText } from './list/ListItemText';
+export { default as ListSubheader } from './list/ListSubheader';
+export { default as Divider } from './list/Divider';
 
 // paper
-export { default as Paper } from './paper/Paper.jsx';
+export { default as Paper } from './paper/Paper';
 
 // tab
-export { default as Tab } from './tab/Tab.jsx';
-export { default as Tabs } from './tab/Tabs.jsx';
+export { default as Tab } from './tab/Tab';
+export { default as Tabs } from './tab/Tabs';
 
 // popover
-export { default as Popover } from './popover/Popover.jsx';
+export { default as Popover } from './popover/Popover';
 
 // menu
-export { default as Menu } from './menu/Menu.jsx';
-export { default as MenuItem } from './menu/MenuItem.jsx';
-export { default as MenuList } from './menu/MenuList.jsx';
+export { default as Menu } from './menu/Menu';
+export { default as MenuItem } from './menu/MenuItem';
+export { default as MenuList } from './menu/MenuList';
 
 // table
-export { default as Table } from './table/Table.jsx';
-export { default as TableBody } from './table/TableBody.jsx';
-export { default as TableCell } from './table/TableCell.jsx';
-export { default as TableFooter } from './table/TableFooter.jsx';
-export { default as TableHead } from './table/TableHead.jsx';
-export { default as TabelPagination } from './table/TablePagination.jsx';
-export { default as TabelRow } from './table/TableRow.jsx';
-export { default as TableSortLabel } from './table/TableSortLabel.jsx';
+export { default as Table } from './table/Table';
+export { default as TableBody } from './table/TableBody';
+export { default as TableCell } from './table/TableCell';
+export { default as TableFooter } from './table/TableFooter';
+export { default as TableHead } from './table/TableHead';
+export { default as TabelPagination } from './table/TablePagination';
+export { default as TabelRow } from './table/TableRow';
+export { default as TableSortLabel } from './table/TableSortLabel';
 
 // progress
-export { default as CircularProgress } from './progress/CircularProgress.jsx';
-export { default as LinearProgress } from './progress/LinearProgress.jsx';
+export { default as CircularProgress } from './progress/CircularProgress';
+export { default as LinearProgress } from './progress/LinearProgress';
 
 // stepper
-export { default as MobileStepper } from './stepper/MobileStepper.jsx';
-export { default as Step } from './stepper/Step.jsx';
-export { default as StepButton } from './stepper/StepButton.jsx';
-export { default as StepContent } from './stepper/StepContent.jsx';
-export { default as StepIcon } from './stepper/StepIcon.jsx';
-export { default as StepLabel } from './stepper/StepLabel.jsx';
-export { default as Stepper } from './stepper/Stepper.jsx';
+export { default as MobileStepper } from './stepper/MobileStepper';
+export { default as Step } from './stepper/Step';
+export { default as StepButton } from './stepper/StepButton';
+export { default as StepContent } from './stepper/StepContent';
+export { default as StepIcon } from './stepper/StepIcon';
+export { default as StepLabel } from './stepper/StepLabel';
+export { default as Stepper } from './stepper/Stepper';
 
 // transition
-export { default as Fade } from './transition/Fade.jsx';
-export { default as Grow } from './transition/Grow.jsx';
-export { default as Slide } from './transition/Slide.jsx';
-export { default as Zoom } from './transition/Zoom.jsx';
+export { default as Fade } from './transition/Fade';
+export { default as Grow } from './transition/Grow';
+export { default as Slide } from './transition/Slide';
+export { default as Zoom } from './transition/Zoom';
 
 // utils
-export { ajax, get, post } from './utils/Ajax.jsx';
-export { default as ClickAwayListener } from './utils/ClickAwayListener.jsx';
-export { default as CssBaseline } from './utils/CssBaseline.jsx';
-export { default as Hidden } from './utils/Hidden.jsx';
-export { default as MuiThemeProvider } from './utils/MuiThemeProvider.jsx';
-export { default as Portal } from './utils/Portal.jsx';
+export { ajax, get, post } from './utils/Ajax';
+export { default as ClickAwayListener } from './utils/ClickAwayListener';
+export { default as CssBaseline } from './utils/CssBaseline';
+export { default as Hidden } from './utils/Hidden';
+export { default as MuiThemeProvider } from './utils/MuiThemeProvider';
+export { default as Portal } from './utils/Portal';
