@@ -46,10 +46,13 @@ class GridPanel extends React.Component {
         time: new Date().getTime()
     };
 
+    idProperty = 'id';
+
     rowsPerPage = 10; // 每页的行数
     page = 0; // 第几页（从0开始计数）
     count = 0; // 记录总条数
     rows = []; // 每行的数据
+    selected = []; // 当前选中的记录id
 
     refresh = () => {
         this.setState({
@@ -67,6 +70,37 @@ class GridPanel extends React.Component {
         this.refresh();
     }
 
+    onSelectAllClick = (event, checked) => {
+        const rows = this.rows.slice(this.rowsPerPage * this.page, this.rowsPerPage * (this.page + 1));
+
+        if (checked) {
+            rows.forEach((n) => {
+                if (this.selected.indexOf(n[this.idProperty]) === -1) {
+                    this.selected.push(n[this.idProperty]);
+                }
+            });
+        } else {
+            this.selected = [];
+        }
+        this.refresh();
+    }
+
+    onSelectClick = (event, checked, id) => {
+        if (checked) {
+            if (this.selected.indexOf(id) === -1) {
+                this.selected.push(id);
+            } else {
+                throw new Error('GridPanel: duplicate selected id.');
+            }
+        } else {
+            var index = this.selected.indexOf(id);
+            if (index > -1) {
+                this.selected.splice(index, 1);
+            }
+        }
+        this.refresh();
+    }
+
     parseTopBar = (n) => {
         return <CardActions>{n.props.children}</CardActions>;
     }
@@ -76,9 +110,16 @@ class GridPanel extends React.Component {
     }
 
     parseTableHead = (n) => {
+        const rows = this.rows.slice(this.rowsPerPage * this.page, this.rowsPerPage * (this.page + 1));
+
         const tableRow = <TableRow>{n.props.children.map((m, index) => {
             if (m.type.name === CheckboxColumn.name) {
-                return <TableCell padding={'checkbox'} key={index}><Checkbox /></TableCell>;
+                return <TableCell padding={'checkbox'} key={index}>
+                    <Checkbox
+                        indeterminate={this.selected.length > 0 && this.selected.length < rows.length}
+                        checked={this.selected.length > 0 && this.selected.length === rows.length}
+                        onChange={this.onSelectAllClick} />
+                </TableCell>;
             } else if (m.type.name === RowNumber.name) {
                 return <TableCell padding={'checkbox'} key={index}></TableCell>;
             } else if (m.type.name === Column.name) {
@@ -99,7 +140,11 @@ class GridPanel extends React.Component {
         const tableRows = rows.map((row, rowIndex) => {
             return <TableRow hover={true} selected={rowIndex % 2 === 0 ? true : false} key={rowIndex}>{head.props.children.map((col, colIndex) => {
                 if (col.type.name === CheckboxColumn.name) {
-                    return <TableCell padding={'checkbox'} key={colIndex}><Checkbox /></TableCell>;
+                    return <TableCell padding={'checkbox'} key={colIndex}>
+                        <Checkbox
+                            checked={this.selected.indexOf(row[this.idProperty]) > -1}
+                            onChange={(event, checked) => this.onSelectClick(event, checked, row[this.idProperty])} />
+                    </TableCell>;
                 } else if (col.type.name === RowNumber.name) {
                     return <TableCell padding={'checkbox'} key={colIndex}>{this.rowsPerPage * this.page + rowIndex + 1}</TableCell>;
                 } else if (col.type.name === Column.name) {
@@ -167,7 +212,7 @@ class GridPanel extends React.Component {
                         {tableBody}
                     </Table>
                 </Paper>
-                <Paper className={classes.footerPaper}>
+                <Paper className={classes.footerPaper} elevation={1}>
                     <Table>
                         {tableFooter}
                     </Table>

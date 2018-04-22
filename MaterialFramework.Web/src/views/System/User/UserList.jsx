@@ -42,8 +42,14 @@ const userData = [{
     imei: 'fdfd'
 }];
 
-const userDatas = userData.concat(userData).concat(userData).concat(userData).concat(userData).concat(userData)
-    .concat(userData).concat(userData).concat(userData).concat(userData).concat(userData);
+var userDatas = [];
+for (var i = 0; i < 256; i++) {
+    var user = Object.assign({}, userData[i % userData.length]);
+    user.id = i + 1;
+    user.username = user.username + (parseInt(i / userData.length, 10) + 1);
+    user.name = user.name + (parseInt(i / userData.length, 10) + 1);
+    userDatas.push(user);
+}
 
 class UserList extends React.Component {
     render() {
