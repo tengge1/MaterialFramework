@@ -168,7 +168,7 @@ class GridPanel extends React.Component {
     }
 
     parseTableBody = (head) => {
-        const { classes } = this.props;
+        const { classes, searchOpen } = this.props;
 
         const rows = this.rows.slice(this.rowsPerPage * this.page, this.rowsPerPage * (this.page + 1));
 
@@ -216,7 +216,11 @@ class GridPanel extends React.Component {
 
         const content = <div className={classes.subTableContainer}><Table><TableBody>{tableRows}</TableBody></Table></div>;
 
-        return <TableBody><TableRow><TableCell colSpan={head.props.children.length} style={{ padding: 0 }}>{content}</TableCell></TableRow></TableBody>;
+        return <TableBody>
+            <TableRow>
+                <TableCell colSpan={head.props.children.length} style={{ padding: searchOpen ? '0 0 64px 0' : 0 }}>{content}</TableCell>
+            </TableRow>
+        </TableBody>;
     }
 
     render() {
