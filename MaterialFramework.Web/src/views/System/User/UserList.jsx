@@ -77,8 +77,8 @@ class UserList extends React.Component {
                 </TopBar>
                 <SearchForm></SearchForm>
                 <Columns>
-                    <CheckboxColumn />
-                    <RowNumber />
+                    <CheckboxColumn width={40} />
+                    <RowNumber width={40} />
                     <Column name={'username'}>用户名</Column>
                     <Column name={'name'}>姓名</Column>
                     <Column name={'sex'}>性别</Column>

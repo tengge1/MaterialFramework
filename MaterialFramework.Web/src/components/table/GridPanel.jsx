@@ -102,34 +102,56 @@ class GridPanel extends React.Component {
     }
 
     parseTopBar = (n) => {
-        return <CardActions>{n.props.children}</CardActions>;
+        return n.props.children;
     }
 
     parseBottomBar = (n) => {
-        return <CardActions>{n.props.children}</CardActions>;
+        return n.props.children;
     }
 
-    parseTableHead = (n) => {
+    parseTableHead = (head) => {
         const rows = this.rows.slice(this.rowsPerPage * this.page, this.rowsPerPage * (this.page + 1));
 
-        const tableRow = <TableRow>{n.props.children.map((m, index) => {
-            if (m.type.name === CheckboxColumn.name) {
-                return <TableCell padding={'checkbox'} key={index}>
+        var totalWidth = 0;
+        head.props.children.forEach((n) => {
+            if (n.props.width) {
+                totalWidth += n.props.width;
+            } else {
+                totalWidth += 100;
+            }
+        });
+
+        const headRow = <TableRow>{head.props.children.map((n, index) => {
+            const width = n.props.width ? n.props.width : 100;
+            if (n.type.name === CheckboxColumn.name) {
+                return <TableCell
+                    width={parseInt(width / totalWidth * 100, 10) + '%'}
+                    padding={'checkbox'}
+                    key={index}>
                     <Checkbox
                         indeterminate={this.selected.length > 0 && this.selected.length < rows.length}
                         checked={this.selected.length > 0 && this.selected.length === rows.length}
                         onChange={this.onSelectAllClick} />
                 </TableCell>;
-            } else if (m.type.name === RowNumber.name) {
-                return <TableCell padding={'checkbox'} key={index}></TableCell>;
-            } else if (m.type.name === Column.name) {
-                return <TableCell key={index}>{m.props.children}</TableCell>;
+            } else if (n.type.name === RowNumber.name) {
+                return <TableCell
+                    width={parseInt(width / totalWidth * 100, 10) + '%'}
+                    padding={'checkbox'}
+                    key={index}></TableCell>;
+            } else if (n.type.name === Column.name) {
+                return <TableCell
+                    width={parseInt(width / totalWidth * 100, 10) + '%'}
+                    key={index}>
+                    {n.props.children}
+                </TableCell>;
             } else {
-                return <TableCell></TableCell>;
+                return <TableCell
+                    width={parseInt(width / totalWidth * 100, 10) + '%'}
+                ></TableCell>;
             }
         })}</TableRow>;
 
-        return <TableHead>{tableRow}</TableHead>;
+        return <TableHead>{headRow}</TableHead>;
     }
 
     parseTableBody = (head) => {
@@ -137,20 +159,44 @@ class GridPanel extends React.Component {
 
         const rows = this.rows.slice(this.rowsPerPage * this.page, this.rowsPerPage * (this.page + 1));
 
+        var totalWidth = 0;
+        head.props.children.forEach((n) => {
+            if (n.props.width) {
+                totalWidth += n.props.width;
+            } else {
+                totalWidth += 100;
+            }
+        });
+
         const tableRows = rows.map((row, rowIndex) => {
             return <TableRow hover={true} selected={rowIndex % 2 === 0 ? true : false} key={rowIndex}>{head.props.children.map((col, colIndex) => {
+                const width = col.props.width ? col.props.width : 100;
                 if (col.type.name === CheckboxColumn.name) {
-                    return <TableCell padding={'checkbox'} key={colIndex}>
+                    return <TableCell
+                        width={parseInt(width / totalWidth * 100, 10) + '%'}
+                        padding={'checkbox'}
+                        key={colIndex}>
                         <Checkbox
                             checked={this.selected.indexOf(row[this.idProperty]) > -1}
                             onChange={(event, checked) => this.onSelectClick(event, checked, row[this.idProperty])} />
                     </TableCell>;
                 } else if (col.type.name === RowNumber.name) {
-                    return <TableCell padding={'checkbox'} key={colIndex}>{this.rowsPerPage * this.page + rowIndex + 1}</TableCell>;
+                    return <TableCell
+                        width={parseInt(width / totalWidth * 100, 10) + '%'}
+                        padding={'checkbox'}
+                        key={colIndex}>
+                        {this.rowsPerPage * this.page + rowIndex + 1}
+                    </TableCell>;
                 } else if (col.type.name === Column.name) {
-                    return <TableCell key={colIndex}>{row[col.props.name]}</TableCell>;
+                    return <TableCell
+                        width={parseInt(width / totalWidth * 100, 10) + '%'}
+                        key={colIndex}>
+                        {row[col.props.name]}
+                    </TableCell>;
                 } else {
-                    return <TableCell></TableCell>;
+                    return <TableCell
+                        width={parseInt(width / totalWidth * 100, 10) + '%'}
+                    ></TableCell>;
                 }
             })}</TableRow>;
         });
@@ -201,7 +247,9 @@ class GridPanel extends React.Component {
 
         return (
             <Paper className={classNames(classes.root, className)}>
-                {topBar}
+                <CardActions>
+                    {topBar}
+                </CardActions>
                 <Paper className={classes.headPaper} elevation={0}>
                     <Table>
                         {tableHead}
