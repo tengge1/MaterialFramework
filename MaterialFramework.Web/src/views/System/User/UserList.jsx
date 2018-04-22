@@ -1,5 +1,8 @@
 import React from 'react';
-import { withStyles, GridPanel, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber, Button, Add, Edit, Search, Delete } from '../../../components/Components';
+import {
+    withStyles, GridPanel, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
+    Button, TextField, Add, Edit, InfoOutline, Search, Delete
+} from '../../../components/Components';
 
 const styles = theme => ({
     root: {
@@ -67,6 +70,10 @@ class UserList extends React.Component {
                         编辑
                     </Button>
                     <Button>
+                        <InfoOutline />
+                        查看
+                    </Button>
+                    <Button>
                         <Search />
                         查询
                     </Button>
@@ -75,10 +82,14 @@ class UserList extends React.Component {
                         删除
                     </Button>
                 </TopBar>
-                <SearchForm></SearchForm>
+                <SearchForm>
+                    <TextField label={'用户名/姓名'} />
+                    <Button>搜索</Button>
+                    <Button>重置</Button>
+                </SearchForm>
                 <Columns>
-                    <CheckboxColumn width={40} />
-                    <RowNumber width={40} />
+                    <CheckboxColumn width={60} />
+                    <RowNumber width={60} />
                     <Column name={'username'}>用户名</Column>
                     <Column name={'name'}>姓名</Column>
                     <Column name={'sex'}>性别</Column>

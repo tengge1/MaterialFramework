@@ -16,6 +16,7 @@ import TablePaginationActions from './TablePaginationActions';
 import TopBar from '../placeholder/TopBar';
 import BottomBar from '../placeholder/BottomBar';
 import Columns from '../placeholder/Columns';
+import SearchForm from '../placeholder/SearchForm';
 import Column from '../placeholder/Column';
 import CheckboxColumn from '../placeholder/CheckboxColumn';
 import RowNumber from '../placeholder/RowNumber';
@@ -106,6 +107,10 @@ class GridPanel extends React.Component {
     }
 
     parseBottomBar = (n) => {
+        return n.props.children;
+    }
+
+    parseSearchForm = (n) => {
         return n.props.children;
     }
 
@@ -214,6 +219,7 @@ class GridPanel extends React.Component {
 
         var topBar = null;
         var tableHead = null;
+        var searchForm = null;
         var tableBody = null;
         var bottomBar = null;
 
@@ -223,6 +229,8 @@ class GridPanel extends React.Component {
                     topBar = this.parseTopBar(n);
                 } else if (n.type.name === BottomBar.name) {
                     bottomBar = this.parseBottomBar(n);
+                } else if (n.type.name === SearchForm.name) {
+                    searchForm = this.parseSearchForm(n);
                 } else if (n.type.name === Columns.name) {
                     tableHead = this.parseTableHead(n);
                     tableBody = this.parseTableBody(n);
@@ -249,6 +257,9 @@ class GridPanel extends React.Component {
             <Paper className={classNames(classes.root, className)}>
                 <CardActions>
                     {topBar}
+                </CardActions>
+                <CardActions>
+                    {searchForm}
                 </CardActions>
                 <Paper className={classes.headPaper} elevation={0}>
                     <Table>
