@@ -46,7 +46,7 @@ const styles = theme => ({
     }
 });
 
-class GridPanel extends React.Component {
+class DataTable extends React.Component {
 
     state = {
         time: new Date().getTime()
@@ -289,4 +289,4 @@ class GridPanel extends React.Component {
     }
 }
 
-export default withStyles(styles)(GridPanel);
+export default withStyles(styles)(DataTable);

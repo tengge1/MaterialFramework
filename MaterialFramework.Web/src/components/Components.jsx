@@ -114,8 +114,8 @@ export { default as TableHead } from './table/TableHead';
 export { default as TabelPagination } from './table/TablePagination';
 export { default as TabelRow } from './table/TableRow';
 export { default as TableSortLabel } from './table/TableSortLabel';
-export { default as GridPanel } from './table/GridPanel';
 export { default as TablePaginationActions } from './table/TablePaginationActions';
+export { default as DataTable } from './table/DataTable';
 
 // progress
 export { default as CircularProgress } from './progress/CircularProgress';

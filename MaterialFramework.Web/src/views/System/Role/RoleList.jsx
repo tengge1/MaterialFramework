@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    withStyles, GridPanel, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
+    withStyles, DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
     Button, TextField, Add, Edit, InfoOutline, Search, Delete
 } from '../../../components/Components';
 
@@ -45,7 +45,7 @@ class RoleList extends React.Component {
         const state = this.state;
 
         return (
-            <GridPanel className={classes.root} data={roleDatas} paging={true} searchOpen={state.searchOpen}>
+            <DataTable className={classes.root} data={roleDatas} paging={true} searchOpen={state.searchOpen}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -80,7 +80,7 @@ class RoleList extends React.Component {
                     <Column name={'name'}>名称</Column>
                     <Column name={'status'}>状态</Column>
                 </Columns>
-            </GridPanel>
+            </DataTable>
         );
     }
 }
