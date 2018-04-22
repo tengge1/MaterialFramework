@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, GridPanel, TopBar, Columns, Column, Button, Add, Edit, Search, Delete } from '../../../components/Components';
+import { withStyles, GridPanel, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber, Button, Add, Edit, Search, Delete } from '../../../components/Components';
 
 const styles = theme => ({
     root: {
@@ -13,6 +13,7 @@ const userData = [{
     username: 'admin',
     name: '管理员',
     sex: '男',
+    role: '超级管理员',
     phone: '12345678',
     imei: '61111111111'
 }, {
@@ -20,6 +21,7 @@ const userData = [{
     username: 'test',
     name: '测试',
     sex: '女',
+    role: '超级管理员',
     phone: '8888888888',
     imei: '3337777777'
 }, {
@@ -27,6 +29,7 @@ const userData = [{
     username: 'wang',
     name: '王总',
     sex: '男',
+    role: '经理',
     phone: '666666666',
     imei: '55555552'
 }, {
@@ -34,23 +37,20 @@ const userData = [{
     username: 'liu',
     name: '刘经理',
     sex: '男',
+    role: '经理',
     phone: '99996666',
     imei: 'fdfd'
-}, {
-    id: 5,
-    username: 'wangfei',
-    name: '王飞',
-    sex: '男',
-    phone: '4444555666',
-    imei: '43748344444'
 }];
+
+const userDatas = userData.concat(userData).concat(userData).concat(userData).concat(userData).concat(userData)
+    .concat(userData).concat(userData).concat(userData).concat(userData).concat(userData);
 
 class UserList extends React.Component {
     render() {
         const { classes } = this.props;
 
         return (
-            <GridPanel className={classes.root} data={userData} paging={true}>
+            <GridPanel className={classes.root} data={userDatas} paging={true}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -69,11 +69,14 @@ class UserList extends React.Component {
                         删除
                     </Button>
                 </TopBar>
+                <SearchForm></SearchForm>
                 <Columns>
-                    <Column checkbox={true}></Column>
+                    <CheckboxColumn />
+                    <RowNumber />
                     <Column name={'username'}>用户名</Column>
                     <Column name={'name'}>姓名</Column>
                     <Column name={'sex'}>性别</Column>
+                    <Column name={'role'}>角色</Column>
                     <Column name={'phone'}>手机号</Column>
                     <Column name={'imei'}>手机串号</Column>
                 </Columns>

@@ -143,6 +143,9 @@ export { default as TopBar } from './placeholder/TopBar';
 export { default as BottomBar } from './placeholder/BottomBar';
 export { default as Columns } from './placeholder/Columns';
 export { default as Column } from './placeholder/Column';
+export { default as SearchForm } from './placeholder/SearchForm';
+export { default as CheckboxColumn } from './placeholder/CheckboxColumn';
+export { default as RowNumber } from './placeholder/RowNumber';
 
 // utils
 export { ajax, get, post } from './utils/Ajax';

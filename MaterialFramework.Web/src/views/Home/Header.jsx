@@ -12,6 +12,7 @@ import {
     Paper,
     ClickAwayListener,
     Badge,
+    Lock,
     Notifications,
     ExitToApp,
     Grid,
@@ -40,13 +41,13 @@ const styles = theme => ({
         marginRight: 5
     },
     navItem: {
-        margin: '0 20px'
+        marginLeft: 10
     },
     navBtn: {
         color: 'white'
     },
     user: {
-        width: 260,
+        width: 200,
         flex: 'none'
     },
     userText: {
@@ -60,6 +61,11 @@ const styles = theme => ({
     },
     userName: {
         marginLeft: 5
+    },
+    changePwdBtn: {
+        width: 24,
+        height: 24,
+        marginRight: 15
     },
     logoutBtn: {
         width: 24,
@@ -140,6 +146,14 @@ class Header extends React.Component {
                 </Grid>
             </Grid>;
 
+        const changePassword =
+            <IconButton
+                color="inherit"
+                title="修改密码"
+                className={classes.changePwdBtn}>
+                <Lock />
+            </IconButton>;
+
         const msg = (
             <Manager>
                 <Target>
@@ -204,6 +218,7 @@ class Header extends React.Component {
                         {brand}
                         {navMenu}
                         {user}
+                        {changePassword}
                         {msg}
                         {exit}
                     </Toolbar>
