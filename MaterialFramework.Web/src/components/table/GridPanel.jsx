@@ -12,6 +12,7 @@ import TableCell from './TableCell';
 import TableFooter from './TableFooter';
 import TablePagination from './TablePagination';
 import TablePaginationActions from './TablePaginationActions';
+import Collapse from '../transition/Collapse';
 
 import TopBar from '../placeholder/TopBar';
 import BottomBar from '../placeholder/BottomBar';
@@ -26,7 +27,8 @@ const styles = theme => ({
 
     },
     headPaper: {
-        position: 'sticky'
+        position: 'sticky',
+        borderTop: '1px solid #ddd'
     },
     bodyPaper: {
         maxHeight: 'calc(100% - 220px)',
@@ -35,6 +37,9 @@ const styles = theme => ({
     footerPaper: {
         position: 'sticky',
         bottom: 0
+    },
+    cardActions: {
+        // padding: '3px 6px'
     },
     subTableContainer: {
         overflow: 'auto'
@@ -55,7 +60,7 @@ class GridPanel extends React.Component {
     rows = []; // 每行的数据
     selected = []; // 当前选中的记录id
 
-    refresh = () => {
+    refresh = () => { // 刷新数据
         this.setState({
             time: new Date().getTime()
         });
@@ -103,15 +108,18 @@ class GridPanel extends React.Component {
     }
 
     parseTopBar = (n) => {
-        return n.props.children;
+        const { classes } = this.props;
+        return <CardActions className={classes.cardActions}>{n.props.children}</CardActions>;
     }
 
     parseBottomBar = (n) => {
-        return n.props.children;
+        const { classes } = this.props;
+        return <CardActions className={classes.cardActions}>{n.props.children}</CardActions>;
     }
 
     parseSearchForm = (n) => {
-        return n.props.children;
+        const { searchOpen, classes } = this.props;
+        return <Collapse in={searchOpen}><CardActions className={classes.cardActions}>{n.props.children}</CardActions></Collapse >;
     }
 
     parseTableHead = (head) => {
@@ -255,12 +263,8 @@ class GridPanel extends React.Component {
 
         return (
             <Paper className={classNames(classes.root, className)}>
-                <CardActions>
-                    {topBar}
-                </CardActions>
-                <CardActions>
-                    {searchForm}
-                </CardActions>
+                {topBar}
+                {searchForm}
                 <Paper className={classes.headPaper} elevation={0}>
                     <Table>
                         {tableHead}

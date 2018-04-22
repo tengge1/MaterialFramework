@@ -55,11 +55,23 @@ for (var i = 0; i < 256; i++) {
 }
 
 class UserList extends React.Component {
+
+    state = {
+        searchOpen: false
+    };
+
+    onSearchClick = () => {
+        this.setState({
+            searchOpen: !this.state.searchOpen
+        });
+    }
+
     render() {
         const { classes } = this.props;
+        const state = this.state;
 
         return (
-            <GridPanel className={classes.root} data={userDatas} paging={true}>
+            <GridPanel className={classes.root} data={userDatas} paging={true} searchOpen={state.searchOpen}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -73,7 +85,7 @@ class UserList extends React.Component {
                         <InfoOutline />
                         查看
                     </Button>
-                    <Button>
+                    <Button onClick={this.onSearchClick}>
                         <Search />
                         查询
                     </Button>

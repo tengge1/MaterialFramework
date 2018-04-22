@@ -42,7 +42,6 @@ export { default as CardActions } from './card/CardActions';
 export { default as CardContent } from './card/CardContent';
 export { default as CardHeader } from './card/CardHeader';
 export { default as CardMedia } from './card/CardMedia';
-export { default as Collapse } from './card/Collapse';
 export { default as ExpansionPanel } from './card/ExpansionPanel';
 export { default as ExpansionPanelActions } from './card/ExpansionPanelActions';
 export { default as ExpansionPanelDetails } from './card/ExpansionPanelDetails';
@@ -136,6 +135,7 @@ export { default as Fade } from './transition/Fade';
 export { default as Grow } from './transition/Grow';
 export { default as Slide } from './transition/Slide';
 export { default as Zoom } from './transition/Zoom';
+export { default as Collapse } from './transition/Collapse';
 
 // placeholder
 export { default as Placeholder } from './placeholder/Placeholder';

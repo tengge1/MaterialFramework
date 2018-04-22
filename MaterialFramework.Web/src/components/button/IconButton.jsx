@@ -5,13 +5,13 @@ import { Home } from 'material-ui-icons';
 class IconButton extends React.Component {
     render() {
         const {
-            disableRipple,
+            // disableRipple,
             children,
             ...others
         } = this.props;
 
         return <MaterialIconButton
-            disableRipple={true}
+            // disableRipple={true}
             {...others}>{children || <Home />}</MaterialIconButton>;
     }
 }

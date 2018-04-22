@@ -16,8 +16,8 @@ const styles = theme => ({
 class Button extends React.Component {
     render() {
         const {
-            disableFocusRipple,
-            disableRipple,
+            // disableFocusRipple,
+            // disableRipple,
             variant,
             color,
             children,
@@ -26,8 +26,8 @@ class Button extends React.Component {
         } = this.props;
 
         return <MaterialButton
-            disableFocusRipple={true}
-            disableRipple={true}
+            // disableFocusRipple={true}
+            // disableRipple={true}
             variant={variant || 'raised'}
             color={color}
             classes={(color === 'default' || color === undefined)
