@@ -3,6 +3,7 @@ import {
     withStyles, DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
     Button, TextField, Add, Edit, InfoOutline, Search, Delete
 } from '../../../components/Components';
+import UserAdd from './UserAdd';
 
 const styles = theme => ({
     root: {
@@ -57,7 +58,9 @@ for (var i = 0; i < 256; i++) {
 class UserList extends React.Component {
 
     state = {
-        searchOpen: false
+        searchOpen: false,
+        userAddOpen: false,
+        userEditOpen: false
     };
 
     onSearchClick = () => {
@@ -66,14 +69,20 @@ class UserList extends React.Component {
         });
     }
 
+    addUser = () => {
+        this.setState({
+            userAddOpen: !this.state.userAddOpen
+        });
+    };
+
     render() {
         const { classes } = this.props;
         const state = this.state;
 
-        return (
+        return <React.Fragment>
             <DataTable className={classes.root} data={userDatas} paging={true} searchOpen={state.searchOpen}>
                 <TopBar>
-                    <Button>
+                    <Button onClick={this.addUser}>
                         <Add />
                         添加
                     </Button>
@@ -110,7 +119,8 @@ class UserList extends React.Component {
                     <Column name={'imei'}>手机串号</Column>
                 </Columns>
             </DataTable>
-        );
+            <UserAdd open={state.userAddOpen} />
+        </React.Fragment>;
     }
 }
 

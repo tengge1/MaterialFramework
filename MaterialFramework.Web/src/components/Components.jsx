@@ -60,6 +60,7 @@ export { default as DialogTitle } from './dialog/DialogTitle';
 export { default as Modal } from './dialog/Modal';
 
 // form
+export { default as Form } from './form/Form';
 export { default as Checkbox } from './form/Checkbox';
 export { default as Chip } from './form/Chip';
 export { default as FormControl } from './form/FormControl';
