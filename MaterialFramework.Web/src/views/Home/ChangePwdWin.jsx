@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogContent, Button, FormControl, FormLabel, Input, DialogHeader
+    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input
 } from '../../components/Components';
 
 class ChangePwdWin extends React.Component {
@@ -19,23 +19,23 @@ class ChangePwdWin extends React.Component {
     render() {
         const { open, ...others } = this.props;
 
-        const content = <DialogContent>
-            <FormControl fullWidth={true}>
+        const content = <DialogBody>
+            <FormControl>
                 <FormLabel>原密码</FormLabel>
-                <Input />
+                <Input type={'password'} />
             </FormControl>
-            <FormControl fullWidth={true}>
+            <FormControl>
                 <FormLabel>新密码</FormLabel>
-                <Input />
+                <Input type={'password'} />
             </FormControl>
-            <FormControl fullWidth={true}>
+            <FormControl>
                 <FormLabel>确认密码</FormLabel>
-                <Input />
+                <Input type={'password'} />
             </FormControl>
-        </DialogContent>;
+        </DialogBody>;
 
         return <Dialog open={open} {...others}>
-            <DialogHeader onClose={this.handleClose}>修改密码</DialogHeader>
+            <DialogHead onClose={this.handleClose}>修改密码</DialogHead>
             {content}
             <DialogActions>
                 <Button color={'primary'}>确定</Button>

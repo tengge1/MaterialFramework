@@ -21,7 +21,7 @@ const styles = theme => ({
     }
 });
 
-class DialogHeader extends React.Component {
+class DialogHead extends React.Component {
 
     state = {
         time: new Date().getTime()
@@ -102,4 +102,4 @@ class DialogHeader extends React.Component {
 
 }
 
-export default withStyles(styles)(DialogHeader);
+export default withStyles(styles)(DialogHead);
