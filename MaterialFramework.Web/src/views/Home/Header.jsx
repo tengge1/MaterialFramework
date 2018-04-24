@@ -19,6 +19,7 @@ import {
     FlatButton,
     Avatar
 } from '../../components/Components';
+import ChangePwdWin from './ChangePwdWin';
 import logo from 'assets/img/reactlogo.png';
 import Face from '../../assets/img/faces/marc.jpg';
 
@@ -93,17 +94,26 @@ const styles = theme => ({
 
 class Header extends React.Component {
     state = {
-        open: false
+        msgOpen: false,
+        pwdOpen: false
     };
 
-    handleClick = () => {
+    handleMsgClick = () => {
         this.setState({
-            open: !this.state.open
+            msgOpen: !this.state.msgOpen
         });
     };
 
-    handleClose = () => {
-        this.setState({ open: false });
+    handleMsgClose = () => {
+        this.setState({
+            msgOpen: false
+        });
+    };
+
+    handlePwdOpen = () => {
+        this.setState({
+            pwdOpen: !this.state.pwdOpen
+        });
     };
 
     logout = () => {
@@ -115,7 +125,7 @@ class Header extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const { open } = this.state;
+        const { msgOpen, pwdOpen } = this.state;
 
         const brand =
             <div className={classes.logo}>
@@ -150,7 +160,8 @@ class Header extends React.Component {
             <IconButton
                 color="inherit"
                 title="修改密码"
-                className={classes.changePwdBtn}>
+                className={classes.changePwdBtn}
+                onClick={this.handlePwdOpen}>
                 <Lock />
             </IconButton>;
 
@@ -165,32 +176,32 @@ class Header extends React.Component {
                         badgeContent={5}
                         color="error"
                         title="通知公告"
-                        onClick={this.handleClick}>
+                        onClick={this.handleMsgClick}>
                         <Notifications />
                     </Badge>
                 </Target>
                 <Popper>
-                    <ClickAwayListener onClickAway={this.handleClose}>
+                    <ClickAwayListener onClickAway={this.handleMsgClose}>
                         <Grow
-                            in={open}
+                            in={msgOpen}
                             style={{
                                 transformOrigin: "0 0 0"
                             }}>
                             <Paper>
                                 <MenuList role="menu">
-                                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
                                         Mike John responded to your email
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
                                         You have 5 new tasks
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
                                         You're now friend with Andrew
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
                                         Another Notification
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
                                         Another One
                                     </MenuItem>
                                 </MenuList>
@@ -223,6 +234,7 @@ class Header extends React.Component {
                         {exit}
                     </Toolbar>
                 </AppBar>
+                <ChangePwdWin open={pwdOpen} />
             </div>
         );
     }
