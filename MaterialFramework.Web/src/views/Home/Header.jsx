@@ -116,6 +116,12 @@ class Header extends React.Component {
         });
     };
 
+    handlePwdClose = () => {
+        this.setState({
+            pwdOpen: false
+        });
+    }
+
     logout = () => {
         Cookies.remove('isLogin');
         window
@@ -234,7 +240,7 @@ class Header extends React.Component {
                         {exit}
                     </Toolbar>
                 </AppBar>
-                <ChangePwdWin open={pwdOpen} />
+                <ChangePwdWin open={pwdOpen} onClose={this.handlePwdClose} />
             </div>
         );
     }

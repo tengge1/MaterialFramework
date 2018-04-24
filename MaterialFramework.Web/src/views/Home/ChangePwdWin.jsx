@@ -1,5 +1,7 @@
 import React from 'react';
-import { Dialog, DialogActions, DialogContent, Button, AppBar, Toolbar, FormControl, FormLabel, Input } from '../../components/Components';
+import {
+    Dialog, DialogActions, DialogContent, Button, FormControl, FormLabel, Input, DialogHeader
+} from '../../components/Components';
 
 class ChangePwdWin extends React.Component {
 
@@ -33,9 +35,7 @@ class ChangePwdWin extends React.Component {
         </DialogContent>;
 
         return <Dialog open={open} {...others}>
-            <AppBar>
-                <Toolbar>修改密码</Toolbar>
-            </AppBar>
+            <DialogHeader onClose={this.handleClose}>修改密码</DialogHeader>
             {content}
             <DialogActions>
                 <Button color={'primary'}>确定</Button>

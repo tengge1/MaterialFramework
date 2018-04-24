@@ -58,6 +58,7 @@ export { default as DialogContent } from './dialog/DialogContent';
 export { default as DialogContentText } from './dialog/DialogContentText';
 export { default as DialogTitle } from './dialog/DialogTitle';
 export { default as Modal } from './dialog/Modal';
+export { default as DialogHeader } from './dialog/DialogHeader';
 
 // form
 export { default as Form } from './form/Form';
