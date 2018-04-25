@@ -15,7 +15,7 @@ class Msg extends React.Component {
         return <Snackbar
             open={open}
             message={children}
-            anchorOrigin={{ vertical: 'center', horizontal: 'top' }}
+            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             autoHideDuration={3000}
             transition={Slide}
             onClose={this.handleClose}

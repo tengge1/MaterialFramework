@@ -12,7 +12,7 @@ import {
     Input,
     InputAdornment,
     IconButton,
-    InputLabel,
+    FormLabel,
     VisibilityOff,
     Visibility
 } from '../components/Components';
@@ -40,9 +40,12 @@ const styles = {
     header: {
         paddingBottom: 0
     },
-    content: {
-        width: '260px',
-        paddingBottom: '26px'
+    input: {
+        flex: 1
+    },
+    pwdLabel: {
+        letterSpacing: '1em',
+        marginRight: '-1em'
     },
     action: {
         display: 'flex',
@@ -110,25 +113,25 @@ class Login extends React.Component {
                 <form method="POST" onSubmit={this.handleSubmit}>
                     <Card className={classes.card} raised={true} square={false}>
                         <CardHeader title={''} className={classes.header} avatar={avatar} />
-                        <CardContent className={classes.content}>
-                            <FormControl className={classes.textField}>
-                                <InputLabel>用户名</InputLabel>
+                        <CardContent>
+                            <FormControl>
+                                <FormLabel>用户名</FormLabel>
                                 <Input
                                     type={'text'}
                                     name={'username'}
                                     value={this.state.username}
-                                    fullWidth={true}
+                                    className={classes.input}
                                     onChange={this.handleInputChange} />
                             </FormControl>
-                            <FormControl className={classes.textField}>
-                                <InputLabel>密码</InputLabel>
+                            <FormControl>
+                                <FormLabel className={classes.pwdLabel}>密码</FormLabel>
                                 <Input
                                     type={this.state.showPassword
                                         ? 'text'
                                         : 'password'}
                                     name={'password'}
                                     value={this.state.password}
-                                    fullWidth={true}
+                                    className={classes.input}
                                     endAdornment={passwordAdornment}
                                     onChange={this.handleInputChange} />
                             </FormControl>
