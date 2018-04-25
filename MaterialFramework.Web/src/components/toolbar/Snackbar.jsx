@@ -5,14 +5,10 @@ class Snackbar extends React.Component {
     render() {
         const {
             children,
-            center,
-            anchorOrigin,
             ...others
         } = this.props;
 
-        return <MaterialSnackbar
-            anchorOrigin={center === true ? { vertical: 'center', horizontal: 'center' } : anchorOrigin}
-            {...others}>{children}</MaterialSnackbar>;
+        return <MaterialSnackbar {...others}>{children}</MaterialSnackbar>;
     }
 }
 

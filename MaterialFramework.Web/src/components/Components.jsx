@@ -150,6 +150,9 @@ export { default as SearchForm } from './placeholder/SearchForm';
 export { default as CheckboxColumn } from './placeholder/CheckboxColumn';
 export { default as RowNumber } from './placeholder/RowNumber';
 
+// widget
+export { default as Msg } from './widget/Msg';
+
 // utils
 export { ajax, get, post } from './utils/Ajax';
 export { default as ClickAwayListener } from './utils/ClickAwayListener';

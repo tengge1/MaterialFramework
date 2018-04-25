@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, Snackbar, SnackbarContent
+    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, Msg
 } from '../../components/Components';
 
 class ChangePwdWin extends React.Component {
@@ -14,6 +14,10 @@ class ChangePwdWin extends React.Component {
     confirmPassword = '';
 
     handleOK = () => {
+        const { onClose } = this.props;
+        if (onClose) {
+            onClose();
+        }
         this.setState({
             msgOpen: true
         });
@@ -24,6 +28,12 @@ class ChangePwdWin extends React.Component {
         if (onClose) {
             onClose();
         }
+    };
+
+    handleMsgClose = () => {
+        this.setState({
+            msgOpen: false
+        });
     };
 
     render() {
@@ -51,9 +61,7 @@ class ChangePwdWin extends React.Component {
                     <Button onClick={this.handleClose}>取消</Button>
                 </DialogActions>
             </Dialog>
-            <Snackbar center={true} open={this.state.msgOpen}>
-                <SnackbarContent>密码修改成功！</SnackbarContent>
-            </Snackbar>
+            <Msg open={this.state.msgOpen} onClose={this.handleMsgClose}>密码修改成功！</Msg>
         </React.Fragment>;
     }
 }
