@@ -16,7 +16,7 @@ import {
     Notifications,
     ExitToApp,
     Grid,
-    FlatButton,
+    ToggleButton,
     Avatar
 } from '../../components/Components';
 import ChangePwdWin from './ChangePwdWin';
@@ -142,13 +142,13 @@ class Header extends React.Component {
         const navMenu =
             <Grid container>
                 <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>地理信息系统</FlatButton>
+                    <ToggleButton color={'secondary'} className={classes.navBtn} toggle={true}>地理信息系统</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>工作中心</FlatButton>
+                    <ToggleButton className={classes.navBtn}>工作中心</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
-                    <FlatButton className={classes.navBtn}>系统管理</FlatButton>
+                    <ToggleButton className={classes.navBtn}>系统管理</ToggleButton>
                 </Grid>
             </Grid>;
 

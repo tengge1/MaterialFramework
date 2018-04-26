@@ -17,6 +17,7 @@ export { default as Button } from './button/Button';
 export { default as FlatButton } from './button/FlatButton';
 export { default as RoundButton } from './button/RoundButton';
 export { default as IconButton } from './button/IconButton';
+export { default as ToggleButton } from './button/ToggleButton';
 
 // toolbar
 export { default as AppBar } from './toolbar/AppBar';
