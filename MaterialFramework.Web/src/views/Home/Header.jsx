@@ -45,7 +45,7 @@ const styles = theme => ({
         marginLeft: 10
     },
     navBtn: {
-        color: 'white'
+        color: theme.palette.getContrastText(theme.palette.primary.main)
     },
     user: {
         width: 200,
@@ -95,7 +95,8 @@ const styles = theme => ({
 class Header extends React.Component {
     state = {
         msgOpen: false,
-        pwdOpen: false
+        pwdOpen: false,
+        navSelectedIndex: 0
     };
 
     handleMsgClick = () => {

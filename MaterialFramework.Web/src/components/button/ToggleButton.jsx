@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Button from './Button.jsx';
 import withStyles from '../style/withStyles';
 
@@ -7,7 +8,7 @@ const styles = theme => ({
 
     },
     toggle: {
-
+        backgroundColor: theme.palette.action.selected
     }
 });
 
@@ -17,9 +18,10 @@ class ToggleButton extends React.Component {
             toggle,
             children,
             classes,
+            className,
             ...others
         } = this.props;
-        return <Button variant={'flat'} className={toggle === true ? classes.toggle : null} {...others}>{children}</Button>;
+        return <Button variant={'flat'} className={toggle === true ? classNames(className, classes.toggle) : className} {...others}>{children}</Button>;
     }
 }
 
