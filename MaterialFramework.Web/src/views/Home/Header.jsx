@@ -14,6 +14,7 @@ import {
     Badge,
     Lock,
     Notifications,
+    Build,
     ExitToApp,
     Grid,
     ToggleButton,
@@ -64,6 +65,11 @@ const styles = theme => ({
         marginLeft: 5
     },
     changePwdBtn: {
+        width: 24,
+        height: 24,
+        marginRight: 15
+    },
+    buildBtn: {
         width: 24,
         height: 24,
         marginRight: 15
@@ -234,6 +240,14 @@ class Header extends React.Component {
             </Manager>
         );
 
+        const build =
+            <IconButton
+                color="inherit"
+                title="皮肤编辑器"
+                className={classes.buildBtn}>
+                <Build />
+            </IconButton>;
+
         var exit = (
             <IconButton
                 color="inherit"
@@ -253,6 +267,7 @@ class Header extends React.Component {
                         {user}
                         {changePassword}
                         {msg}
+                        {build}
                         {exit}
                     </Toolbar>
                 </AppBar>
