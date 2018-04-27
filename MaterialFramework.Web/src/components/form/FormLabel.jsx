@@ -5,6 +5,7 @@ import { FormLabel as MaterialFormLabel } from 'material-ui';
 
 const styles = theme => ({
     root: {
+        width: 64,
         margin: 8
     }
 });
