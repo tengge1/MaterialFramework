@@ -60,6 +60,17 @@ class DataTable extends React.Component {
     rows = []; // 每行的数据
     selected = []; // 当前选中的记录id
 
+    handleDoubleClick = (rowId) => {
+        const { onDoubleClick } = this.props;
+        if (onDoubleClick) {
+            var _this = this;
+            const rowData = this.rows.filter(function (row) {
+                return row[_this.idProperty] === rowId;
+            })[0];
+            onDoubleClick(rowData);
+        }
+    }
+
     refresh = () => { // 刷新数据
         this.setState({
             time: new Date().getTime()
@@ -182,36 +193,40 @@ class DataTable extends React.Component {
         });
 
         const tableRows = rows.map((row, rowIndex) => {
-            return <TableRow hover={true} selected={rowIndex % 2 === 0 ? true : false} key={rowIndex}>{head.props.children.map((col, colIndex) => {
-                const width = col.props.width ? col.props.width : 100;
-                if (col.type.name === CheckboxColumn.name) {
-                    return <TableCell
-                        width={parseInt(width / totalWidth * 100, 10) + '%'}
-                        padding={'checkbox'}
-                        key={colIndex}>
-                        <Checkbox
-                            checked={this.selected.indexOf(row[this.idProperty]) > -1}
-                            onChange={(event, checked) => this.onSelectClick(event, checked, row[this.idProperty])} />
-                    </TableCell>;
-                } else if (col.type.name === RowNumber.name) {
-                    return <TableCell
-                        width={parseInt(width / totalWidth * 100, 10) + '%'}
-                        padding={'checkbox'}
-                        key={colIndex}>
-                        {this.rowsPerPage * this.page + rowIndex + 1}
-                    </TableCell>;
-                } else if (col.type.name === Column.name) {
-                    return <TableCell
-                        width={parseInt(width / totalWidth * 100, 10) + '%'}
-                        key={colIndex}>
-                        {row[col.props.name]}
-                    </TableCell>;
-                } else {
-                    return <TableCell
-                        width={parseInt(width / totalWidth * 100, 10) + '%'}
-                    ></TableCell>;
-                }
-            })}</TableRow>;
+            return <TableRow
+                hover={true}
+                selected={rowIndex % 2 === 0 ? true : false}
+                key={rowIndex}
+                onDoubleClick={() => this.handleDoubleClick(row[this.idProperty])}>{head.props.children.map((col, colIndex) => {
+                    const width = col.props.width ? col.props.width : 100;
+                    if (col.type.name === CheckboxColumn.name) {
+                        return <TableCell
+                            width={parseInt(width / totalWidth * 100, 10) + '%'}
+                            padding={'checkbox'}
+                            key={colIndex}>
+                            <Checkbox
+                                checked={this.selected.indexOf(row[this.idProperty]) > -1}
+                                onChange={(event, checked) => this.onSelectClick(event, checked, row[this.idProperty])} />
+                        </TableCell>;
+                    } else if (col.type.name === RowNumber.name) {
+                        return <TableCell
+                            width={parseInt(width / totalWidth * 100, 10) + '%'}
+                            padding={'checkbox'}
+                            key={colIndex}>
+                            {this.rowsPerPage * this.page + rowIndex + 1}
+                        </TableCell>;
+                    } else if (col.type.name === Column.name) {
+                        return <TableCell
+                            width={parseInt(width / totalWidth * 100, 10) + '%'}
+                            key={colIndex}>
+                            {row[col.props.name]}
+                        </TableCell>;
+                    } else {
+                        return <TableCell
+                            width={parseInt(width / totalWidth * 100, 10) + '%'}
+                        ></TableCell>;
+                    }
+                })}</TableRow>;
         });
 
         const content = <div className={classes.subTableContainer}><Table><TableBody>{tableRows}</TableBody></Table></div>;
