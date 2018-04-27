@@ -4,6 +4,7 @@ import {
     Build,
     Group
 } from '../components/Components';
+import { Menu, Book, Assignment } from 'material-ui-icons';
 
 const appRoutes = [{
     id: 1,
@@ -26,6 +27,21 @@ const appRoutes = [{
         path: '/system/role',
         icon: Group
     }]
+}, {
+    id: 4,
+    name: '菜单管理',
+    path: '',
+    icon: Menu
+}, {
+    id: 4,
+    name: '用户字典',
+    path: '',
+    icon: Book
+}, {
+    id: 5,
+    name: '日志管理',
+    path: '',
+    icon: Assignment
 }];
 
 export default appRoutes;
