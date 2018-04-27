@@ -96,7 +96,13 @@ class Header extends React.Component {
     state = {
         msgOpen: false,
         pwdOpen: false,
-        navSelectedIndex: 0
+        navActiveIndex: 0
+    };
+
+    handleNavClick = (index) => {
+        this.setState({
+            navActiveIndex: index
+        });
     };
 
     handleMsgClick = () => {
@@ -132,7 +138,7 @@ class Header extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const { msgOpen, pwdOpen } = this.state;
+        const { msgOpen, pwdOpen, navActiveIndex } = this.state;
 
         const brand =
             <div className={classes.logo}>
@@ -143,13 +149,22 @@ class Header extends React.Component {
         const navMenu =
             <Grid container>
                 <Grid item className={classes.navItem}>
-                    <ToggleButton color={'secondary'} className={classes.navBtn} toggle={true}>地理信息系统</ToggleButton>
+                    <ToggleButton
+                        className={classes.navBtn}
+                        toggle={navActiveIndex === 0 ? true : false}
+                        onClick={() => this.handleNavClick(0)}>地理信息系统</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
-                    <ToggleButton className={classes.navBtn}>工作中心</ToggleButton>
+                    <ToggleButton
+                        className={classes.navBtn}
+                        toggle={navActiveIndex === 1 ? true : false}
+                        onClick={() => this.handleNavClick(1)}>工作中心</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
-                    <ToggleButton className={classes.navBtn}>系统管理</ToggleButton>
+                    <ToggleButton
+                        className={classes.navBtn}
+                        toggle={navActiveIndex === 2 ? true : false}
+                        onClick={() => this.handleNavClick(2)}>系统管理</ToggleButton>
                 </Grid>
             </Grid>;
 
