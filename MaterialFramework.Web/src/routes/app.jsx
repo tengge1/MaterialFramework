@@ -33,14 +33,14 @@ const appRoutes = [{
     path: '',
     icon: Menu
 }, {
-    id: 4,
+    id: 5,
     name: '用户字典',
     path: '',
     icon: Book
 }, {
-    id: 5,
-    name: '日志管理',
-    path: '',
+    id: 6,
+    name: '系统日志',
+    path: '/system/log',
     icon: Assignment
 }];
 
