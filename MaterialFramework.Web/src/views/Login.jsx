@@ -44,8 +44,7 @@ const styles = {
         flex: 1
     },
     pwdLabel: {
-        letterSpacing: '1em',
-        marginRight: '-1em'
+        letterSpacing: '1em'
     },
     action: {
         display: 'flex',
@@ -124,7 +123,7 @@ class Login extends React.Component {
                                     onChange={this.handleInputChange} />
                             </FormControl>
                             <FormControl>
-                                <FormLabel className={classes.pwdLabel}>密码</FormLabel>
+                                <FormLabel><span className={classes.pwdLabel}>密</span>码</FormLabel>
                                 <Input
                                     type={this.state.showPassword
                                         ? 'text'
