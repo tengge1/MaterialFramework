@@ -72,7 +72,15 @@ class LogList extends React.Component {
         this.setState({
             searchOpen: !this.state.searchOpen
         });
-    }
+    };
+
+    onViewClick = () => {
+
+    };
+
+    handleSelectChange = (rows) => {
+        console.log(rows);
+    };
 
     handleRowDblClick = (row) => {
         this.setState({
@@ -91,9 +99,15 @@ class LogList extends React.Component {
         const state = this.state;
 
         return <React.Fragment>
-            <DataTable className={classes.root} data={logDatas} paging={true} searchOpen={state.searchOpen} onDoubleClick={this.handleRowDblClick}>
+            <DataTable
+                className={classes.root}
+                data={logDatas}
+                paging={true}
+                searchOpen={state.searchOpen}
+                onSelectChange={this.handleSelectChange}
+                onDoubleClick={this.handleRowDblClick}>
                 <TopBar>
-                    <Button>
+                    <Button onClick={this.onViewClick}>
                         <InfoOutline />
                         查看
                     </Button>

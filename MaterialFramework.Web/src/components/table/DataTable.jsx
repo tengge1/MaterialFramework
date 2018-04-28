@@ -60,6 +60,26 @@ class DataTable extends React.Component {
     rows = []; // 每行的数据
     selected = []; // 当前选中的记录id
 
+    handleRowClick = (rowId) => {
+        const index = this.selected.indexOf(rowId);
+        if (index === -1) {
+            this.selected.push(rowId);
+        } else {
+            this.selected.splice(index, 1);
+        }
+        this.refresh();
+    };
+
+    handleSelectChange = () => {
+        const { onSelectChange } = this.props;
+        if (onSelectChange) {
+            const selected = this.rows.filter((row) => {
+                return this.selected.indexOf(row.id) > -1;
+            });
+            onSelectChange(selected);
+        }
+    };
+
     handleDoubleClick = (rowId) => {
         const { onDoubleClick } = this.props;
         if (onDoubleClick) {
@@ -84,6 +104,7 @@ class DataTable extends React.Component {
 
     onChangeRowsPerPage = (event) => {
         this.rowsPerPage = event.target.value;
+        this.handleSelectChange();
         this.refresh();
     }
 
@@ -99,6 +120,8 @@ class DataTable extends React.Component {
         } else {
             this.selected = [];
         }
+        event.stopPropagation();
+        this.handleSelectChange();
         this.refresh();
     }
 
@@ -106,15 +129,17 @@ class DataTable extends React.Component {
         if (checked) {
             if (this.selected.indexOf(id) === -1) {
                 this.selected.push(id);
-            } else {
-                throw new Error('GridPanel: duplicate selected id.');
-            }
+            } 
+            // else {
+            //     throw new Error('GridPanel: duplicate selected id.');
+            // }
         } else {
             var index = this.selected.indexOf(id);
             if (index > -1) {
                 this.selected.splice(index, 1);
             }
         }
+        event.stopPropagation();
         this.refresh();
     }
 
@@ -197,6 +222,7 @@ class DataTable extends React.Component {
                 hover={true}
                 selected={rowIndex % 2 === 0 ? true : false}
                 key={rowIndex}
+                onClick={() => this.handleRowClick(row[this.idProperty])}
                 onDoubleClick={() => this.handleDoubleClick(row[this.idProperty])}>{head.props.children.map((col, colIndex) => {
                     const width = col.props.width ? col.props.width : 100;
                     if (col.type.name === CheckboxColumn.name) {
