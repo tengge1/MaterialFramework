@@ -1,5 +1,4 @@
 import React from 'react';
-import Cookies from 'js-cookie';
 import {
     Card,
     CardHeader,
@@ -7,14 +6,15 @@ import {
     CardActions,
     Avatar,
     Button,
-    withStyles,
     FormControl,
     Input,
     InputAdornment,
     IconButton,
-    FormLabel
+    FormLabel,
+    Controller
 } from '../components/Components';
 import { Visibility, VisibilityOff } from '../components/Icons';
+import LoginController from './LoginController';
 import cover from '../assets/img/cover.jpeg';
 import face from '../assets/img/faces/avatar.jpg';
 
@@ -69,18 +69,6 @@ class Login extends React.Component {
         this.setState({ [name]: value });
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        Cookies.set('isLogin', true);
-        window
-            .location
-            .reload();
-    }
-
-    reset = () => {
-        this.setState({ username: '', password: '' });
-    }
-
     handleShowPassword = () => {
         this.setState({
             showPassword: !this.state.showPassword
@@ -92,7 +80,7 @@ class Login extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, onLogin, onReset } = this.props;
 
         const avatar = <Avatar src={face} size={'large'} alt={'头像'} />;
 
@@ -108,49 +96,39 @@ class Login extends React.Component {
 
         return (
             <div className={classes.root}>
-                <form method="POST" onSubmit={this.handleSubmit}>
-                    <Card className={classes.card} raised={true} square={false}>
-                        <CardHeader title={''} className={classes.header} avatar={avatar} />
-                        <CardContent>
-                            <FormControl>
-                                <FormLabel>用户名</FormLabel>
-                                <Input
-                                    type={'text'}
-                                    name={'username'}
-                                    value={this.state.username}
-                                    className={classes.input}
-                                    onChange={this.handleInputChange} />
-                            </FormControl>
-                            <FormControl>
-                                <FormLabel><span className={classes.pwdLabel}>密</span>码</FormLabel>
-                                <Input
-                                    type={this.state.showPassword
-                                        ? 'text'
-                                        : 'password'}
-                                    name={'password'}
-                                    value={this.state.password}
-                                    className={classes.input}
-                                    endAdornment={passwordAdornment}
-                                    onChange={this.handleInputChange} />
-                            </FormControl>
-                        </CardContent>
-                        <CardActions className={classes.action}>
-                            <Button
-                                type="submit"
-                                variant="raised"
-                                color="primary"
-                                className={classes.button}>
-                                登录
-                            </Button>
-                            <Button variant="raised" className={classes.button} onClick={this.reset}>
-                                清空
-                            </Button>
-                        </CardActions>
-                    </Card>
-                </form>
+                <Card className={classes.card} raised={true} square={false}>
+                    <CardHeader title={''} className={classes.header} avatar={avatar} />
+                    <CardContent>
+                        <FormControl>
+                            <FormLabel>用户名</FormLabel>
+                            <Input
+                                type={'text'}
+                                name={'username'}
+                                value={this.state.username}
+                                className={classes.input}
+                                onChange={this.handleInputChange} />
+                        </FormControl>
+                        <FormControl>
+                            <FormLabel><span className={classes.pwdLabel}>密</span>码</FormLabel>
+                            <Input
+                                type={this.state.showPassword
+                                    ? 'text'
+                                    : 'password'}
+                                name={'password'}
+                                value={this.state.password}
+                                className={classes.input}
+                                endAdornment={passwordAdornment}
+                                onChange={this.handleInputChange} />
+                        </FormControl>
+                    </CardContent>
+                    <CardActions className={classes.action}>
+                        <Button color="primary" className={classes.button} onClick={onLogin.bind(this)}>登录</Button>
+                        <Button className={classes.button} onClick={onReset.bind(this)}>清空</Button>
+                    </CardActions>
+                </Card>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(Login);
+export default Controller(Login, { styles: styles, controller: LoginController });

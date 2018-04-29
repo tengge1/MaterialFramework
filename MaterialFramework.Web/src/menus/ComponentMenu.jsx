@@ -1,7 +1,6 @@
-import { Home, Person, Build, Group } from '../components/Icons';
-import { Menu, Book, Assignment } from 'material-ui-icons';
+import { Home, Person, Build, Group, Menu, Book, Assignment } from '../components/Icons';
 
-const appRoutes = [{
+const ComponentMenu = [{
     id: 1,
     name: '组织机构管理',
     path: '',
@@ -39,4 +38,4 @@ const appRoutes = [{
     icon: Assignment
 }];
 
-export default appRoutes;
+export default ComponentMenu;

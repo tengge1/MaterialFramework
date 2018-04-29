@@ -3,8 +3,12 @@ export * from './color/Colors';
 export { default as lighten } from './style/lighten';
 export { default as createMuiTheme } from './style/createMuiTheme';
 export { default as withStyles } from './style/withStyles';
+export { default as withTheme } from './style/withTheme';
 export { default as CssBaseline } from './style/CssBaseline';
 export { default as MuiThemeProvider } from './style/MuiThemeProvider';
+
+// controller
+export { default as Controller } from './controller/Controller';
 
 // grid
 export { default as Grid } from './grid/Grid';
