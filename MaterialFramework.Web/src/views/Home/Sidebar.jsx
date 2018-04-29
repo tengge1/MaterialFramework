@@ -9,12 +9,9 @@ import {
     ListItem,
     ListItemIcon,
     ListItemText,
-    Collapse,
-    ChevronLeft,
-    ChevronRight,
-    ExpandLess,
-    ExpandMore
+    Collapse
 } from '../../components/Components';
+import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '../../components/Icons';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import PerfectScrollbar from 'perfect-scrollbar';
 import appRoutes from '../../routes/app';

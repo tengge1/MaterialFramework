@@ -35,7 +35,6 @@ export { default as Tooltip } from './tooltip/Tooltip';
 // icon
 export { default as Icon } from './icon/Icon';
 export { default as SvgIcon } from './icon/SvgIcon';
-export * from './icon/Icons';
 
 // card
 export { default as Card } from './card/Card';

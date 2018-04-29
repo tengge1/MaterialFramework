@@ -12,10 +12,9 @@ import {
     Input,
     InputAdornment,
     IconButton,
-    FormLabel,
-    VisibilityOff,
-    Visibility
+    FormLabel
 } from '../components/Components';
+import { Visibility, VisibilityOff } from '../components/Icons';
 import cover from '../assets/img/cover.jpeg';
 import face from '../assets/img/faces/avatar.jpg';
 

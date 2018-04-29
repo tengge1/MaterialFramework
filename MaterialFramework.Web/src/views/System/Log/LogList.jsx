@@ -1,8 +1,9 @@
 import React from 'react';
 import {
     withStyles, DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
-    Button, TextField, InfoOutline, Search, Delete
+    Button, TextField
 } from '../../../components/Components';
+import { InfoOutline, Search, Delete } from '../../../components/Icons';
 import LogView from './LogView';
 
 const styles = theme => ({

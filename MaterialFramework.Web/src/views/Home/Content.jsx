@@ -1,5 +1,6 @@
 import React from 'react';
-import { withStyles, AppBar, Tabs, Tab, Close } from '../../components/Components';
+import { withStyles, AppBar, Tabs, Tab } from '../../components/Components';
+import { Close } from '../../components/Icons';
 import Views from '../Views';
 
 const styles = theme => ({

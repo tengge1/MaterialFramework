@@ -1,9 +1,4 @@
-import {
-    Home,
-    Person,
-    Build,
-    Group
-} from '../components/Components';
+import { Home, Person, Build, Group } from '../components/Icons';
 import { Menu, Book, Assignment } from 'material-ui-icons';
 
 const appRoutes = [{

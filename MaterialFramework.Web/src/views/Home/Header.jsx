@@ -12,14 +12,11 @@ import {
     Paper,
     ClickAwayListener,
     Badge,
-    Lock,
-    Notifications,
-    Build,
-    ExitToApp,
     Grid,
     ToggleButton,
     Avatar
 } from '../../components/Components';
+import { Lock, Notifications, Build, ExitToApp } from '../../components/Icons';
 import ChangePwdWin from './ChangePwdWin';
 import logo from 'assets/img/reactlogo.png';
 import Face from '../../assets/img/faces/marc.jpg';
@@ -158,13 +155,7 @@ class Header extends React.Component {
                     <ToggleButton
                         className={classes.navBtn}
                         toggle={navActiveIndex === 0 ? true : false}
-                        onClick={() => this.handleNavClick(0)}>地理信息系统</ToggleButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
-                    <ToggleButton
-                        className={classes.navBtn}
-                        toggle={navActiveIndex === 1 ? true : false}
-                        onClick={() => this.handleNavClick(1)}>工作中心</ToggleButton>
+                        onClick={() => this.handleNavClick(0)}>控件演示</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
                     <ToggleButton
@@ -201,7 +192,7 @@ class Header extends React.Component {
                         classes={{
                             badge: classes.badgeBadge
                         }}
-                        badgeContent={5}
+                        badgeContent={3}
                         color="error"
                         title="通知公告"
                         onClick={this.handleMsgClick}>
@@ -218,19 +209,13 @@ class Header extends React.Component {
                             <Paper>
                                 <MenuList role="menu">
                                     <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
-                                        Mike John responded to your email
+                                        一个通知
                                     </MenuItem>
                                     <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
-                                        You have 5 new tasks
+                                        另外一个通知
                                     </MenuItem>
                                     <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
-                                        You're now friend with Andrew
-                                    </MenuItem>
-                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
-                                        Another Notification
-                                    </MenuItem>
-                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
-                                        Another One
+                                        又来一个通知
                                     </MenuItem>
                                 </MenuList>
                             </Paper>
