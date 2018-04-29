@@ -142,14 +142,18 @@ export { default as Zoom } from './transition/Zoom';
 export { default as Collapse } from './transition/Collapse';
 
 // placeholder
-export { default as Placeholder } from './placeholder/Placeholder';
-export { default as TopBar } from './placeholder/TopBar';
 export { default as BottomBar } from './placeholder/BottomBar';
-export { default as Columns } from './placeholder/Columns';
-export { default as Column } from './placeholder/Column';
-export { default as SearchForm } from './placeholder/SearchForm';
 export { default as CheckboxColumn } from './placeholder/CheckboxColumn';
+export { default as Column } from './placeholder/Column';
+export { default as Columns } from './placeholder/Columns';
+export { default as Content } from './placeholder/Content';
+export { default as Field } from './placeholder/Field';
+export { default as Footer } from './placeholder/Footer';
+export { default as Header } from './placeholder/Header';
+export { default as Placeholder } from './placeholder/Placeholder';
 export { default as RowNumber } from './placeholder/RowNumber';
+export { default as SearchForm } from './placeholder/SearchForm';
+export { default as TopBar } from './placeholder/TopBar';
 
 // widget
 export { default as Msg } from './widget/Msg';
