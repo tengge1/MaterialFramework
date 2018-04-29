@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, Msg
+    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, Controller, Msg
 } from '../../components/Components';
+import ChangePwdWinController from './ChangePwdWinController';
 
 class ChangePwdWin extends React.Component {
 
@@ -12,23 +13,6 @@ class ChangePwdWin extends React.Component {
     oldPassword = '';
     newPassword = '';
     confirmPassword = '';
-
-    handleOK = () => {
-        const { onClose } = this.props;
-        if (onClose) {
-            onClose();
-        }
-        this.setState({
-            msgOpen: true
-        });
-    };
-
-    handleClose = () => {
-        const { onClose } = this.props;
-        if (onClose) {
-            onClose();
-        }
-    };
 
     handleMsgClose = () => {
         this.setState({
@@ -57,13 +41,13 @@ class ChangePwdWin extends React.Component {
                     </FormControl>
                 </DialogBody>
                 <DialogActions>
-                    <Button color={'primary'} onClick={this.handleOK}>确定</Button>
+                    <Button color={'primary'} onClick={this.handleOK.bind(this)}>确定</Button>
                     <Button onClick={this.handleClose}>取消</Button>
                 </DialogActions>
             </Dialog>
-            <Msg open={this.state.msgOpen} onClose={this.handleMsgClose}>密码修改成功！</Msg>
+            <Msg open={this.state.msgOpen} onClose={this.handleMsgClose.bind(this)}>密码修改成功！</Msg>
         </React.Fragment>;
     }
 }
 
-export default ChangePwdWin;
+export default Controller(ChangePwdWin, { controller: ChangePwdWinController });

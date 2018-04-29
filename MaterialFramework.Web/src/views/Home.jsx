@@ -1,8 +1,9 @@
 import React from 'react';
-import { withStyles } from '../components/Components';
+import { Controller } from '../components/Components';
 import Header from './Home/Header';
 import Sidebar from './Home/Sidebar';
 import Content from './Home/Content';
+import HomeController from './HomeController';
 
 const styles = theme => ({
     root: {
@@ -21,64 +22,6 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
-    state = {
-        version: new Date().getTime()
-    };
-
-    tabs = [
-        {
-            id: 0,
-            name: '主页',
-            path: '/',
-            closable: false
-        }
-    ];
-
-    currentTab = 0;
-
-    onMenuItemClick = (id, name, path) => {
-        const index = this
-            .tabs
-            .findIndex((item) => {
-                return item.path === path;
-            });
-        if (index === -1) {
-            this
-                .tabs
-                .push({ id: id, name: name, path: path, closable: true });
-            this.currentTab = this.tabs.length - 1;
-            this.setState({
-                version: new Date().getTime()
-            });
-        } else {
-            this.currentTab = index;
-            this.setState({
-                version: new Date().getTime()
-            });
-        }
-    }
-
-    onTabIndexChange = (index) => {
-        if (index < this.tabs.length) {
-            this.currentTab = index;
-            this.setState({
-                version: new Date().getTime()
-            });
-        }
-    }
-
-    onTabClose = (tab, index) => {
-        this
-            .tabs
-            .splice(index, 1);
-        if (this.currentTab >= index) {
-            this.currentTab--;
-        }
-        this.setState({
-            version: new Date().getTime()
-        });
-    }
-
     render() {
         const { classes } = this.props;
         return (
@@ -98,4 +41,4 @@ class Home extends React.Component {
     }
 }
 
-export default withStyles(styles)(Home);
+export default Controller(Home, { styles: styles, controller: HomeController });

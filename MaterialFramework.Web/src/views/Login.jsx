@@ -55,39 +55,15 @@ const styles = {
 };
 
 class Login extends React.Component {
-
-    state = {
-        username: '',
-        password: '',
-        showPassword: false
-    };
-
-    handleInputChange = (event) => {
-        const target = event.target;
-        const name = target.name;
-        const value = target.value;
-        this.setState({ [name]: value });
-    }
-
-    handleShowPassword = () => {
-        this.setState({
-            showPassword: !this.state.showPassword
-        });
-    }
-
-    handleMouseDownPassword = (event) => {
-        event.preventDefault();
-    }
-
     render() {
-        const { classes, onLogin, onReset } = this.props;
+        const { classes } = this.props;
 
         const avatar = <Avatar src={face} size={'large'} alt={'头像'} />;
 
         var passwordAdornment = <InputAdornment position="end">
             <IconButton
-                onClick={this.handleShowPassword}
-                onMouseDown={this.handleMouseDownPassword}>
+                onClick={this.handleShowPassword.bind(this)}
+                onMouseDown={this.handleMouseDownPassword.bind(this)}>
                 {this.state.showPassword
                     ? <VisibilityOff />
                     : <Visibility />}
@@ -106,7 +82,7 @@ class Login extends React.Component {
                                 name={'username'}
                                 value={this.state.username}
                                 className={classes.input}
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange.bind(this)} />
                         </FormControl>
                         <FormControl>
                             <FormLabel><span className={classes.pwdLabel}>密</span>码</FormLabel>
@@ -118,12 +94,12 @@ class Login extends React.Component {
                                 value={this.state.password}
                                 className={classes.input}
                                 endAdornment={passwordAdornment}
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange.bind(this)} />
                         </FormControl>
                     </CardContent>
                     <CardActions className={classes.action}>
-                        <Button color="primary" className={classes.button} onClick={onLogin.bind(this)}>登录</Button>
-                        <Button className={classes.button} onClick={onReset.bind(this)}>清空</Button>
+                        <Button color="primary" className={classes.button} onClick={this.onLogin.bind(this)}>登录</Button>
+                        <Button className={classes.button} onClick={this.onReset.bind(this)}>清空</Button>
                     </CardActions>
                 </Card>
             </div>

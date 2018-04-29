@@ -10,19 +10,30 @@ import withTheme from '../style/withTheme';
 function Controller(Component, options) {
     const { styles, theme, controller } = options;
 
-    const StyleComponent = styles ? withStyles(styles, { withTheme: theme === true ? true : false })(Component) :
+    if (controller) {
+        // 复制controller上的属性和箭头函数
+        var instance = new controller();
+        var instanceKeys = Object.keys(instance);
+        instanceKeys.forEach(key => {
+            Component.prototype[key] = instance[key];
+        });
+
+        // 复制controller上的方法
+        var prototypeKeys = Object.getOwnPropertyNames(controller.prototype)
+            .filter(o => { return o !== 'constructor'; });
+        prototypeKeys.forEach(key => {
+            Component.prototype[key] = controller.prototype[key];
+        });
+    }
+
+    var StyleComponent = styles ? withStyles(styles, { withTheme: theme === true ? true : false })(Component) :
         (theme === true ? withTheme(Component) : Component);
 
     return class extends React.Component {
 
         render() {
             const { children, ...others } = this.props;
-
-            if (controller) {
-                return <StyleComponent {...others} {...controller}>{children}</StyleComponent>;
-            } else {
-                return <StyleComponent {...others}>{children}</StyleComponent>;
-            }
+            return <StyleComponent {...others}>{children}</StyleComponent>;
         }
 
     };
