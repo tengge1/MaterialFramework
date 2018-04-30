@@ -10,6 +10,9 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         padding: 0
     },
+    appBar: {
+        position: 'relative'
+    },
     hidden: {
         display: 'none'
     },
@@ -41,7 +44,7 @@ class Content extends React.Component {
         const { classes, tabs, currentTab } = this.props;
         return (
             <div className={classes.root}>
-                <AppBar position="static" color="default">
+                <AppBar position="static" color="default" className={classes.appBar}>
                     <Tabs
                         value={currentTab}
                         onChange={this.handleChange.bind(this)}

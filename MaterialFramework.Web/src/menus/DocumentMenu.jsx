@@ -1,9 +1,9 @@
 import { Widgets } from '../components/Icons';
 
-const DemoMenu = [{
+const DocumentMenu = [{
     id: 1,
     name: '简介',
-    path: '',
+    path: '/document/description',
     icon: Widgets
 }, {
     id: 2,
@@ -27,6 +27,11 @@ const DemoMenu = [{
     name: '复合控件',
     path: '',
     icon: Widgets
+}, {
+    id: 5,
+    name: '工具控件',
+    path: '',
+    icon: Widgets
 }];
 
-export default DemoMenu;
+export default DocumentMenu;

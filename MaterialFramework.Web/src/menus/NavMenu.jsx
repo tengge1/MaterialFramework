@@ -1,11 +1,11 @@
-import DemoMenu from './DemoMenu';
+import DocumentMenu from './DocumentMenu';
 import SystemMenu from './SystemMenu';
 
 const NavMenu = [{
     id: 1,
-    name: '控件演示',
-    path: 'demo',
-    children: DemoMenu
+    name: '开发文档',
+    path: 'document',
+    children: DocumentMenu
 }, {
     id: 2,
     name: '系统管理',
