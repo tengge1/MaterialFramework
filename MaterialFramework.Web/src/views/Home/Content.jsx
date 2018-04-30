@@ -2,6 +2,7 @@ import React from 'react';
 import { AppBar, Tabs, Tab, Controller } from '../../components/Components';
 import { Close } from '../../components/Icons';
 import Views from '../Views';
+import ContentController from './ContentController';
 
 const styles = theme => ({
     root: {
@@ -36,15 +37,6 @@ function TabContainer(props) {
 }
 
 class Content extends React.Component {
-    handleChange = (event, value) => {
-        if (this.props && this.props.onTabIndexChange) {
-            this
-                .props
-                .onTabIndexChange
-                .call(this, value, event);
-        }
-    };
-
     render() {
         const { classes, tabs, currentTab } = this.props;
         return (
@@ -52,14 +44,21 @@ class Content extends React.Component {
                 <AppBar position="static" color="default">
                     <Tabs
                         value={currentTab}
-                        onChange={this.handleChange}
+                        onChange={this.handleChange.bind(this)}
                         indicatorColor="primary"
                         textColor="primary"
                         scrollable
                         scrollButtons="auto">
                         {tabs.map((tab, index) => {
+                            const label = <React.Fragment>
+                                {tab.name}
+                                {tab.closable && (<Close
+                                    className={classes.close}
+                                    onClick={(event) => this.closeTab.call(this, event, tab, index)} />)}
+                            </React.Fragment>
+
                             return <Tab
-                                label={this.createTabLabel(tab, index)}
+                                label={label}
                                 key={tab.id}
                                 className={classes.tab} />;
                         })}
@@ -69,29 +68,6 @@ class Content extends React.Component {
             </div>
         );
     }
-
-    createTabLabel = (tab, index) => {
-        const { classes } = this.props;
-        return (
-            <React.Fragment>
-                {tab.name}
-                {tab.closable && (<Close
-                    className={classes.close}
-                    onClick={(event) => {
-                        event.stopPropagation();
-                        this.closeTab(tab, index)
-                    }} />)}
-            </React.Fragment>
-        );
-    }
-
-    closeTab = (tab, index) => {
-        if (this.props && this.props.onTabClose) {
-            this
-                .props
-                .onTabClose(tab, index);
-        }
-    }
 }
 
-export default Controller(Content, { styles: styles });
+export default Controller(Content, { styles: styles, controller: ContentController });

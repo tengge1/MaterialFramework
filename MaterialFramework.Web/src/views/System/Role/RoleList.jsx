@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-    withStyles, DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
-    Button, TextField
+    DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
+    Button, TextField, Controller
 } from '../../../components/Components';
-import { Add, Edit, InfoOutline, Search, Delete } from '../../../components/Components';
+import { Add, Edit, InfoOutline, Search, Delete } from '../../../components/Icons';
+import RoleListController from './RoleListController';
 
 const styles = theme => ({
     root: {
@@ -12,41 +13,13 @@ const styles = theme => ({
     }
 });
 
-const roleDatas = [{
-    id: 1,
-    code: 'superadmin',
-    name: '超级管理员',
-    status: '启用'
-}, {
-    id: 2,
-    code: 'test',
-    name: '测试',
-    status: '启用'
-}, {
-    id: 3,
-    code: 'manager',
-    name: '经理',
-    status: '启用'
-}];
-
 class RoleList extends React.Component {
-
-    state = {
-        searchOpen: false
-    };
-
-    onSearchClick = () => {
-        this.setState({
-            searchOpen: !this.state.searchOpen
-        });
-    }
 
     render() {
         const { classes } = this.props;
-        const state = this.state;
 
         return (
-            <DataTable className={classes.root} data={roleDatas} paging={true} searchOpen={state.searchOpen}>
+            <DataTable className={classes.root} data={this.roleDatas} paging={true} searchOpen={this.state.searchOpen}>
                 <TopBar>
                     <Button>
                         <Add />
@@ -60,7 +33,7 @@ class RoleList extends React.Component {
                         <InfoOutline />
                         查看
                     </Button>
-                    <Button onClick={this.onSearchClick}>
+                    <Button onClick={this.onSearchClick.bind(this)}>
                         <Search />
                         查询
                     </Button>
@@ -86,4 +59,4 @@ class RoleList extends React.Component {
     }
 }
 
-export default withStyles(styles)(RoleList);
+export default Controller(RoleList, { styles: styles, controller: RoleListController });

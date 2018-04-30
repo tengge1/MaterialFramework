@@ -28,12 +28,12 @@ class Home extends React.Component {
             <div className={classes.root}>
                 <Header />
                 <div className={classes.box}>
-                    <Sidebar onItemClick={this.onMenuItemClick} />
+                    <Sidebar onItemClick={this.onMenuItemClick.bind(this)} />
                     <Content
                         className={classes.content}
                         tabs={this.tabs}
                         currentTab={this.currentTab}
-                        onTabIndexChange={this.onTabIndexChange}
+                        onTabIndexChange={this.onTabIndexChange.bind(this)}
                         onTabClose={(tab, index) => this.onTabClose.call(this, tab, index)} />
                 </div>
             </div>

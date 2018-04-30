@@ -14,16 +14,12 @@ class HomeController {
 
     currentTab = 0;
 
-    onMenuItemClick = (id, name, path) => {
-        const index = this
-            .tabs
-            .findIndex((item) => {
-                return item.path === path;
-            });
+    onMenuItemClick(id, name, path) {
+        const index = this.tabs.findIndex((item) => {
+            return item.path === path;
+        });
         if (index === -1) {
-            this
-                .tabs
-                .push({ id: id, name: name, path: path, closable: true });
+            this.tabs.push({ id: id, name: name, path: path, closable: true });
             this.currentTab = this.tabs.length - 1;
             this.setState({
                 version: new Date().getTime()
@@ -36,7 +32,7 @@ class HomeController {
         }
     }
 
-    onTabIndexChange = (index) => {
+    onTabIndexChange(index) {
         if (index < this.tabs.length) {
             this.currentTab = index;
             this.setState({
@@ -45,7 +41,7 @@ class HomeController {
         }
     }
 
-    onTabClose = (tab, index) => {
+    onTabClose(tab, index) {
         this
             .tabs
             .splice(index, 1);

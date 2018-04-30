@@ -1,8 +1,10 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogContent, Button, withStyles,
-    AppBar, Toolbar, Close, FormControl, FormLabel, Input
+    Dialog, DialogActions, DialogContent, Button, Controller,
+    AppBar, Toolbar, FormControl, FormLabel, Input
 } from '../../../components/Components';
+import { Close } from '../../../components/Icons';
+import UserAddController from './UserAddController';
 
 const styles = theme => ({
     root: {
@@ -33,4 +35,4 @@ class UserAdd extends React.Component {
     }
 }
 
-export default withStyles(styles)(UserAdd);
+export default Controller(UserAdd, { styles: styles, controller: UserAddController });

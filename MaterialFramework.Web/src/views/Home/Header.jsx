@@ -1,8 +1,6 @@
 import React from 'react';
-import Cookies from 'js-cookie';
 import { Manager, Target, Popper } from 'react-popper';
 import {
-    withStyles,
     AppBar,
     Toolbar,
     MenuList,
@@ -14,10 +12,12 @@ import {
     Badge,
     Grid,
     ToggleButton,
-    Avatar
+    Avatar,
+    Controller
 } from '../../components/Components';
 import { Lock, Notifications, Build, ExitToApp } from '../../components/Icons';
 import ChangePwdWin from './ChangePwdWin';
+import HeaderController from './HeaderController';
 import logo from 'assets/img/reactlogo.png';
 import Face from '../../assets/img/faces/marc.jpg';
 
@@ -96,49 +96,6 @@ const styles = theme => ({
 });
 
 class Header extends React.Component {
-    state = {
-        msgOpen: false,
-        pwdOpen: false,
-        navActiveIndex: 0
-    };
-
-    handleNavClick = (index) => {
-        this.setState({
-            navActiveIndex: index
-        });
-    };
-
-    handleMsgClick = () => {
-        this.setState({
-            msgOpen: !this.state.msgOpen
-        });
-    };
-
-    handleMsgClose = () => {
-        this.setState({
-            msgOpen: false
-        });
-    };
-
-    handlePwdOpen = () => {
-        this.setState({
-            pwdOpen: !this.state.pwdOpen
-        });
-    };
-
-    handlePwdClose = () => {
-        this.setState({
-            pwdOpen: false
-        });
-    }
-
-    logout = () => {
-        Cookies.remove('isLogin');
-        window
-            .location
-            .reload();
-    }
-
     render() {
         const { classes } = this.props;
         const { msgOpen, pwdOpen, navActiveIndex } = this.state;
@@ -155,13 +112,13 @@ class Header extends React.Component {
                     <ToggleButton
                         className={classes.navBtn}
                         toggle={navActiveIndex === 0 ? true : false}
-                        onClick={() => this.handleNavClick(0)}>控件演示</ToggleButton>
+                        onClick={this.handleNavClick.bind(this, 0)}>控件演示</ToggleButton>
                 </Grid>
                 <Grid item className={classes.navItem}>
                     <ToggleButton
                         className={classes.navBtn}
-                        toggle={navActiveIndex === 2 ? true : false}
-                        onClick={() => this.handleNavClick(2)}>系统管理</ToggleButton>
+                        toggle={navActiveIndex === 1 ? true : false}
+                        onClick={this.handleNavClick.bind(this, 1)}>系统管理</ToggleButton>
                 </Grid>
             </Grid>;
 
@@ -180,7 +137,7 @@ class Header extends React.Component {
                 color="inherit"
                 title="修改密码"
                 className={classes.changePwdBtn}
-                onClick={this.handlePwdOpen}>
+                onClick={this.handlePwdOpen.bind(this)}>
                 <Lock />
             </IconButton>;
 
@@ -195,12 +152,12 @@ class Header extends React.Component {
                         badgeContent={3}
                         color="error"
                         title="通知公告"
-                        onClick={this.handleMsgClick}>
+                        onClick={this.handleMsgClick.bind(this)}>
                         <Notifications />
                     </Badge>
                 </Target>
                 <Popper>
-                    <ClickAwayListener onClickAway={this.handleMsgClose}>
+                    <ClickAwayListener onClickAway={this.handleMsgClose.bind(this)}>
                         <Grow
                             in={msgOpen}
                             style={{
@@ -208,13 +165,13 @@ class Header extends React.Component {
                             }}>
                             <Paper>
                                 <MenuList role="menu">
-                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose.bind(this)} className={classes.dropdownItem}>
                                         一个通知
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose.bind(this)} className={classes.dropdownItem}>
                                         另外一个通知
                                     </MenuItem>
-                                    <MenuItem onClick={this.handleMsgClose} className={classes.dropdownItem}>
+                                    <MenuItem onClick={this.handleMsgClose.bind(this)} className={classes.dropdownItem}>
                                         又来一个通知
                                     </MenuItem>
                                 </MenuList>
@@ -238,7 +195,7 @@ class Header extends React.Component {
                 color="inherit"
                 title="注销登录"
                 className={classes.logoutBtn}
-                onClick={this.logout}>
+                onClick={this.logout.bind(this)}>
                 <ExitToApp />
             </IconButton>
         );
@@ -256,10 +213,10 @@ class Header extends React.Component {
                         {exit}
                     </Toolbar>
                 </AppBar>
-                <ChangePwdWin open={pwdOpen} onClose={this.handlePwdClose} />
+                <ChangePwdWin open={pwdOpen} onClose={this.handlePwdClose.bind(this)} />
             </div>
         );
     }
 }
 
-export default withStyles(styles)(Header);
+export default Controller(Header, { styles: styles, controller: HeaderController });

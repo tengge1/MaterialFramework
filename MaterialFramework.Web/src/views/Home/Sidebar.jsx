@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import {
-    withStyles,
+    Controller,
     Drawer,
     Divider,
     IconButton,
@@ -12,8 +12,8 @@ import {
     Collapse
 } from '../../components/Components';
 import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '../../components/Icons';
+import SidebarController from './SidebarController';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
-import PerfectScrollbar from 'perfect-scrollbar';
 import SystemMenu from '../../menus/SystemMenu';
 
 const styles = theme => ({
@@ -59,96 +59,11 @@ const styles = theme => ({
 });
 
 class Sidebar extends React.Component {
-
-    state = {
-        open: true,
-        expand: []
-    };
-
-    constructor(props) {
-        super(props);
-        this.ref = React.createRef();
-    }
-
-    expand = () => { // 展开侧边栏
-        this.setState({ open: true });
-    };
-
-    collapse = () => { // 关闭侧边栏
-        this.setState({ open: false, expand: [] });
-    };
-
-    toggle = () => { // 展开或关闭侧边栏
-        if (this.state.open === true) {
-            this.collapse();
-        } else {
-            this.expand();
-        }
-    };
-
-    expandItem = (id) => { // 展开菜单子项
-        var expand = this.state.expand;
-        if (expand.indexOf(id) === -1) {
-            expand.push(id);
-        }
-        this.setState({ expand: expand });
-    }
-
-    collapseItem = (id) => { // 关闭菜单子项
-        var expand = this.state.expand;
-        if (expand.indexOf(id) !== -1) {
-            var index = expand.indexOf(id);
-            expand.splice(index, 1);
-        }
-        this.setState({ expand: expand });
-    }
-
-    toggleItem = (id) => { // 展开或关闭菜单子项
-        var expand = this.state.expand;
-        if (expand.indexOf(id) === -1) {
-            this.expandItem(id);
-        } else {
-            this.collapseItem(id);
-        }
-    };
-
-    handleClick = (id, name, path, leaf) => { // 点击菜单子项
-        if (leaf) {
-            if (this.props && this.props.onItemClick) {
-                this
-                    .props
-                    .onItemClick
-                    .call(this, id, name, path);
-            }
-        } else {
-            this.toggleItem(id);
-        }
-    }
-
-    componentDidMount() {
-        this.scrollbar = new PerfectScrollbar(this.ref.current);
-        this
-            .scrollbar
-            .update();
-    }
-
-    componentWillUnmount() {
-        if (this.scrollbar) {
-            delete this.scrollbar;
-        }
-    }
-
-    componentDidUpdate() {
-        this
-            .scrollbar
-            .update();
-    }
-
     render() {
         const { classes } = this.props;
 
         var links = (
-            <div ref={this.ref}>
+            <div ref={'root'}>
                 <List component="div">
                     {SystemMenu.map((prop) => {
                         return (
@@ -156,12 +71,8 @@ class Sidebar extends React.Component {
                                 <ListItem
                                     button
                                     key={prop.id}
-                                    className={this.state.open
-                                        ? ''
-                                        : classes.itemClose}
-                                    onClick={this
-                                        .handleClick
-                                        .bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
+                                    className={this.state.open ? '' : classes.itemClose}
+                                    onClick={this.handleClick.bind(this, prop.id, prop.name, prop.path, prop.children == null || prop.children.length === 0)}>
                                     <ListItemIcon>
                                         <prop.icon />
                                     </ListItemIcon>
@@ -176,10 +87,7 @@ class Sidebar extends React.Component {
                                 </ListItem>
                                 {prop.children && (
                                     <Collapse
-                                        in={this
-                                            .state
-                                            .expand
-                                            .indexOf(prop.id) > -1}
+                                        in={this.state.expand.indexOf(prop.id) > -1}
                                         timeout="auto"
                                         unmountOnExit>
                                         <List component="div" disablePadding>
@@ -190,9 +98,7 @@ class Sidebar extends React.Component {
                                                         <ListItem
                                                             button
                                                             key={child.id}
-                                                            onClick={this
-                                                                .handleClick
-                                                                .bind(this, child.id, child.name, child.path, true)}>
+                                                            onClick={this.handleClick.bind(this, child.id, child.name, child.path, true)}>
                                                             <ListItemText
                                                                 className={classes.itemText}
                                                                 disableTypography={true}
@@ -220,7 +126,7 @@ class Sidebar extends React.Component {
                 }}
                 open={this.state.open}>
                 <div className={classes.toolbar}>
-                    <IconButton onClick={this.toggle}>
+                    <IconButton onClick={this.toggle.bind(this)}>
                         {this.state.open
                             ? <ChevronLeft />
                             : <ChevronRight />}
@@ -232,4 +138,4 @@ class Sidebar extends React.Component {
     }
 }
 
-export default withStyles(styles)(Sidebar);
+export default Controller(Sidebar, { styles: styles, controller: SidebarController });

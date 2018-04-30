@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-    withStyles, DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
-    Button, TextField
+    DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
+    Button, TextField, Controller
 } from '../../../components/Components';
-import { Add, Edit, InfoOutline, Search, Delete } from '../../../components/Components';
+import { Add, Edit, InfoOutline, Search, Delete } from '../../../components/Icons';
+import UserListController from './UserListController';
 import UserAdd from './UserAdd';
 
 const styles = theme => ({
@@ -13,77 +14,14 @@ const styles = theme => ({
     }
 });
 
-const userData = [{
-    id: 1,
-    username: 'admin',
-    name: '管理员',
-    sex: '男',
-    role: '超级管理员',
-    phone: '12345678',
-    imei: '61111111111'
-}, {
-    id: 2,
-    username: 'test',
-    name: '测试',
-    sex: '女',
-    role: '超级管理员',
-    phone: '8888888888',
-    imei: '3337777777'
-}, {
-    id: 3,
-    username: 'wang',
-    name: '王总',
-    sex: '男',
-    role: '经理',
-    phone: '666666666',
-    imei: '55555552'
-}, {
-    id: 4,
-    username: 'liu',
-    name: '刘经理',
-    sex: '男',
-    role: '经理',
-    phone: '99996666',
-    imei: 'fdfd'
-}];
-
-var userDatas = [];
-for (var i = 0; i < 256; i++) {
-    var user = Object.assign({}, userData[i % userData.length]);
-    user.id = i + 1;
-    user.username = user.username + (parseInt(i / userData.length, 10) + 1);
-    user.name = user.name + (parseInt(i / userData.length, 10) + 1);
-    userDatas.push(user);
-}
-
 class UserList extends React.Component {
-
-    state = {
-        searchOpen: false,
-        userAddOpen: false,
-        userEditOpen: false
-    };
-
-    onSearchClick = () => {
-        this.setState({
-            searchOpen: !this.state.searchOpen
-        });
-    }
-
-    addUser = () => {
-        this.setState({
-            userAddOpen: !this.state.userAddOpen
-        });
-    };
-
     render() {
         const { classes } = this.props;
-        const state = this.state;
 
         return <React.Fragment>
-            <DataTable className={classes.root} data={userDatas} paging={true} searchOpen={state.searchOpen}>
+            <DataTable className={classes.root} data={this.userDatas} paging={true} searchOpen={this.state.searchOpen}>
                 <TopBar>
-                    <Button onClick={this.addUser}>
+                    <Button onClick={this.addUser.bind(this)}>
                         <Add />
                         添加
                     </Button>
@@ -95,7 +33,7 @@ class UserList extends React.Component {
                         <InfoOutline />
                         查看
                     </Button>
-                    <Button onClick={this.onSearchClick}>
+                    <Button onClick={this.onSearchClick.bind(this)}>
                         <Search />
                         查询
                     </Button>
@@ -120,9 +58,9 @@ class UserList extends React.Component {
                     <Column name={'imei'}>手机串号</Column>
                 </Columns>
             </DataTable>
-            <UserAdd open={state.userAddOpen} />
+            <UserAdd open={this.state.userAddOpen} />
         </React.Fragment>;
     }
 }
 
-export default withStyles(styles)(UserList);
+export default Controller(UserList, { styles: styles, controller: UserListController });

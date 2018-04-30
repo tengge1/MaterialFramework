@@ -129,7 +129,7 @@ class DataTable extends React.Component {
         if (checked) {
             if (this.selected.indexOf(id) === -1) {
                 this.selected.push(id);
-            } 
+            }
             // else {
             //     throw new Error('GridPanel: duplicate selected id.');
             // }

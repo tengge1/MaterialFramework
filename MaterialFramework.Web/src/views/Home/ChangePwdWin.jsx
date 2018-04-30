@@ -5,27 +5,12 @@ import {
 import ChangePwdWinController from './ChangePwdWinController';
 
 class ChangePwdWin extends React.Component {
-
-    state = {
-        msgOpen: false
-    };
-
-    oldPassword = '';
-    newPassword = '';
-    confirmPassword = '';
-
-    handleMsgClose = () => {
-        this.setState({
-            msgOpen: false
-        });
-    };
-
     render() {
         const { open, ...others } = this.props;
 
         return <React.Fragment>
             <Dialog open={open} {...others}>
-                <DialogHead onClose={this.handleClose}>修改密码</DialogHead>
+                <DialogHead onClose={this.handleClose.bind(this)}>修改密码</DialogHead>
                 <DialogBody>
                     <FormControl>
                         <FormLabel>原密码</FormLabel>
@@ -42,7 +27,7 @@ class ChangePwdWin extends React.Component {
                 </DialogBody>
                 <DialogActions>
                     <Button color={'primary'} onClick={this.handleOK.bind(this)}>确定</Button>
-                    <Button onClick={this.handleClose}>取消</Button>
+                    <Button onClick={this.handleClose.bind(this)}>取消</Button>
                 </DialogActions>
             </Dialog>
             <Msg open={this.state.msgOpen} onClose={this.handleMsgClose.bind(this)}>密码修改成功！</Msg>

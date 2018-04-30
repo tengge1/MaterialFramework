@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-    Dialog, DialogHead, DialogBody, DialogActions, Button, withStyles,
+    Dialog, DialogHead, DialogBody, DialogActions, Button, Controller,
     FormControl, FormLabel, Grid, Text
 } from '../../../components/Components';
+import LogViewController from './LogViewController';
 
 const styles = theme => ({
     root: {
@@ -12,19 +13,11 @@ const styles = theme => ({
 });
 
 class LogView extends React.Component {
-
-    handleClose = () => {
-        const { onClose } = this.props;
-        if (onClose) {
-            onClose();
-        }
-    }
-
     render() {
         const { open, classes } = this.props;
 
         return <Dialog open={open} className={classes.root}>
-            <DialogHead onClose={this.handleClose}>日志查看</DialogHead>
+            <DialogHead onClose={this.handleClose.bind(this)}>日志查看</DialogHead>
             <DialogBody>
                 <Grid container>
                     <Grid item xs={6}>
@@ -78,10 +71,10 @@ class LogView extends React.Component {
                 </Grid>
             </DialogBody>
             <DialogActions>
-                <Button onClick={this.handleClose}>关闭</Button>
+                <Button onClick={this.handleClose.bind(this)}>关闭</Button>
             </DialogActions>
         </Dialog>;
     }
 }
 
-export default withStyles(styles)(LogView);
+export default Controller(LogView, { styles: styles, controller: LogViewController });
