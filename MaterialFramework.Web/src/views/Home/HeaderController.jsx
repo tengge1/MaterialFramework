@@ -1,16 +1,21 @@
 import Cookies from 'js-cookie';
+import NavMenu from '../../menus/NavMenu';
+import Event from '../../event/Event';
 
 class HeaderController {
     state = {
         msgOpen: false,
         pwdOpen: false,
-        navActiveIndex: 0
+        currentNavId: 1
     };
 
-    handleNavClick(index) {
+    navMenu = NavMenu;
+
+    handleNavClick(id, name, path, children) {
         this.setState({
-            navActiveIndex: index
+            currentNavId: id
         });
+        Event.call('selectNavMenu', this, id, name, path, children);
     };
 
     handleMsgClick() {

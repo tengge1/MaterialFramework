@@ -5,8 +5,8 @@ class CustomEvent {
         this.dispatch = dispatch.apply(dispatch, eventNames);
     }
 
-    call(eventName, _this, ...others) {
-        this.dispatch.call(eventName, _this, ...others);
+    call(eventName) {
+        this.dispatch.call.apply(this.dispatch, arguments);
     }
 
     on(eventName, callback) {

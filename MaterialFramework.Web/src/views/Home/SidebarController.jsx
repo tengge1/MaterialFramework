@@ -1,7 +1,10 @@
 import PerfectScrollbar from 'perfect-scrollbar';
+import NavMenu from '../../menus/NavMenu';
+import Event from '../../event/Event';
 
 class SidebarController {
     state = {
+        menus: NavMenu.length > 0 ? NavMenu[0].children : [],
         open: true,
         expand: []
     };
@@ -48,13 +51,16 @@ class SidebarController {
         }
     };
 
+    handleSelectNavMenu(id, name, path, children) {
+        this.setState({
+            menus: children
+        });
+    }
+
     handleClick(id, name, path, leaf) { // 点击菜单子项
         if (leaf) {
             if (this.props && this.props.onItemClick) {
-                this
-                    .props
-                    .onItemClick
-                    .call(this, id, name, path);
+                this.props.onItemClick.call(this, id, name, path);
             }
         } else {
             this.toggleItem(id);
@@ -64,12 +70,16 @@ class SidebarController {
     componentDidMount() {
         this.scrollbar = new PerfectScrollbar(this.refs.root);
         this.scrollbar.update();
+        Event.on('selectNavMenu.SidebarController', (id, name, path, children) => {
+            this.handleSelectNavMenu.call(this, id, name, path, children);
+        });
     }
 
     componentWillUnmount() {
         if (this.scrollbar) {
             delete this.scrollbar;
         }
+        Event.on('selectNavMenu.SidebarController', null);
     }
 
     componentDidUpdate() {

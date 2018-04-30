@@ -98,7 +98,7 @@ const styles = theme => ({
 class Header extends React.Component {
     render() {
         const { classes } = this.props;
-        const { msgOpen, pwdOpen, navActiveIndex } = this.state;
+        const { msgOpen, pwdOpen, currentNavId } = this.state;
 
         const brand =
             <div className={classes.logo}>
@@ -108,18 +108,14 @@ class Header extends React.Component {
 
         const navMenu =
             <Grid container>
-                <Grid item className={classes.navItem}>
-                    <ToggleButton
-                        className={classes.navBtn}
-                        toggle={navActiveIndex === 0 ? true : false}
-                        onClick={this.handleNavClick.bind(this, 0)}>控件演示</ToggleButton>
-                </Grid>
-                <Grid item className={classes.navItem}>
-                    <ToggleButton
-                        className={classes.navBtn}
-                        toggle={navActiveIndex === 1 ? true : false}
-                        onClick={this.handleNavClick.bind(this, 1)}>系统管理</ToggleButton>
-                </Grid>
+                {this.navMenu.map((n, i) => {
+                    return <Grid item className={classes.navItem} key={i}>
+                        <ToggleButton
+                            className={classes.navBtn}
+                            toggle={currentNavId === n.id ? true : false}
+                            onClick={this.handleNavClick.bind(this, n.id, n.name, n.path, n.children)}>{n.name}</ToggleButton>
+                    </Grid>;
+                })}
             </Grid>;
 
         const user =

@@ -7,6 +7,9 @@ export { default as withTheme } from './style/withTheme';
 export { default as CssBaseline } from './style/CssBaseline';
 export { default as MuiThemeProvider } from './style/MuiThemeProvider';
 
+// event
+export { default as CustomEvent } from './event/CustomEvent';
+
 // controller
 export { default as Controller } from './controller/Controller';
 

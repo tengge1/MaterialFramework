@@ -14,7 +14,6 @@ import {
 import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '../../components/Icons';
 import SidebarController from './SidebarController';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
-import SystemMenu from '../../menus/SystemMenu';
 
 const styles = theme => ({
     drawerPaper: {
@@ -65,7 +64,7 @@ class Sidebar extends React.Component {
         var links = (
             <div ref={'root'}>
                 <List component="div">
-                    {SystemMenu.map((prop) => {
+                    {this.state.menus.map((prop) => {
                         return (
                             <div key={prop.id}>
                                 <ListItem
