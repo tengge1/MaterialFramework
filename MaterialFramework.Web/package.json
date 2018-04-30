@@ -7,6 +7,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "codemirror": "^5.37.0",
+    "d3-dispatch": "^1.0.3",
     "js-cookie": "^2.2.0",
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",
