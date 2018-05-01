@@ -164,6 +164,9 @@ export { default as TopBar } from './placeholder/TopBar';
 // widget
 export { default as Msg } from './widget/Msg';
 
+// code
+export { default as Code } from './code/Code';
+
 // utils
 export { ajax, get, post } from './utils/Ajax';
 export { default as ClickAwayListener } from './utils/ClickAwayListener';

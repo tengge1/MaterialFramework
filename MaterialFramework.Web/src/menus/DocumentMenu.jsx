@@ -21,7 +21,12 @@ const DocumentMenu = [{
     id: 3,
     name: '简单控件',
     path: '',
-    icon: Widgets
+    icon: Widgets,
+    children: [{
+        id: 31,
+        name: 'Avatar',
+        path: '/document/simpleComponent/avatar'
+    }]
 }, {
     id: 4,
     name: '复合控件',

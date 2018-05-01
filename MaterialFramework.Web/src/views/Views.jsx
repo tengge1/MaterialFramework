@@ -1,4 +1,5 @@
 import Description from './Document/Description';
+import AvatarComponent from './Document/SimpleComponent/AvatarComponent';
 
 import UserList from './System/User/UserList';
 import RoleList from './System/Role/RoleList';
@@ -7,6 +8,9 @@ import LogList from './System/Log/LogList';
 const DocumentViews = [{
     path: '/document/description',
     component: Description
+}, {
+    path: '/document/simpleComponent/avatar',
+    component: AvatarComponent
 }];
 
 const SystemViews = [{

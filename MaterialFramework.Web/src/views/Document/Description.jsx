@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Controller } from '../../components/Components';
+import { Controller } from '../../components/Components';
 
 const styles = theme => ({
     root: {
