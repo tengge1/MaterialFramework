@@ -25,6 +25,9 @@ const styles = theme => ({
         alignItems: 'center',
         fontSize: '12px',
         marginLeft: '3px'
+    },
+    content: {
+        height: 'calc(100% - 48px)'
     }
 });
 
@@ -67,7 +70,9 @@ class Content extends React.Component {
                         })}
                     </Tabs>
                 </AppBar>
-                <TabContainer path={tabs[currentTab].path}></TabContainer>
+                <div className={classes.content}>
+                    <TabContainer path={tabs[currentTab].path}></TabContainer>
+                </div>
             </div>
         );
     }

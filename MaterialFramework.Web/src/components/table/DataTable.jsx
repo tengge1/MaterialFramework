@@ -31,7 +31,7 @@ const styles = theme => ({
         borderTop: '1px solid #ddd'
     },
     bodyPaper: {
-        maxHeight: 'calc(100% - 220px)',
+        maxHeight: 'calc(100% - 56px - 56px - 56px - 2px)',
         overflow: 'auto'
     },
     footerPaper: {
