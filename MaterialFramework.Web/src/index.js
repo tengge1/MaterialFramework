@@ -19,6 +19,9 @@ const themeBase = createMuiTheme({
     }
 });
 
+// 在控制台输出样式，以便于在程序中取值
+console.log(themeBase);
+
 class MaterialFramework extends React.Component {
     render() {
         const isLogin = Cookies.get('isLogin');
