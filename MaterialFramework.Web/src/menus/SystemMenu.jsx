@@ -3,7 +3,7 @@ import { Home, Person, Build, Group, Menu, Book, Assignment } from '../component
 const SystemMenu = [{
     id: 1,
     name: '组织机构管理',
-    path: '',
+    path: '/system/dept',
     icon: Home
 }, {
     id: 2,
