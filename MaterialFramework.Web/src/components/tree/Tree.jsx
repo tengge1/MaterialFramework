@@ -42,9 +42,9 @@ class Tree extends React.Component {
     }
 
     render() {
-        const { data, classes } = this.props;
+        const { data, classes, className, ...others } = this.props;
 
-        return <ul className={classes.list}>
+        return <ul className={classNames(classes.list, className)} {...others}>
             {data.map((n) => {
                 return this.renderNode(n);
             })}

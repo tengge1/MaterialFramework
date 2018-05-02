@@ -1,44 +1,48 @@
 import React from 'react';
-import { Controller, Tree } from '../../../components/Components';
-
-const deptData = [{
-    id: 1,
-    text: '公司一',
-    children: [{
-        id: 3,
-        text: '部门一',
-        children: [{
-            id: 6,
-            text: '小组一'
-        }, {
-            id: 7,
-            text: '小组二'
-        }, {
-            id: 8,
-            text: '小组三'
-        }]
-    }, {
-        id: 4,
-        text: '部门二'
-    }, {
-        id: 5,
-        text: '部门三'
-    }]
-}, {
-    id: 2,
-    text: '公司二'
-}]
+import { Controller, Tree, Card, AppBar, Toolbar, CardContent, CardActions, IconButton } from '../../../components/Components';
+import { Add, Delete } from '../../../components/Icons';
+import DeptListController from './DeptListController';
 
 const styles = theme => ({
     root: {
-
+        width: '100%',
+        height: '100%',
+        display: 'flex'
+    },
+    deptPanel: {
+        width: 250,
+        height: '100%'
+    },
+    action: {
+        padding: 3
+    },
+    tree: {
+        '-webkit-padding-start': '15px',
+        '-webkit-margin-before': '0'
     }
 });
 
 class DeptList extends React.Component {
     render() {
-        return <Tree data={deptData} />;
+        const { classes } = this.props;
+
+        return <div className={classes.root}>
+            <Card className={classes.deptPanel}>
+                <AppBar>
+                    <Toolbar>组织机构</Toolbar>
+                </AppBar>
+                <CardActions className={classes.action}>
+                    <IconButton title={'添加'}>
+                        <Add />
+                    </IconButton>
+                    <IconButton title={'删除'}>
+                        <Delete />
+                    </IconButton>
+                </CardActions>
+                <Tree data={this.deptData} className={classes.tree} />
+            </Card>
+        </div>;
     }
 }
 
-export default Controller(DeptList, { styles: styles });
+export default Controller(DeptList, { styles: styles, controller: DeptListController });
