@@ -127,6 +127,9 @@ export { default as TableSortLabel } from './table/TableSortLabel';
 export { default as TablePaginationActions } from './table/TablePaginationActions';
 export { default as DataTable } from './table/DataTable';
 
+// tree
+export { default as Tree } from './tree/Tree';
+
 // progress
 export { default as CircularProgress } from './progress/CircularProgress';
 export { default as LinearProgress } from './progress/LinearProgress';

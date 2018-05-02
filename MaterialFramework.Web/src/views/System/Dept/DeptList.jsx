@@ -1,46 +1,43 @@
 import React from 'react';
-import { Controller } from '../../../components/Components';
-import { KeyboardArrowRight, KeyboardArrowDown } from '../../../components/Icons';
+import { Controller, Tree } from '../../../components/Components';
+
+const deptData = [{
+    id: 1,
+    text: '公司一',
+    children: [{
+        id: 3,
+        text: '部门一',
+        children: [{
+            id: 6,
+            text: '小组一'
+        }, {
+            id: 7,
+            text: '小组二'
+        }, {
+            id: 8,
+            text: '小组三'
+        }]
+    }, {
+        id: 4,
+        text: '部门二'
+    }, {
+        id: 5,
+        text: '部门三'
+    }]
+}, {
+    id: 2,
+    text: '公司二'
+}]
 
 const styles = theme => ({
     root: {
 
-    },
-    list: {
-        listStyle: 'none'
-    },
-    item: {
-        display: 'flex'
     }
 });
 
 class DeptList extends React.Component {
     render() {
-        const { classes } = this.props;
-
-        return <ul className={classes.list}>
-            <li className={classes.item}>
-                <KeyboardArrowDown />
-                <a>公司一</a>
-                <ul className={classes.list}>
-                    <li className={classes.item}>
-                        <KeyboardArrowDown />
-                        <a>部门一</a>
-                        <ul className={classes.list}>
-                            <li><span></span><a>小组一</a></li>
-                            <li><a>小组二</a></li>
-                            <li><a>小组三</a></li>
-                        </ul>
-                    </li>
-                    <li>部门二</li>
-                    <li>部门三</li>
-                </ul>
-            </li>
-            <li className={classes.item}>
-                <KeyboardArrowRight />
-                <a>公司二</a>
-            </li>
-        </ul>;
+        return <Tree data={deptData} />;
     }
 }
 
