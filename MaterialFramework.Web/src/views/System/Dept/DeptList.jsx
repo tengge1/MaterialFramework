@@ -6,11 +6,11 @@ const styles = theme => ({
     root: {
 
     },
-    arrowRight: {
-        listStyle: `url(${KeyboardArrowRight})`
+    list: {
+        listStyle: 'none'
     },
-    arrowDown: {
-        listStyle: `url(${KeyboardArrowDown})`
+    item: {
+        display: 'flex'
     }
 });
 
@@ -18,14 +18,16 @@ class DeptList extends React.Component {
     render() {
         const { classes } = this.props;
 
-        return <ul>
-            <li>
+        return <ul className={classes.list}>
+            <li className={classes.item}>
+                <KeyboardArrowDown />
                 <a>公司一</a>
-                <ul className={classes.arrowDown}>
-                    <li>
+                <ul className={classes.list}>
+                    <li className={classes.item}>
+                        <KeyboardArrowDown />
                         <a>部门一</a>
-                        <ul>
-                            <li><a>小组一</a></li>
+                        <ul className={classes.list}>
+                            <li><span></span><a>小组一</a></li>
                             <li><a>小组二</a></li>
                             <li><a>小组三</a></li>
                         </ul>
@@ -34,7 +36,8 @@ class DeptList extends React.Component {
                     <li>部门三</li>
                 </ul>
             </li>
-            <li>
+            <li className={classes.item}>
+                <KeyboardArrowRight />
                 <a>公司二</a>
             </li>
         </ul>;
