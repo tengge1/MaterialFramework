@@ -29,7 +29,7 @@ const SystemMenu = [{
 }, {
     id: 5,
     name: '用户字典',
-    path: '',
+    path: '/system/dic',
     icon: Book
 }, {
     id: 6,
