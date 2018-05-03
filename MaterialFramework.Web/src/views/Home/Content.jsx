@@ -10,9 +10,6 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         padding: 0
     },
-    appBar: {
-        position: 'relative'
-    },
     hidden: {
         display: 'none'
     },
