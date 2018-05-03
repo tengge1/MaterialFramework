@@ -24,7 +24,7 @@ const SystemMenu = [{
 }, {
     id: 4,
     name: '菜单管理',
-    path: '',
+    path: '/system/menu',
     icon: Menu
 }, {
     id: 5,

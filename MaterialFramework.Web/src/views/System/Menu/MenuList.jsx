@@ -4,7 +4,7 @@ import {
     FormControl, FormLabel, Input, Button
 } from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
-import DeptListController from './DeptListController';
+import MenuListController from './MenuListController';
 
 const styles = theme => ({
     root: {
@@ -42,14 +42,14 @@ const styles = theme => ({
     }
 });
 
-class DeptList extends React.Component {
+class MenuList extends React.Component {
     render() {
         const { classes } = this.props;
 
         return <div className={classes.root}>
             <Card className={classes.deptPanel}>
                 <AppBar>
-                    <Toolbar>组织机构</Toolbar>
+                    <Toolbar>系统菜单</Toolbar>
                 </AppBar>
                 <CardActions>
                     <IconButton title={'添加'}>
@@ -59,20 +59,20 @@ class DeptList extends React.Component {
                         <Delete />
                     </IconButton>
                 </CardActions>
-                <Tree data={this.deptData} className={classes.tree} />
+                <Tree data={this.menuData} className={classes.tree} />
             </Card>
             <div className={classes.rightPanel}>
                 <div className={classes.editForm}>
                     <FormControl>
-                        <FormLabel>上级部门</FormLabel>
+                        <FormLabel>上级菜单</FormLabel>
                         <Input />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>部门编号</FormLabel>
+                        <FormLabel>菜单编号</FormLabel>
                         <Input />
                     </FormControl>
                     <FormControl>
-                        <FormLabel>部门名称</FormLabel>
+                        <FormLabel>菜单名称</FormLabel>
                         <Input />
                     </FormControl>
 
@@ -86,4 +86,4 @@ class DeptList extends React.Component {
     }
 }
 
-export default Controller(DeptList, { styles: styles, controller: DeptListController });
+export default Controller(MenuList, { styles: styles, controller: MenuListController });

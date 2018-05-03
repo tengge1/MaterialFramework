@@ -4,6 +4,7 @@ import AvatarComponent from './Document/SimpleComponent/AvatarComponent';
 import DeptList from './System/Dept/DeptList';
 import UserList from './System/User/UserList';
 import RoleList from './System/Role/RoleList';
+import MenuList from './System/Menu/MenuList';
 import LogList from './System/Log/LogList';
 
 const DocumentViews = [{
@@ -26,6 +27,9 @@ const SystemViews = [{
 }, {
     path: '/system/role',
     component: RoleList
+}, {
+    path: '/system/menu',
+    component: MenuList
 }, {
     path: '/system/log',
     component: LogList

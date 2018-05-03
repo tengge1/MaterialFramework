@@ -1,19 +1,43 @@
 import React from 'react';
+import classNames from 'classnames';
 import { IconButton as MaterialIconButton } from 'material-ui';
-import { Home } from 'material-ui-icons';
+import withStyles from '../style/withStyles';
+import { Home } from '../icon/Icons';
+
+const styles = theme => ({
+    root: {
+
+    },
+    large: {
+        width: 48,
+        height: 48
+    },
+    medium: {
+        width: 32,
+        height: 32
+    },
+    small: {
+        width: 24,
+        height: 24
+    }
+});
 
 class IconButton extends React.Component {
     render() {
         const {
-            // disableRipple,
             children,
+            size,
+            className,
+            classes,
             ...others
         } = this.props;
 
-        return <MaterialIconButton
-            // disableRipple={true}
+        const sizeStyle = size === 'large' ? classes.large :
+            (size === 'small' ? classes.small : classes.medium);
+
+        return <MaterialIconButton className={classNames(sizeStyle, className)}
             {...others}>{children || <Home />}</MaterialIconButton>;
     }
 }
 
-export default IconButton;
+export default withStyles(styles)(IconButton);
