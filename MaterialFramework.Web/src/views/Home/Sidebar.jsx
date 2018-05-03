@@ -125,7 +125,7 @@ class Sidebar extends React.Component {
                 }}
                 open={this.state.open}>
                 <div className={classes.toolbar}>
-                    <IconButton onClick={this.toggle.bind(this)}>
+                    <IconButton size={'large'} onClick={this.toggle.bind(this)}>
                         {this.state.open
                             ? <ChevronLeft />
                             : <ChevronRight />}
