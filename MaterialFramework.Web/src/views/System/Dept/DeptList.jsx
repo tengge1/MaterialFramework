@@ -1,5 +1,8 @@
 import React from 'react';
-import { Controller, Tree, Card, AppBar, Toolbar, CardContent, CardActions, IconButton } from '../../../components/Components';
+import {
+    Controller, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
+    FormControl, FormLabel, Input, Button
+} from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
 import DeptListController from './DeptListController';
 
@@ -13,12 +16,32 @@ const styles = theme => ({
         width: 250,
         height: '100%'
     },
-    action: {
+    leftAction: {
         padding: 3
     },
     tree: {
         '-webkit-padding-start': '15px',
         '-webkit-margin-before': '0'
+    },
+    rightPanel: {
+        flex: 1,
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    editForm: {
+        width: 280,
+        height: 400
+    },
+    rightAction: {
+        marginTop: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    rightBtn: {
+        margin: 5
     }
 });
 
@@ -31,7 +54,7 @@ class DeptList extends React.Component {
                 <AppBar>
                     <Toolbar>组织机构</Toolbar>
                 </AppBar>
-                <CardActions className={classes.action}>
+                <CardActions className={classes.leftAction}>
                     <IconButton title={'添加'}>
                         <Add />
                     </IconButton>
@@ -41,6 +64,27 @@ class DeptList extends React.Component {
                 </CardActions>
                 <Tree data={this.deptData} className={classes.tree} />
             </Card>
+            <div className={classes.rightPanel}>
+                <div className={classes.editForm}>
+                    <FormControl>
+                        <FormLabel>上级部门</FormLabel>
+                        <Input />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>部门编号</FormLabel>
+                        <Input />
+                    </FormControl>
+                    <FormControl>
+                        <FormLabel>部门名称</FormLabel>
+                        <Input />
+                    </FormControl>
+
+                    <div className={classes.rightAction}>
+                        <Button color={'primary'} className={classes.rightBtn}>保存</Button>
+                        <Button className={classes.rightBtn}>取消</Button>
+                    </div>
+                </div>
+            </div>
         </div>;
     }
 }
