@@ -68,6 +68,9 @@ export { default as Modal } from './dialog/Modal';
 export { default as DialogHead } from './dialog/DialogHead';
 export { default as DialogBody } from './dialog/DialogBody';
 
+// window
+export { default as Window } from './window/Window';
+
 // form
 export { default as Form } from './form/Form';
 export { default as Checkbox } from './form/Checkbox';
@@ -151,6 +154,7 @@ export { default as Zoom } from './transition/Zoom';
 export { default as Collapse } from './transition/Collapse';
 
 // placeholder
+export { default as Action } from './placeholder/Action';
 export { default as BottomBar } from './placeholder/BottomBar';
 export { default as CheckboxColumn } from './placeholder/CheckboxColumn';
 export { default as Column } from './placeholder/Column';
@@ -163,6 +167,7 @@ export { default as Placeholder } from './placeholder/Placeholder';
 export { default as RowNumber } from './placeholder/RowNumber';
 export { default as SearchForm } from './placeholder/SearchForm';
 export { default as TopBar } from './placeholder/TopBar';
+
 
 // widget
 export { default as Msg } from './widget/Msg';
