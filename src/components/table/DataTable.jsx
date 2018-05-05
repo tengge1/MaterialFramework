@@ -172,7 +172,7 @@ class DataTable extends React.Component {
 
         const headRow = <TableRow>{head.props.children.map((n, index) => {
             const width = n.props.width ? n.props.width : 100;
-            if (n.type.name === CheckboxColumn.name) {
+            if (n.type === CheckboxColumn) {
                 return <TableCell
                     width={parseInt(width / totalWidth * 100, 10) + '%'}
                     padding={'checkbox'}
@@ -182,12 +182,12 @@ class DataTable extends React.Component {
                         checked={this.selected.length > 0 && this.selected.length === rows.length}
                         onChange={this.onSelectAllClick} />
                 </TableCell>;
-            } else if (n.type.name === RowNumber.name) {
+            } else if (n.type === RowNumber) {
                 return <TableCell
                     width={parseInt(width / totalWidth * 100, 10) + '%'}
                     padding={'checkbox'}
                     key={index}></TableCell>;
-            } else if (n.type.name === Column.name) {
+            } else if (n.type === Column) {
                 return <TableCell
                     width={parseInt(width / totalWidth * 100, 10) + '%'}
                     key={index}>
@@ -225,7 +225,7 @@ class DataTable extends React.Component {
                 onClick={() => this.handleRowClick(row[this.idProperty])}
                 onDoubleClick={() => this.handleDoubleClick(row[this.idProperty])}>{head.props.children.map((col, colIndex) => {
                     const width = col.props.width ? col.props.width : 100;
-                    if (col.type.name === CheckboxColumn.name) {
+                    if (col.type === CheckboxColumn) {
                         return <TableCell
                             width={parseInt(width / totalWidth * 100, 10) + '%'}
                             padding={'checkbox'}
@@ -234,14 +234,14 @@ class DataTable extends React.Component {
                                 checked={this.selected.indexOf(row[this.idProperty]) > -1}
                                 onChange={(event, checked) => this.onSelectClick(event, checked, row[this.idProperty])} />
                         </TableCell>;
-                    } else if (col.type.name === RowNumber.name) {
+                    } else if (col.type === RowNumber) {
                         return <TableCell
                             width={parseInt(width / totalWidth * 100, 10) + '%'}
                             padding={'checkbox'}
                             key={colIndex}>
                             {this.rowsPerPage * this.page + rowIndex + 1}
                         </TableCell>;
-                    } else if (col.type.name === Column.name) {
+                    } else if (col.type === Column) {
                         return <TableCell
                             width={parseInt(width / totalWidth * 100, 10) + '%'}
                             key={colIndex}>
@@ -278,15 +278,17 @@ class DataTable extends React.Component {
 
         if (children != null) {
             (Array.isArray(children) ? children : [children]).forEach((n) => {
-                if (n.type.name === TopBar.name) {
+                if (n.type === TopBar) {
                     topBar = this.parseTopBar(n);
-                } else if (n.type.name === BottomBar.name) {
+                } else if (n.type === BottomBar) {
                     bottomBar = this.parseBottomBar(n);
-                } else if (n.type.name === SearchForm.name) {
+                } else if (n.type === SearchForm) {
                     searchForm = this.parseSearchForm(n);
-                } else if (n.type.name === Columns.name) {
+                } else if (n.type === Columns) {
                     tableHead = this.parseTableHead(n);
                     tableBody = this.parseTableBody(n);
+                } else {
+                    console.log(`DataTable: 不支持的子要素类型：${n.type.name}`);
                 }
             });
         }

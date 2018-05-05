@@ -25,11 +25,11 @@ class Window extends React.Component {
     parseHeader() {
         const { children } = this.props;
         if (children == null) {
-            return;
+            return null;
         }
 
         const header = children.filter((n) => {
-            return n.type.name === Header.name;
+            return n.type === Header;
         })[0];
         if (header == null) {
             return null;
@@ -40,11 +40,11 @@ class Window extends React.Component {
     parseContent() {
         const { children } = this.props;
         if (children == null) {
-            return;
+            return null;
         }
 
         const content = children.filter((n) => {
-            return n.type.name === Content.name;
+            return n.type === Content;
         })[0];
         if (content == null) {
             return null;
@@ -55,11 +55,11 @@ class Window extends React.Component {
     parseAction() {
         const { children } = this.props;
         if (children == null) {
-            return;
+            return null;
         }
 
         const action = children.filter((n) => {
-            return n.type.name === Action.name;
+            return n.type === Action;
         })[0];
         if (action == null) {
             return null;

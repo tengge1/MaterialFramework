@@ -37,5 +37,7 @@
   "bugs": {
     "url": "https://github.comissues"
   },
-  "homepage": "https://github.com/tengge1/MaterialFramework#readme"
+  "homepage": ".",
+  "homepage2": "https://github.com/tengge1/MaterialFramework#readme",
+  "homepage3": "由于react-scripts要求homepage是点（.）才能生成相对路径的生产版本，所以只能这么处理。"
 }
