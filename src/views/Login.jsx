@@ -48,8 +48,7 @@ const styles = {
     },
     copyright: {
         color: 'white',
-        textShadow: '3px 3px 3px rgba(0, 0, 0, 0.9)',
-        margin: '13px 0'
+        textShadow: '3px 3px 3px rgba(0, 0, 0, 0.9)'
     },
     input: {
         flex: 1

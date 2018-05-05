@@ -70,6 +70,8 @@ export { default as DialogBody } from './dialog/DialogBody';
 
 // window
 export { default as Window } from './window/Window';
+export { default as Alert } from './window/Alert';
+export { default as Confirm } from './window/Confirm';
 
 // form
 export { default as Form } from './form/Form';

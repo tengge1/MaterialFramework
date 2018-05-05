@@ -13,7 +13,8 @@ import {
     Grid,
     ToggleButton,
     Avatar,
-    Controller
+    Controller,
+    Confirm
 } from '../../components/Components';
 import { Lock, Notifications, Build, ExitToApp } from '../../components/Icons';
 import ChangePwdWin from './ChangePwdWin';
@@ -32,7 +33,7 @@ const styles = theme => ({
     logo: {
         cursor: "default",
         userSelect: 'none',
-        width: 400
+        width: 500
     },
     img: {
         width: 35,
@@ -103,7 +104,7 @@ class Header extends React.Component {
         const brand =
             <div className={classes.logo}>
                 <img src={logo} alt="logo" className={classes.img} />
-                权限管理平台
+                大数据分析与综合业务管理平台
             </div>;
 
         const navMenu =
@@ -191,7 +192,7 @@ class Header extends React.Component {
                 color="inherit"
                 title="注销登录"
                 className={classes.logoutBtn}
-                onClick={this.logout.bind(this)}>
+                onClick={this.queryLogout.bind(this)}>
                 <ExitToApp />
             </IconButton>
         );
@@ -209,7 +210,15 @@ class Header extends React.Component {
                         {exit}
                     </Toolbar>
                 </AppBar>
-                <ChangePwdWin open={pwdOpen} onClose={this.handlePwdClose.bind(this)} />
+                <ChangePwdWin
+                    open={pwdOpen}
+                    onClose={this.handlePwdClose.bind(this)} />
+                <Confirm
+                    title={'消息'}
+                    content={'是否注销登录？'}
+                    open={this.state.logoutOpen}
+                    onOK={this.handleConfirmLogout.bind(this)}
+                    onCancel={this.handleCancelLogout.bind(this)} />
             </div>
         );
     }

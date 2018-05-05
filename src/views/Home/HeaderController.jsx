@@ -6,6 +6,7 @@ class HeaderController {
     state = {
         msgOpen: false,
         pwdOpen: false,
+        logoutOpen: false,
         currentNavId: 1
     };
 
@@ -42,9 +43,21 @@ class HeaderController {
         });
     }
 
-    logout() {
+    queryLogout() {
+        this.setState({
+            logoutOpen: true
+        });
+    }
+
+    handleConfirmLogout() {
         Cookies.remove('isLogin');
         window.location.reload();
+    }
+
+    handleCancelLogout() {
+        this.setState({
+            logoutOpen: false
+        });
     }
 }
 
