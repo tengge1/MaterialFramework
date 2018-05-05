@@ -12,7 +12,7 @@ const DocumentViews = [{
     path: '/document/description',
     component: Description
 }, {
-    path: '/document/simpleComponent/avatar',
+    path: '/document/widget/avatar',
     component: AvatarComponent
 }];
 
