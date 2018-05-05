@@ -54,7 +54,7 @@ class DeptList extends React.Component {
                         <Toolbar>组织机构</Toolbar>
                     </AppBar>
                     <CardActions>
-                        <IconButton title={'添加'}>
+                        <IconButton title={'添加'} onClick={this.handleAddClick.bind(this)}>
                             <Add />
                         </IconButton>
                         <IconButton title={'删除'}>
@@ -85,7 +85,7 @@ class DeptList extends React.Component {
                     </div>
                 </div>
             </div>
-            <DeptAdd />
+            <DeptAdd open={this.state.deptAddOpen} onClose={this.handleDeptAddClose.bind(this)} />
         </React.Fragment>;
     }
 }

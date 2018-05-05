@@ -27,7 +27,23 @@ const deptData = [{
 }];
 
 class DeptListController {
+    state = {
+        deptAddOpen: false
+    };
+
     deptData = deptData;
+
+    handleAddClick() {
+        this.setState({
+            deptAddOpen: true
+        });
+    }
+
+    handleDeptAddClose() {
+        this.setState({
+            deptAddOpen: false
+        });
+    }
 }
 
 export default DeptListController;
