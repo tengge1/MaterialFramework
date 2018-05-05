@@ -1,10 +1,8 @@
 import React from 'react';
 import {
     Card,
-    CardHeader,
     CardContent,
     CardActions,
-    Avatar,
     Button,
     FormControl,
     Input,
@@ -16,28 +14,42 @@ import {
 import { Visibility, VisibilityOff } from '../components/Icons';
 import LoginController from './LoginController';
 import cover from '../assets/img/cover.jpeg';
-import face from '../assets/img/faces/avatar.jpg';
+
+const loginBoxHeight = 280;
 
 const styles = {
     root: {
         width: '100%',
         height: '100%',
+        minWidth: 1366,
+        minHeight: 750,
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
         alignItems: 'center',
         background: `url(${cover}) no-repeat`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        padding: 20
+    },
+    title: {
+        fontSize: 36,
+        color: 'white',
+        textShadow: '3px 3px 3px rgba(0, 0, 0, 0.9)',
+        letterSpacing: '0.1em'
     },
     card: {
         width: 420,
-        height: 300,
+        height: loginBoxHeight,
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center'
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        padding: 15
     },
-    header: {
-        paddingBottom: 0
+    copyright: {
+        color: 'white',
+        textShadow: '3px 3px 3px rgba(0, 0, 0, 0.9)',
+        margin: '13px 0'
     },
     input: {
         flex: 1
@@ -50,15 +62,13 @@ const styles = {
         justifyContent: 'center'
     },
     button: {
-        margin: '0 15px'
+        margin: '0 20px'
     }
 };
 
 class Login extends React.Component {
     render() {
         const { classes } = this.props;
-
-        const avatar = <Avatar src={face} size={'large'} alt={'头像'} />;
 
         var passwordAdornment = <InputAdornment position="end">
             <IconButton
@@ -72,8 +82,8 @@ class Login extends React.Component {
 
         return (
             <div className={classes.root}>
+                <div className={classes.title}>中国石油天然气集团大数据分析与综合业务管理平台</div>
                 <Card className={classes.card} raised={true} square={false}>
-                    <CardHeader title={''} className={classes.header} avatar={avatar} />
                     <CardContent>
                         <FormControl>
                             <FormLabel>用户名</FormLabel>
@@ -81,6 +91,7 @@ class Login extends React.Component {
                                 type={'text'}
                                 name={'username'}
                                 value={this.state.username}
+                                placeholder={'请输入用户名'}
                                 className={classes.input}
                                 onChange={this.handleInputChange.bind(this)} />
                         </FormControl>
@@ -92,6 +103,7 @@ class Login extends React.Component {
                                     : 'password'}
                                 name={'password'}
                                 value={this.state.password}
+                                placeholder={'请输入密码'}
                                 className={classes.input}
                                 endAdornment={passwordAdornment}
                                 onChange={this.handleInputChange.bind(this)} />
@@ -102,6 +114,7 @@ class Login extends React.Component {
                         <Button className={classes.button} onClick={this.onReset.bind(this)}>清空</Button>
                     </CardActions>
                 </Card>
+                <div className={classes.copyright}>Copyright© 1999-{new Date().getFullYear()} 中国石油天然气集团有限公司 版权所有</div>
             </div>
         );
     }

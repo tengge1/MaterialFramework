@@ -4,7 +4,8 @@ class LoginController {
     state = {
         username: '',
         password: '',
-        showPassword: false
+        showPassword: false,
+        rememberPassword: false
     };
 
     onLogin(event) { // 登录
@@ -36,6 +37,12 @@ class LoginController {
 
     handleMouseDownPassword(event) {
         event.preventDefault();
+    }
+
+    handleRememberPassword(event) {
+        this.setState({
+            rememberPassword: event.target.checked
+        });
     }
 };
 
