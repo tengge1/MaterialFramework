@@ -1,4 +1,4 @@
-class HomeController {
+class DefaultController {
     state = {
         version: new Date().getTime()
     };
@@ -55,4 +55,4 @@ class HomeController {
 
 };
 
-export default HomeController;
+export default DefaultController;

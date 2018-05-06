@@ -3,7 +3,7 @@ import { Controller } from '../components/Components';
 import Header from './Home/Header';
 import Sidebar from './Home/Sidebar';
 import Content from './Home/Content';
-import HomeController from './HomeController';
+import DefaultController from './DefaultController';
 
 const styles = theme => ({
     root: {
@@ -21,7 +21,7 @@ const styles = theme => ({
     }
 });
 
-class Home extends React.Component {
+class Default extends React.Component {
     render() {
         const { classes } = this.props;
         return (
@@ -41,4 +41,4 @@ class Home extends React.Component {
     }
 }
 
-export default Controller(Home, { styles: styles, controller: HomeController });
+export default Controller(Default, { styles: styles, controller: DefaultController });

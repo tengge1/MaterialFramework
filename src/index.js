@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Cookies from 'js-cookie';
 import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green } from './components/Components';
-import Home from './views/Home';
+import Default from './views/Default';
 import Login from './views/Login';
 
 const themeBase = createMuiTheme({
@@ -25,7 +25,7 @@ console.log(themeBase);
 class MaterialFramework extends React.Component {
     render() {
         const isLogin = Cookies.get('isLogin');
-        const view = isLogin ? <Home /> : <Login />;
+        const view = isLogin ? <Default /> : <Login />;
 
         return <MuiThemeProvider theme={themeBase}>
             <CssBaseline />

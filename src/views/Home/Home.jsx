@@ -1,5 +1,9 @@
 import React from 'react';
-import { Grid, Card, CardHeader, CardContent, List, ListItem, ListItemText, FixedTabs, Controller, AppBar, Toolbar } from '../../components/Components';
+import {
+    Grid, Card, CardHeader, CardContent, List, ListItem, ListItemText, FixedTabs,
+    Controller, AppBar, Toolbar, IconButton
+} from '../../components/Components';
+import { MoreVert } from '../../components/Icons';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 import HomeController from './HomeController';
 
@@ -7,6 +11,9 @@ const styles = theme => ({
     root: {
         height: '100%',
         padding: 16
+    },
+    headerText: {
+        flex: 1
     }
 });
 
@@ -18,7 +25,8 @@ class Home extends React.Component {
             <Grid item xs={4}>
                 <Card>
                     <AppBar color={'default'}>
-                        <Toolbar>通知公告</Toolbar>
+                        <Toolbar className={classes.headerText}>通知公告</Toolbar>
+                        <IconButton><MoreVert /></IconButton>
                     </AppBar>
                     <List>
                         <ListItem>
