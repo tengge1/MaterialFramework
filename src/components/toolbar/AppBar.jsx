@@ -3,6 +3,10 @@ import classNames from 'classnames';
 import { AppBar as MaterialAppBar, withStyles } from 'material-ui';
 
 const styles = theme => ({
+    root: {
+        boxShadow: 'none',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.12)'
+    },
     small: {
         height: 32
     },
@@ -34,7 +38,7 @@ class AppBar extends React.Component {
             sizeCls = classes.medium;
         }
 
-        return <MaterialAppBar position={position || 'static'} className={classNames(sizeCls, className)} {...others}>
+        return <MaterialAppBar position={position || 'static'} className={classNames(classes.root, sizeCls, className)} {...others}>
             {children}
         </MaterialAppBar>;
     }

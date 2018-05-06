@@ -111,6 +111,7 @@ export { default as Paper } from './paper/Paper';
 // tab
 export { default as Tab } from './tab/Tab';
 export { default as Tabs } from './tab/Tabs';
+export { default as FixedTabs } from './tab/FixedTabs';
 
 // popover
 export { default as Popover } from './popover/Popover';
@@ -176,6 +177,9 @@ export { default as Msg } from './widget/Msg';
 
 // code
 export { default as Code } from './code/Code';
+
+// chart
+export { default as ECharts } from './chart/ECharts';
 
 // utils
 export { ajax, get, post } from './utils/Ajax';

@@ -19,7 +19,7 @@ import {
 import { Lock, Notifications, Build, ExitToApp } from '../../components/Icons';
 import ChangePwdWin from './ChangePwdWin';
 import HeaderController from './HeaderController';
-import logo from 'assets/img/reactlogo.png';
+import logo from 'assets/img/cnpc_logo.png';
 import Face from '../../assets/img/faces/marc.jpg';
 
 const styles = theme => ({
@@ -27,8 +27,7 @@ const styles = theme => ({
         flexGrow: 1
     },
     appBar: {
-        color: '#fff',
-        boxShadow: 'none'
+        color: '#fff'
     },
     logo: {
         cursor: "default",
@@ -38,7 +37,7 @@ const styles = theme => ({
     img: {
         width: 35,
         verticalAlign: "middle",
-        marginRight: 5
+        marginRight: 15
     },
     navItem: {
         marginLeft: 10

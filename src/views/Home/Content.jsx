@@ -10,6 +10,9 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         padding: 0
     },
+    appBar: {
+        boxShadow: 'none'
+    },
     hidden: {
         display: 'none'
     },
@@ -24,7 +27,8 @@ const styles = theme => ({
         marginLeft: '3px'
     },
     content: {
-        height: 'calc(100% - 48px)'
+        height: 'calc(100% - 48px)',
+        padding: 2
     }
 });
 

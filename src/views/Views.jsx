@@ -1,3 +1,5 @@
+import Home from './Home/Home';
+
 import Description from './Document/Description';
 import AvatarComponent from './Document/SimpleComponent/AvatarComponent';
 
@@ -8,6 +10,11 @@ import MenuList from './System/Menu/MenuList';
 import DicList from './System/Dic/DicList';
 import LogList from './System/Log/LogList';
 
+const HomeViews = [{
+    path: '/',
+    component: Home
+}];
+
 const DocumentViews = [{
     path: '/document/description',
     component: Description
@@ -17,9 +24,6 @@ const DocumentViews = [{
 }];
 
 const SystemViews = [{
-    path: '/',
-    component: null
-}, {
     path: '/system/dept',
     component: DeptList
 }, {
@@ -39,6 +43,6 @@ const SystemViews = [{
     component: LogList
 }];
 
-const Views = DocumentViews.concat(SystemViews);
+const Views = HomeViews.concat(DocumentViews).concat(SystemViews);
 
 export default Views;

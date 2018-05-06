@@ -5,10 +5,11 @@ class CardHeader extends React.Component {
     render() {
         const {
             children,
+            title,
             ...others
         } = this.props;
 
-        return <MaterialCardHeader {...others}>{children}</MaterialCardHeader>;
+        return <MaterialCardHeader title={title ? title : children} {...others}></MaterialCardHeader>;
     }
 }
 
