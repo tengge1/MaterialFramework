@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableSortLabel as MaterialTableSortLabel } from 'material-ui';
+import { TableSortLabel as MuiTableSortLabel } from 'material-ui';
 
 class TableSortLabel extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class TableSortLabel extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTableSortLabel {...others}>{children}</MaterialTableSortLabel>;
+        return <MuiTableSortLabel {...others}>{children}</MuiTableSortLabel>;
     }
 }
 

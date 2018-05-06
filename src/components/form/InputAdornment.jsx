@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputAdornment as MaterialInputAdornment } from 'material-ui';
+import { InputAdornment as MuiInputAdornment } from 'material-ui';
 
 class InputAdornment extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class InputAdornment extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialInputAdornment {...others}>{children}</MaterialInputAdornment>;
+        return <MuiInputAdornment {...others}>{children}</MuiInputAdornment>;
     }
 }
 

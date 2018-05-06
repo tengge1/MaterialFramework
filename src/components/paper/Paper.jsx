@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper as MaterialPaper } from 'material-ui';
+import { Paper as MuiPaper } from 'material-ui';
 
 class Paper extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Paper extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialPaper {...others}>{children}</MaterialPaper>;
+        return <MuiPaper {...others}>{children}</MuiPaper>;
     }
 }
 

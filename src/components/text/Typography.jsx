@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography as MaterialTypography } from 'material-ui';
+import { Typography as MuiTypography } from 'material-ui';
 
 class Typography extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Typography extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTypography {...others}>{children}</MaterialTypography>;
+        return <MuiTypography {...others}>{children}</MuiTypography>;
     }
 }
 

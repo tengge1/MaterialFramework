@@ -1,5 +1,5 @@
 import React from 'react';
-import { StepLabel as MaterialStepLabel } from 'material-ui';
+import { StepLabel as MuiStepLabel } from 'material-ui';
 
 class StepLabel extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class StepLabel extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialStepLabel {...others}>{children}</MaterialStepLabel>;
+        return <MuiStepLabel {...others}>{children}</MuiStepLabel>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListSubheader as MaterialListSubheader } from 'material-ui';
+import { ListSubheader as MuiListSubheader } from 'material-ui';
 
 class ListSubheader extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class ListSubheader extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialListSubheader {...others}>{children}</MaterialListSubheader>;
+        return <MuiListSubheader {...others}>{children}</MuiListSubheader>;
     }
 }
 

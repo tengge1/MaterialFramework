@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs as MaterialTabs } from 'material-ui';
+import { Tabs as MuiTabs } from 'material-ui';
 
 class Tabs extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Tabs extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTabs {...others}>{children}</MaterialTabs>;
+        return <MuiTabs {...others}>{children}</MuiTabs>;
     }
 }
 

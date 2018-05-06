@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer as MaterialDrawer } from 'material-ui';
+import { Drawer as MuiDrawer } from 'material-ui';
 
 class Drawer extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Drawer extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialDrawer {...others}>{children}</MaterialDrawer>;
+        return <MuiDrawer {...others}>{children}</MuiDrawer>;
     }
 }
 

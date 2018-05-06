@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogContent as MaterialDialogContent } from 'material-ui';
+import { DialogContent as MuiDialogContent } from 'material-ui';
 
 class DialogContent extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class DialogContent extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialDialogContent {...others}>{children}</MaterialDialogContent>;
+        return <MuiDialogContent {...others}>{children}</MuiDialogContent>;
     }
 }
 

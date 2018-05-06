@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableBody as MaterialTableBody } from 'material-ui';
+import { TableBody as MuiTableBody } from 'material-ui';
 
 class TableBody extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class TableBody extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTableBody {...others}>{children}</MaterialTableBody>;
+        return <MuiTableBody {...others}>{children}</MuiTableBody>;
     }
 }
 

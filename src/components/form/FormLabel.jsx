@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import withStyles from '../style/withStyles';
-import { FormLabel as MaterialFormLabel } from 'material-ui';
+import { FormLabel as MuiFormLabel } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -19,9 +19,9 @@ class FormLabel extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormLabel
+        return <MuiFormLabel
             className={classNames(classes.root, className)}
-            {...others}>{children}</MaterialFormLabel>;
+            {...others}>{children}</MuiFormLabel>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputLabel as MaterialInputLabel } from 'material-ui';
+import { InputLabel as MuiInputLabel } from 'material-ui';
 
 class InputLabel extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class InputLabel extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialInputLabel {...others}>{children}</MaterialInputLabel>;
+        return <MuiInputLabel {...others}>{children}</MuiInputLabel>;
     }
 }
 

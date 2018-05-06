@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { AppBar as MaterialAppBar, withStyles } from 'material-ui';
+import { AppBar as MuiAppBar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -38,9 +38,9 @@ class AppBar extends React.Component {
             sizeCls = classes.medium;
         }
 
-        return <MaterialAppBar position={position || 'static'} className={classNames(classes.root, sizeCls, className)} {...others}>
+        return <MuiAppBar position={position || 'static'} className={classNames(classes.root, sizeCls, className)} {...others}>
             {children}
-        </MaterialAppBar>;
+        </MuiAppBar>;
     }
 }
 

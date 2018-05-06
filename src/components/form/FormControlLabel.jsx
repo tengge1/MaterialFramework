@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControlLabel as MaterialFormControlLabel } from 'material-ui';
+import { FormControlLabel as MuiFormControlLabel } from 'material-ui';
 
 class FormControlLabel extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class FormControlLabel extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormControlLabel {...others}>{children}</MaterialFormControlLabel>;
+        return <MuiFormControlLabel {...others}>{children}</MuiFormControlLabel>;
     }
 }
 

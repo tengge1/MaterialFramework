@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid as MaterialGrid } from 'material-ui';
+import { Grid as MuiGrid } from 'material-ui';
 
 class Grid extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Grid extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialGrid {...others}>{children}</MaterialGrid>;
+        return <MuiGrid {...others}>{children}</MuiGrid>;
     }
 }
 

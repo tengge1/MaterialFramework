@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grow as MaterialGrow } from 'material-ui';
+import { Grow as MuiGrow } from 'material-ui';
 
 class Grow extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Grow extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialGrow {...others}>{children}</MaterialGrow>;
+        return <MuiGrow {...others}>{children}</MuiGrow>;
     }
 }
 

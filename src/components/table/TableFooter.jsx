@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableFooter as MaterialTableFooter } from 'material-ui';
+import { TableFooter as MuiTableFooter } from 'material-ui';
 
 class TableFooter extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class TableFooter extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTableFooter {...others}>{children}</MaterialTableFooter>;
+        return <MuiTableFooter {...others}>{children}</MuiTableFooter>;
     }
 }
 

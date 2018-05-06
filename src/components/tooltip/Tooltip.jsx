@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip as MaterialTooltip } from 'material-ui';
+import { Tooltip as MuiTooltip } from 'material-ui';
 
 class Tooltip extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Tooltip extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTooltip {...others}>{children}</MaterialTooltip>;
+        return <MuiTooltip {...others}>{children}</MuiTooltip>;
     }
 }
 

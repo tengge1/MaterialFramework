@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table as MaterialTable } from 'material-ui';
+import { Table as MuiTable } from 'material-ui';
 
 class Table extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Table extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTable {...others}>{children}</MaterialTable>;
+        return <MuiTable {...others}>{children}</MuiTable>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide as MaterialSlide } from 'material-ui';
+import { Slide as MuiSlide } from 'material-ui';
 
 class Slide extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Slide extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialSlide {...others}>{children}</MaterialSlide>;
+        return <MuiSlide {...others}>{children}</MuiSlide>;
     }
 }
 

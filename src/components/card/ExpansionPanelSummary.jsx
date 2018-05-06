@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExpansionPanelSummary as MaterialExpansionPanelSummary } from 'material-ui';
+import { ExpansionPanelSummary as MuiExpansionPanelSummary } from 'material-ui';
 
 class ExpansionPanelSummary extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class ExpansionPanelSummary extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialExpansionPanelSummary {...others}>{children}</MaterialExpansionPanelSummary>;
+        return <MuiExpansionPanelSummary {...others}>{children}</MuiExpansionPanelSummary>;
     }
 }
 

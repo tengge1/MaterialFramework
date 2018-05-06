@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar as MaterialAvatar, withStyles } from 'material-ui';
+import { Avatar as MuiAvatar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
@@ -24,13 +24,13 @@ class Avatar extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialAvatar
+        return <MuiAvatar
             className={size === 'small'
                 ? classes.small
                 : (size === 'large'
                     ? classes.large
                     : classes.medium)}
-            {...others}></MaterialAvatar>;
+            {...others}></MuiAvatar>;
     }
 }
 

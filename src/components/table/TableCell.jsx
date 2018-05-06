@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableCell as MaterialTableCell } from 'material-ui';
+import { TableCell as MuiTableCell } from 'material-ui';
 
 class TableCell extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class TableCell extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTableCell {...others}>{children}</MaterialTableCell>;
+        return <MuiTableCell {...others}>{children}</MuiTableCell>;
     }
 }
 

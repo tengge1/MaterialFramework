@@ -1,5 +1,5 @@
 import React from 'react';
-import { StepButton as MaterialStepButton } from 'material-ui';
+import { StepButton as MuiStepButton } from 'material-ui';
 
 class StepButton extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class StepButton extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialStepButton {...others}>{children}</MaterialStepButton>;
+        return <MuiStepButton {...others}>{children}</MuiStepButton>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse as MaterialCollapse } from 'material-ui';
+import { Collapse as MuiCollapse } from 'material-ui';
 
 class Collapse extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Collapse extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCollapse {...others}>{children}</MaterialCollapse>;
+        return <MuiCollapse {...others}>{children}</MuiCollapse>;
     }
 }
 

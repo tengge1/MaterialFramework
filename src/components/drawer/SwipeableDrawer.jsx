@@ -1,5 +1,5 @@
 import React from 'react';
-import { SwipeableDrawer as MaterialSwipeableDrawer } from 'material-ui';
+import { SwipeableDrawer as MuiSwipeableDrawer } from 'material-ui';
 
 class SwipeableDrawer extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class SwipeableDrawer extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialSwipeableDrawer {...others}>{children}</MaterialSwipeableDrawer>;
+        return <MuiSwipeableDrawer {...others}>{children}</MuiSwipeableDrawer>;
     }
 }
 

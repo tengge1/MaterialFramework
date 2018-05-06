@@ -1,5 +1,5 @@
 import React from 'react';
-import { StepIcon as MaterialStepIcon } from 'material-ui';
+import { StepIcon as MuiStepIcon } from 'material-ui';
 
 class StepIcon extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class StepIcon extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialStepIcon {...others}>{children}</MaterialStepIcon>;
+        return <MuiStepIcon {...others}>{children}</MuiStepIcon>;
     }
 }
 

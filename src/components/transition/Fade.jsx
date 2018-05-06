@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fade as MaterialFade } from 'material-ui';
+import { Fade as MuiFade } from 'material-ui';
 
 class Fade extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Fade extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialFade {...others}>{children}</MaterialFade>;
+        return <MuiFade {...others}>{children}</MuiFade>;
     }
 }
 

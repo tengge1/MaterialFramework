@@ -1,5 +1,5 @@
 import React from 'react';
-import { Portal as MaterialPortal } from 'material-ui';
+import { Portal as MuiPortal } from 'material-ui';
 
 class Portal extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Portal extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialPortal {...others}>{children}</MaterialPortal>;
+        return <MuiPortal {...others}>{children}</MuiPortal>;
     }
 }
 

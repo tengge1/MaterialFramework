@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem as MaterialMenuItem } from 'material-ui';
+import { MenuItem as MuiMenuItem } from 'material-ui';
 
 class MenuItem extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class MenuItem extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialMenuItem {...others}>{children}</MaterialMenuItem>;
+        return <MuiMenuItem {...others}>{children}</MuiMenuItem>;
     }
 }
 

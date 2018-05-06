@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hidden as MaterialHidden } from 'material-ui';
+import { Hidden as MuiHidden } from 'material-ui';
 
 class Hidden extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Hidden extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialHidden {...others}>{children}</MaterialHidden>;
+        return <MuiHidden {...others}>{children}</MuiHidden>;
     }
 }
 

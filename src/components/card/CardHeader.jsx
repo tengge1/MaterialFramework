@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardHeader as MaterialCardHeader } from 'material-ui';
+import { CardHeader as MuiCardHeader } from 'material-ui';
 
 class CardHeader extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class CardHeader extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCardHeader title={title ? title : children} {...others}></MaterialCardHeader>;
+        return <MuiCardHeader title={title ? title : children} {...others}></MuiCardHeader>;
     }
 }
 

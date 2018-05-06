@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input as MaterialFormInput } from 'material-ui';
+import { Input as MuiFormInput } from 'material-ui';
 
 class Input extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Input extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormInput {...others}>{children}</MaterialFormInput>;
+        return <MuiFormInput {...others}>{children}</MuiFormInput>;
     }
 }
 

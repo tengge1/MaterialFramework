@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stepper as MaterialStepper } from 'material-ui';
+import { Stepper as MuiStepper } from 'material-ui';
 
 class Stepper extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Stepper extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialStepper {...others}>{children}</MaterialStepper>;
+        return <MuiStepper {...others}>{children}</MuiStepper>;
     }
 }
 

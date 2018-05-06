@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularProgress as MaterialCircularProgress } from 'material-ui';
+import { CircularProgress as MuiCircularProgress } from 'material-ui';
 
 class CircularProgress extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class CircularProgress extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCircularProgress {...others} />;
+        return <MuiCircularProgress {...others} />;
     }
 }
 

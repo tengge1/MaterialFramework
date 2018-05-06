@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridListTileBar as MaterialGridListTileBar } from 'material-ui';
+import { GridListTileBar as MuiGridListTileBar } from 'material-ui';
 
 class GridListTileBar extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class GridListTileBar extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialGridListTileBar {...others}>{children}</MaterialGridListTileBar>;
+        return <MuiGridListTileBar {...others}>{children}</MuiGridListTileBar>;
     }
 }
 

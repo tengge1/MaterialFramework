@@ -1,5 +1,5 @@
 import React from 'react';
-import { SvgIcon as MaterialSvgIcon } from 'material-ui';
+import { SvgIcon as MuiSvgIcon } from 'material-ui';
 
 class SvgIcon extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class SvgIcon extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialSvgIcon {...others}>{children}</MaterialSvgIcon>;
+        return <MuiSvgIcon {...others}>{children}</MuiSvgIcon>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon as MaterialIcon } from 'material-ui';
+import { Icon as MuiIcon } from 'material-ui';
 
 class Icon extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Icon extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialIcon {...others}>{children}</MaterialIcon>;
+        return <MuiIcon {...others}>{children}</MuiIcon>;
     }
 }
 

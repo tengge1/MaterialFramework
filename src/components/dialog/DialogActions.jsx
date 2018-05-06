@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogActions as MaterialDialogActions } from 'material-ui';
+import { DialogActions as MuiDialogActions } from 'material-ui';
 
 class DialogActions extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class DialogActions extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialDialogActions {...others}>{children}</MaterialDialogActions>;
+        return <MuiDialogActions {...others}>{children}</MuiDialogActions>;
     }
 }
 

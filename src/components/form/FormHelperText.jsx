@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormHelperText as MaterialFormHelperText } from 'material-ui';
+import { FormHelperText as MuiFormHelperText } from 'material-ui';
 
 class FormHelperText extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class FormHelperText extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormHelperText {...others}>{children}</MaterialFormHelperText>;
+        return <MuiFormHelperText {...others}>{children}</MuiFormHelperText>;
     }
 }
 

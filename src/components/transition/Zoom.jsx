@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zoom as MaterialZoom } from 'material-ui';
+import { Zoom as MuiZoom } from 'material-ui';
 
 class Zoom extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Zoom extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialZoom {...others}>{children}</MaterialZoom>;
+        return <MuiZoom {...others}>{children}</MuiZoom>;
     }
 }
 

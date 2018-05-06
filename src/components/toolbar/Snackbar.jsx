@@ -1,5 +1,5 @@
 import React from 'react';
-import { Snackbar as MaterialSnackbar } from 'material-ui';
+import { Snackbar as MuiSnackbar } from 'material-ui';
 
 class Snackbar extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Snackbar extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialSnackbar {...others}>{children}</MaterialSnackbar>;
+        return <MuiSnackbar {...others}>{children}</MuiSnackbar>;
     }
 }
 

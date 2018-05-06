@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal as MaterialModal } from 'material-ui';
+import { Modal as MuiModal } from 'material-ui';
 
 class Modal extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Modal extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialModal {...others}>{children}</MaterialModal>;
+        return <MuiModal {...others}>{children}</MuiModal>;
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Toolbar as MaterialToolbar, withStyles } from 'material-ui';
+import { Toolbar as MuiToolbar, withStyles } from 'material-ui';
 
 const styles = theme => ({
     small: {
@@ -33,9 +33,9 @@ class Toolbar extends React.Component {
             sizeCls = classes.medium;
         }
 
-        return <MaterialToolbar className={classNames(sizeCls, className)} {...others}>
+        return <MuiToolbar className={classNames(sizeCls, className)} {...others}>
             {children}
-        </MaterialToolbar>;
+        </MuiToolbar>;
     }
 }
 

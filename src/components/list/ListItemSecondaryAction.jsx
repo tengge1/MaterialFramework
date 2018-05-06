@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItemSecondaryAction as MaterialListItemSecondaryAction } from 'material-ui';
+import { ListItemSecondaryAction as MuiListItemSecondaryAction } from 'material-ui';
 
 class ListItemSecondaryAction extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class ListItemSecondaryAction extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialListItemSecondaryAction {...others}>{children}</MaterialListItemSecondaryAction>;
+        return <MuiListItemSecondaryAction {...others}>{children}</MuiListItemSecondaryAction>;
     }
 }
 

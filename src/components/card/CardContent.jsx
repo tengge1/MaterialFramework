@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardContent as MaterialCardContent } from 'material-ui';
+import { CardContent as MuiCardContent } from 'material-ui';
 
 class CardContent extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class CardContent extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCardContent {...others}>{children}</MaterialCardContent>;
+        return <MuiCardContent {...others}>{children}</MuiCardContent>;
     }
 }
 

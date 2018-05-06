@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog as MaterialDialog } from 'material-ui';
+import { Dialog as MuiDialog } from 'material-ui';
 
 class Dialog extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Dialog extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialDialog disableBackdropClick={disableBackdropClick === false ? false : true} {...others}>{children}</MaterialDialog>;
+        return <MuiDialog disableBackdropClick={disableBackdropClick === false ? false : true} {...others}>{children}</MuiDialog>;
     }
 }
 

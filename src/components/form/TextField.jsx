@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField as MaterialTextField } from 'material-ui';
+import { TextField as MuiTextField } from 'material-ui';
 
 class TextField extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class TextField extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialTextField {...others}>{children}</MaterialTextField>;
+        return <MuiTextField {...others}>{children}</MuiTextField>;
     }
 }
 

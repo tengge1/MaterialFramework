@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinearProgress as MaterialLinearProgress } from 'material-ui';
+import { LinearProgress as MuiLinearProgress } from 'material-ui';
 
 class LinearProgress extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class LinearProgress extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialLinearProgress {...others} />;
+        return <MuiLinearProgress {...others} />;
     }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IconButton as MaterialIconButton } from 'material-ui';
+import { IconButton as MuiIconButton } from 'material-ui';
 import withStyles from '../style/withStyles';
 import { Home } from '../icon/Icons';
 
@@ -35,8 +35,8 @@ class IconButton extends React.Component {
         const sizeStyle = size === 'large' ? classes.large :
             (size === 'small' ? classes.small : classes.medium);
 
-        return <MaterialIconButton className={classNames(sizeStyle, className)}
-            {...others}>{children || <Home />}</MaterialIconButton>;
+        return <MuiIconButton className={classNames(sizeStyle, className)}
+            {...others}>{children || <Home />}</MuiIconButton>;
     }
 }
 

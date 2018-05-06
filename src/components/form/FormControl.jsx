@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { FormControl as MaterialFormControl } from 'material-ui';
+import { FormControl as MuiFormControl } from 'material-ui';
 import withStyles from '../style/withStyles';
 
 const styles = theme => ({
@@ -22,7 +22,7 @@ class FormControl extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormControl className={classNames(classes.root, className)} {...others}>{children}</MaterialFormControl>;
+        return <MuiFormControl className={classNames(classes.root, className)} {...others}>{children}</MuiFormControl>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MuiThemeProvider as MaterialMuiThemeProvider } from 'material-ui';
+import { MuiThemeProvider as MuiMuiThemeProvider } from 'material-ui';
 
 class MuiThemeProvider extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class MuiThemeProvider extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialMuiThemeProvider {...others}>{children}</MaterialMuiThemeProvider>;
+        return <MuiMuiThemeProvider {...others}>{children}</MuiMuiThemeProvider>;
     }
 }
 

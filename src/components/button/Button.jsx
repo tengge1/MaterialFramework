@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as MaterialButton, withStyles } from 'material-ui';
+import { Button as MuiButton, withStyles } from 'material-ui';
 
 const styles = theme => ({
     root: {
@@ -25,7 +25,7 @@ class Button extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialButton
+        return <MuiButton
             // disableFocusRipple={true}
             // disableRipple={true}
             variant={variant || 'raised'}
@@ -38,7 +38,7 @@ class Button extends React.Component {
                 : {
                     root: classes.root
                 }}
-            {...others}>{children || 'Button'}</MaterialButton>;
+            {...others}>{children || 'Button'}</MuiButton>;
     }
 }
 

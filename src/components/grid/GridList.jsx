@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridList as MaterialGridList } from 'material-ui';
+import { GridList as MuiGridList } from 'material-ui';
 
 class GridList extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class GridList extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialGridList {...others}>{children}</MaterialGridList>;
+        return <MuiGridList {...others}>{children}</MuiGridList>;
     }
 }
 

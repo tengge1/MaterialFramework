@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch as MaterialSwitch } from 'material-ui';
+import { Switch as MuiSwitch } from 'material-ui';
 
 class Switch extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Switch extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialSwitch {...others}>{children}</MaterialSwitch>;
+        return <MuiSwitch {...others}>{children}</MuiSwitch>;
     }
 }
 

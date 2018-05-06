@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormGroup as MaterialFormGroup } from 'material-ui';
+import { FormGroup as MuiFormGroup } from 'material-ui';
 
 class FormGroup extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class FormGroup extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialFormGroup {...others}>{children}</MaterialFormGroup>;
+        return <MuiFormGroup {...others}>{children}</MuiFormGroup>;
     }
 }
 

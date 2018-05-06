@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItemIcon as MaterialListItemIcon } from 'material-ui';
+import { ListItemIcon as MuiListItemIcon } from 'material-ui';
 
 class ListItemIcon extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class ListItemIcon extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialListItemIcon {...others}>{children}</MaterialListItemIcon>;
+        return <MuiListItemIcon {...others}>{children}</MuiListItemIcon>;
     }
 }
 

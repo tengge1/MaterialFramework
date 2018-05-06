@@ -1,5 +1,5 @@
 import React from 'react';
-import { Step as MaterialStep } from 'material-ui';
+import { Step as MuiStep } from 'material-ui';
 
 class Step extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Step extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialStep {...others}>{children}</MaterialStep>;
+        return <MuiStep {...others}>{children}</MuiStep>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge as MaterialBadge } from 'material-ui';
+import { Badge as MuiBadge } from 'material-ui';
 
 class Badge extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class Badge extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialBadge {...others}>{children}</MaterialBadge>;
+        return <MuiBadge {...others}>{children}</MuiBadge>;
     }
 }
 

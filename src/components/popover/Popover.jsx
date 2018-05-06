@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover as MaterialPopover } from 'material-ui';
+import { Popover as MuiPopover } from 'material-ui';
 
 class Popover extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Popover extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialPopover {...others}>{children}</MaterialPopover>;
+        return <MuiPopover {...others}>{children}</MuiPopover>;
     }
 }
 

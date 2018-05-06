@@ -1,5 +1,5 @@
 import React from 'react';
-import { BottomNavigationAction as MaterialBottomNavigationAction } from 'material-ui';
+import { BottomNavigationAction as MuiBottomNavigationAction } from 'material-ui';
 
 class BottomNavigationAction extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class BottomNavigationAction extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialBottomNavigationAction {...others}>{children}</MaterialBottomNavigationAction>;
+        return <MuiBottomNavigationAction {...others}>{children}</MuiBottomNavigationAction>;
     }
 }
 

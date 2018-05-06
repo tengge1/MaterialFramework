@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioGroup as MaterialRadioGroup } from 'material-ui';
+import { RadioGroup as MuiRadioGroup } from 'material-ui';
 
 class RadioGroup extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class RadioGroup extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialRadioGroup {...others}>{children}</MaterialRadioGroup>;
+        return <MuiRadioGroup {...others}>{children}</MuiRadioGroup>;
     }
 }
 

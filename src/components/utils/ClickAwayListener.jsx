@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClickAwayListener as MaterialClickAwayListener } from 'material-ui';
+import { ClickAwayListener as MuiClickAwayListener } from 'material-ui';
 
 class ClickAwayListener extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class ClickAwayListener extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialClickAwayListener {...others}>{children}</MaterialClickAwayListener>;
+        return <MuiClickAwayListener {...others}>{children}</MuiClickAwayListener>;
     }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider as MaterialDivider } from 'material-ui';
+import { Divider as MuiDivider } from 'material-ui';
 
 class Divider extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class Divider extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialDivider {...others}>{children}</MaterialDivider>;
+        return <MuiDivider {...others}>{children}</MuiDivider>;
     }
 }
 

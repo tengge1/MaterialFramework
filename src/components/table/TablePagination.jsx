@@ -1,5 +1,5 @@
 import React from 'react';
-import { TablePagination as MaterialTablePagination } from 'material-ui';
+import { TablePagination as MuiTablePagination } from 'material-ui';
 
 class TablePagination extends React.Component {
 
@@ -16,7 +16,7 @@ class TablePagination extends React.Component {
             children,
             ...others
         } = this.props;
-        return <MaterialTablePagination labelDisplayedRows={this.labelDisplayedRows} labelRowsPerPage={'每页条数'} rowsPerPageOptions={[10,20,50,100]} {...others}>{children}</MaterialTablePagination>;
+        return <MuiTablePagination labelDisplayedRows={this.labelDisplayedRows} labelRowsPerPage={'每页条数'} rowsPerPageOptions={[10,20,50,100]} {...others}>{children}</MuiTablePagination>;
     }
 }
 

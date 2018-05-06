@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssBaseline as MaterialCssBaseline } from 'material-ui';
+import { CssBaseline as MuiCssBaseline } from 'material-ui';
 
 class CssBaseline extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class CssBaseline extends React.Component {
             ...others
         } = this.props;
 
-        return <MaterialCssBaseline {...others} />;
+        return <MuiCssBaseline {...others} />;
     }
 }
 
