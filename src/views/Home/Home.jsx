@@ -9,7 +9,7 @@ import HomeController from './HomeController';
 const styles = theme => ({
     root: {
         height: '100%',
-        padding: 16
+        padding: 8
     },
     headerAppBar: {
         flexDirection: 'row',
@@ -36,7 +36,7 @@ class Home extends React.Component {
     render() {
         const { classes } = this.props;
 
-        return <div className={classes.root} ref={this.rootRef}><Grid container spacing={16}>
+        return <div className={classes.root} ref={this.rootRef}><Grid container spacing={8}>
             <Grid item xs={4}>
                 <Card>
                     <AppBar color={'default'} className={classes.headerAppBar}>
@@ -128,6 +128,13 @@ class Home extends React.Component {
                                 <Send />
                             </ListItemIcon>
                             <ListItemText>已读消息</ListItemText>
+                            <Avatar size={'small'}>10</Avatar>
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon>
+                                <Send />
+                            </ListItemIcon>
+                            <ListItemText>草稿箱</ListItemText>
                             <Avatar size={'small'}>10</Avatar>
                         </ListItem>
                         <ListItem button>
