@@ -124,7 +124,7 @@ class Header extends React.Component {
                     <Avatar src={Face} size={'small'} />
                 </Grid>
                 <Grid item className={classes.userText}>
-                    <span className={classes.userDept}>中国移动公司</span> <span className={classes.userName}>管理员</span>
+                    <span className={classes.userDept}>中国石油集团</span> <span className={classes.userName}>管理员</span>
                 </Grid>
             </Grid>;
 
