@@ -1,5 +1,5 @@
 import React from 'react';
-import { With, Window, Header, Content, Action, FormControl, FormLabel, Input, Button, Msg } from '../../../components/Components';
+import { With, Window, Header, Content, Action, FormControl, FormLabel, Input, Button, Msg, Select, MenuItem } from '../../../components/Components';
 import DeptAddController from './DeptAddController';
 
 const styles = theme => ({
@@ -18,7 +18,12 @@ class DeptAdd extends React.Component {
                 <Content>
                     <FormControl>
                         <FormLabel>上级机构</FormLabel>
-                        <Input />
+                        <Select value={1}>
+                            <MenuItem value={1}>中国石油集团</MenuItem>
+                            <MenuItem value={2}>大庆油田分公司</MenuItem>
+                            <MenuItem value={3}>胜利油田分公司</MenuItem>
+                            <MenuItem value={4}>江苏油田分公司</MenuItem>
+                        </Select>
                     </FormControl>
                     <FormControl>
                         <FormLabel>机构名称</FormLabel>
