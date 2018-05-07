@@ -15,10 +15,12 @@ import { ChevronLeft, ChevronRight, ExpandLess, ExpandMore } from '../../compone
 import SidebarController from './SidebarController';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
+const drawerWidth = 260;
+
 const styles = theme => ({
     drawerPaper: {
         position: 'relative',
-        width: 260,
+        width: drawerWidth,
         overflowX: 'hidden',
         transition: theme
             .transitions
@@ -41,6 +43,9 @@ const styles = theme => ({
         alignItems: 'center',
         justifyContent: 'flex-end'
     },
+    links: {
+        width: drawerWidth - 1
+    },
     navLink: {
         textDecoration: 'none',
         color: '#555'
@@ -62,7 +67,7 @@ class Sidebar extends React.Component {
         const { classes } = this.props;
 
         var links = (
-            <div ref={'root'}>
+            <div className={classes.links} ref={'root'}>
                 <List component="div">
                     {this.state.menus.map((prop) => {
                         return (

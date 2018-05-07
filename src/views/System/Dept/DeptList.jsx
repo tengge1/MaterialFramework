@@ -50,7 +50,7 @@ class DeptList extends React.Component {
         return <React.Fragment>
             <div className={classes.root}>
                 <Card className={classes.deptPanel}>
-                    <AppBar>
+                    <AppBar color={'default'}>
                         <Toolbar>组织机构</Toolbar>
                     </AppBar>
                     <CardActions>
