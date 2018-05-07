@@ -23,13 +23,8 @@ class HomeController {
                 trigger: 'axis'
             },
             legend: {
-                data: ['大庆油田', '胜利油田', '江苏油田', '长庆油田', '克拉玛依油田']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
+                data: ['大庆油田', '胜利油田', '江苏油田', '长庆油田', '克拉玛依油田'],
+                top: 15
             },
             xAxis: {
                 type: 'category',
