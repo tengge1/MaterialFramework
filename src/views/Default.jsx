@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller } from '../components/Components';
+import { With } from '../components/Components';
 import Header from './Home/Header';
 import Sidebar from './Home/Sidebar';
 import Content from './Home/Content';
@@ -41,4 +41,4 @@ class Default extends React.Component {
     }
 }
 
-export default Controller(Default, { styles: styles, controller: DefaultController });
+export default With(Default, { styles: styles, controller: DefaultController });

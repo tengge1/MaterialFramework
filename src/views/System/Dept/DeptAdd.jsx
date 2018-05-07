@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller, Window, Header, Content, Action, FormControl, FormLabel, Input, Button, Msg } from '../../../components/Components';
+import { With, Window, Header, Content, Action, FormControl, FormLabel, Input, Button, Msg } from '../../../components/Components';
 import DeptAddController from './DeptAddController';
 
 const styles = theme => ({
@@ -35,4 +35,4 @@ class DeptAdd extends React.Component {
     }
 }
 
-export default Controller(DeptAdd, { styles: styles, controller: DeptAddController });
+export default With(DeptAdd, { styles: styles, controller: DeptAddController });

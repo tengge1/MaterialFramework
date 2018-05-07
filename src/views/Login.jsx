@@ -9,7 +9,7 @@ import {
     InputAdornment,
     IconButton,
     FormLabel,
-    Controller
+    With
 } from '../components/Components';
 import { Visibility, VisibilityOff } from '../components/Icons';
 import LoginController from './LoginController';
@@ -119,4 +119,4 @@ class Login extends React.Component {
     }
 }
 
-export default Controller(Login, { styles: styles, controller: LoginController });
+export default With(Login, { styles: styles, controller: LoginController });

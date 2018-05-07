@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import {
-    Controller,
+    With,
     Drawer,
     Divider,
     IconButton,
@@ -137,4 +137,4 @@ class Sidebar extends React.Component {
     }
 }
 
-export default Controller(Sidebar, { styles: styles, controller: SidebarController });
+export default With(Sidebar, { styles: styles, controller: SidebarController });

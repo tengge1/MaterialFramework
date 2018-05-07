@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogContent, Button, Controller,
+    Dialog, DialogActions, DialogContent, Button, With,
     AppBar, Toolbar, FormControl, FormLabel, Input
 } from '../../../components/Components';
 import { Close } from '../../../components/Icons';
@@ -35,4 +35,4 @@ class UserAdd extends React.Component {
     }
 }
 
-export default Controller(UserAdd, { styles: styles, controller: UserAddController });
+export default With(UserAdd, { styles: styles, controller: UserAddController });

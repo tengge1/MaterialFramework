@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Tabs, Tab, Controller } from '../../components/Components';
+import { AppBar, Tabs, Tab, With } from '../../components/Components';
 import { Close } from '../../components/Icons';
 import Views from '../Views';
 import ContentController from './ContentController';
@@ -79,4 +79,4 @@ class Content extends React.Component {
     }
 }
 
-export default Controller(Content, { styles: styles, controller: ContentController });
+export default With(Content, { styles: styles, controller: ContentController });

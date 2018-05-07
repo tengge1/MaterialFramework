@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller, Avatar, Code } from '../../../components/Components';
+import { With, Avatar, Code } from '../../../components/Components';
 import Face from '../../../assets/img/faces/uxceo-128.jpg';
 
 const styles = theme => ({
@@ -34,4 +34,4 @@ class AvatarComponent extends React.Component {
     }
 }
 
-export default Controller(AvatarComponent, { styles: styles });
+export default With(AvatarComponent, { styles: styles });

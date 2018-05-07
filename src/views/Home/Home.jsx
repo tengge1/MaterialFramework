@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Grid, Card, CardHeader, CardContent, List, ListItem, ListItemText, FixedTabs,
-    Controller, AppBar, Toolbar, IconButton, Text, ECharts
+    With, AppBar, Toolbar, IconButton, Text, ECharts
 } from '../../components/Components';
 import { MoreVert } from '../../components/Icons';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
@@ -112,4 +112,4 @@ class Home extends React.Component {
     }
 }
 
-export default Controller(Home, { styles: styles, controller: HomeController });
+export default With(Home, { styles: styles, controller: HomeController });

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Controller, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
+    With, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
     FormControl, FormLabel, Input, Button
 } from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
@@ -86,4 +86,4 @@ class MenuList extends React.Component {
     }
 }
 
-export default Controller(MenuList, { styles: styles, controller: MenuListController });
+export default With(MenuList, { styles: styles, controller: MenuListController });

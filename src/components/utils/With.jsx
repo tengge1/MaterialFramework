@@ -7,7 +7,7 @@ import withTheme from '../style/withTheme';
  * @param {*} Component 控件类
  * @param {*} options styles-样式，theme-主题，controller-控制器
  */
-function Controller(Component, options) {
+function With(Component, options) {
     const { styles, theme, controller } = options;
 
     if (controller) {
@@ -39,4 +39,4 @@ function Controller(Component, options) {
     };
 }
 
-export default Controller;
+export default With;

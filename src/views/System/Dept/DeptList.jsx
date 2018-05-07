@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Controller, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
+    With, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
     FormControl, FormLabel, Input, Button
 } from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
@@ -90,4 +90,4 @@ class DeptList extends React.Component {
     }
 }
 
-export default Controller(DeptList, { styles: styles, controller: DeptListController });
+export default With(DeptList, { styles: styles, controller: DeptListController });

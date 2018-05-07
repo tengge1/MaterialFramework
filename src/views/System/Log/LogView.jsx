@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dialog, DialogHead, DialogBody, DialogActions, Button, Controller,
+    Dialog, DialogHead, DialogBody, DialogActions, Button, With,
     FormControl, FormLabel, Grid, Text
 } from '../../../components/Components';
 import LogViewController from './LogViewController';
@@ -77,4 +77,4 @@ class LogView extends React.Component {
     }
 }
 
-export default Controller(LogView, { styles: styles, controller: LogViewController });
+export default With(LogView, { styles: styles, controller: LogViewController });

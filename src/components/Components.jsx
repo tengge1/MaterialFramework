@@ -10,8 +10,8 @@ export { default as MuiThemeProvider } from './style/MuiThemeProvider';
 // event
 export { default as CustomEvent } from './event/CustomEvent';
 
-// controller
-export { default as Controller } from './controller/Controller';
+// with
+export { default as With } from './utils/With';
 
 // grid
 export { default as Grid } from './grid/Grid';

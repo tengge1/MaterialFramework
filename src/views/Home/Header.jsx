@@ -13,7 +13,7 @@ import {
     Grid,
     ToggleButton,
     Avatar,
-    Controller,
+    With,
     Confirm
 } from '../../components/Components';
 import { Lock, Notifications, Build, ExitToApp } from '../../components/Icons';
@@ -223,4 +223,4 @@ class Header extends React.Component {
     }
 }
 
-export default Controller(Header, { styles: styles, controller: HeaderController });
+export default With(Header, { styles: styles, controller: HeaderController });

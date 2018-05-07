@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
-    Button, TextField, Controller
+    Button, TextField, With
 } from '../../../components/Components';
 import { InfoOutline, Search, Delete } from '../../../components/Icons';
 import LogListController from './LogListController';
@@ -64,4 +64,4 @@ class LogList extends React.Component {
     }
 }
 
-export default Controller(LogList, { styles: styles, controller: LogListController });
+export default With(LogList, { styles: styles, controller: LogListController });

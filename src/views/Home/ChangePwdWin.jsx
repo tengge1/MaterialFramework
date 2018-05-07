@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, Controller, Msg
+    Dialog, DialogActions, DialogHead, DialogBody, Button, FormControl, FormLabel, Input, With, Msg
 } from '../../components/Components';
 import ChangePwdWinController from './ChangePwdWinController';
 
@@ -35,4 +35,4 @@ class ChangePwdWin extends React.Component {
     }
 }
 
-export default Controller(ChangePwdWin, { controller: ChangePwdWinController });
+export default With(ChangePwdWin, { controller: ChangePwdWinController });

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Controller, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
+    With, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
     FormControl, FormLabel, Input, Button
 } from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
@@ -86,4 +86,4 @@ class DicList extends React.Component {
     }
 }
 
-export default Controller(DicList, { styles: styles, controller: DicListController });
+export default With(DicList, { styles: styles, controller: DicListController });

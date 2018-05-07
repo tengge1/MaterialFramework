@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     DataTable, TopBar, SearchForm, Columns, Column, CheckboxColumn, RowNumber,
-    Button, TextField, Controller
+    Button, TextField, With
 } from '../../../components/Components';
 import { Add, Edit, InfoOutline, Search, Delete } from '../../../components/Icons';
 import RoleListController from './RoleListController';
@@ -59,4 +59,4 @@ class RoleList extends React.Component {
     }
 }
 
-export default Controller(RoleList, { styles: styles, controller: RoleListController });
+export default With(RoleList, { styles: styles, controller: RoleListController });

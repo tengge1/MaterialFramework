@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller } from '../../components/Components';
+import { With } from '../../components/Components';
 
 const styles = theme => ({
     root: {
@@ -30,4 +30,4 @@ class Description extends React.Component {
     }
 }
 
-export default Controller(Description, { styles: styles });
+export default With(Description, { styles: styles });
