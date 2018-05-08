@@ -139,6 +139,7 @@ export { default as Tree } from './tree/Tree';
 // progress
 export { default as CircularProgress } from './progress/CircularProgress';
 export { default as LinearProgress } from './progress/LinearProgress';
+export { default as LoadMask } from './progress/LoadMask';
 
 // stepper
 export { default as MobileStepper } from './stepper/MobileStepper';
