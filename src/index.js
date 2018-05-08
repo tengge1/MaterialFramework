@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cookies from 'js-cookie';
-import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green } from './components/Components';
+import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green, LoadMask } from './components/Components';
 import Default from './views/Default';
 import Login from './views/Login';
 
@@ -23,6 +23,22 @@ const themeBase = createMuiTheme({
 console.log(themeBase);
 
 class MaterialFramework extends React.Component {
+    state = {
+        loading: false
+    };
+
+    startLoad() {
+        this.setState({
+            loading: true
+        });
+    }
+
+    stopLoad() {
+        this.setState({
+            loading: false
+        });
+    }
+
     render() {
         const isLogin = Cookies.get('isLogin');
         const view = isLogin ? <Default /> : <Login />;
@@ -30,6 +46,7 @@ class MaterialFramework extends React.Component {
         return <MuiThemeProvider theme={themeBase}>
             <CssBaseline />
             {view}
+            <LoadMask show={true} />
         </MuiThemeProvider>;
     }
 }
