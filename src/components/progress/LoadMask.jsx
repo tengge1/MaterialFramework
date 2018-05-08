@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import CircularProgress from './CircularProgress';
 import withStyles from '../style/withStyles';
 
+const msgColor = 'rgba(255, 255, 255, 0.3)';
+
 const styles = theme => ({
     root: {
         position: 'absolute',
@@ -11,22 +13,28 @@ const styles = theme => ({
         width: '100%',
         height: '100%',
         zIndex: 9999,
-        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        backgroundColor: msgColor,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexDirection: 'column'
     },
     hidden: {
         display: 'none'
+    },
+    msg: {
+        marginTop: 8,
+        color: theme.palette.getContrastText(msgColor)
     }
 });
 
 class LoadMask extends React.Component {
     render() {
-        const { classes, className, show, ...others } = this.props;
+        const { classes, className, show, msg, ...others } = this.props;
 
-        return <div className={classNames(classes.root, className, show ? null : classes.hidden)}>
+        return <div className={classNames(classes.root, className, show ? null : classes.hidden)} {...others}>
             <CircularProgress size={60} thickness={5} />
+            <div className={classes.msg}>{msg === undefined ? '请稍后...' : msg}</div>
         </div>;
     }
 }

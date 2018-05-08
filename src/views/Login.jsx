@@ -9,7 +9,8 @@ import {
     InputAdornment,
     IconButton,
     FormLabel,
-    With
+    With,
+    Msg
 } from '../components/Components';
 import { Visibility, VisibilityOff } from '../components/Icons';
 import LoginController from './LoginController';
@@ -79,7 +80,7 @@ class Login extends React.Component {
             </IconButton>
         </InputAdornment>;
 
-        return (
+        return <React.Fragment>
             <div className={classes.root}>
                 <div className={classes.title}>中国石油天然气集团大数据分析与综合业务管理平台</div>
                 <Card className={classes.card} raised={true} square={false}>
@@ -115,7 +116,8 @@ class Login extends React.Component {
                 </Card>
                 <div className={classes.copyright}>Copyright© 1999-{new Date().getFullYear()} 中国石油天然气集团有限公司 版权所有</div>
             </div>
-        );
+            <Msg open={this.state.msgShow} onClose={this.handleWrongPasswordClose.bind(this)}>{this.state.msgText}</Msg>
+        </React.Fragment>;
     }
 }
 

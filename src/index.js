@@ -5,6 +5,9 @@ import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green, LoadMask 
 import Default from './views/Default';
 import Login from './views/Login';
 
+// 全局变量，用于快速访问全局函数
+window.app = {};
+
 const themeBase = createMuiTheme({
     palette: {
         primary: {
@@ -19,24 +22,34 @@ const themeBase = createMuiTheme({
     }
 });
 
-// 在控制台输出样式，以便于在程序中取值
-console.log(themeBase);
+window.app.theme = themeBase;
 
 class MaterialFramework extends React.Component {
     state = {
-        loading: false
+        loading: false,
+        loadingMsg: '请稍后...'
     };
 
-    startLoad() {
+    loadMask(msg) {
         this.setState({
-            loading: true
+            loading: true,
+            loadingMsg: msg === undefined ? '请稍后...' : msg
         });
     }
 
-    stopLoad() {
+    unloadMask() {
         this.setState({
             loading: false
         });
+    }
+
+    componentDidMount() {
+        window.app.loadMask = () => {
+            this.loadMask();
+        };
+        window.app.unloadMask = () => {
+            this.unloadMask();
+        };
     }
 
     render() {
@@ -46,7 +59,7 @@ class MaterialFramework extends React.Component {
         return <MuiThemeProvider theme={themeBase}>
             <CssBaseline />
             {view}
-            <LoadMask show={true} />
+            <LoadMask show={this.state.loading} />
         </MuiThemeProvider>;
     }
 }
