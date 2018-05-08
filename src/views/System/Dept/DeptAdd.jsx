@@ -26,6 +26,10 @@ class DeptAdd extends React.Component {
                         </Select>
                     </FormControl>
                     <FormControl>
+                        <FormLabel>机构编号</FormLabel>
+                        <Input />
+                    </FormControl>
+                    <FormControl>
                         <FormLabel>机构名称</FormLabel>
                         <Input />
                     </FormControl>

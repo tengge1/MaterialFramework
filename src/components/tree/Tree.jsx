@@ -29,9 +29,32 @@ const styles = theme => ({
 });
 
 class Tree extends React.Component {
-    state = {
-        expand: {}
-    };
+    constructor(props) {
+        super(props);
+
+        const { data } = props;
+        var expanded = {};
+
+        var getExpanded = (node) => {
+            if (node.expanded) {
+                expanded[node.id] = true;
+            }
+            if (node.children && node.children.length > 0) {
+                node.children.forEach((child) => {
+                    getExpanded(child);
+                });
+            }
+        };
+        getExpanded({
+            id: 0,
+            text: '',
+            children: data
+        });
+
+        this.state = {
+            expand: expanded
+        };
+    }
 
     toggleExpandNode = (treeNodeId) => {
         var expand = this.state.expand;

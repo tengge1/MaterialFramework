@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cookies from 'js-cookie';
+import { dispatch } from 'd3-dispatch';
 import { MuiThemeProvider, createMuiTheme, CssBaseline, purple, green, LoadMask } from './components/Components';
 import Default from './views/Default';
 import Login from './views/Login';
@@ -8,6 +9,7 @@ import Login from './views/Login';
 // 全局变量，用于快速访问全局函数
 window.app = {};
 
+// 自定义主题
 const themeBase = createMuiTheme({
     palette: {
         primary: {
@@ -24,6 +26,19 @@ const themeBase = createMuiTheme({
 
 window.app.theme = themeBase;
 
+// 自定义事件
+const eventNames = [];
+window.app.dispatch = dispatch.apply(dispatch, eventNames);
+
+window.app.call = (eventName, _this, args) => {
+    window.app.dispatch.call.apply(window.app.dispatch, arguments);
+};
+
+window.app.on = (eventName, callback) => {
+    window.app.dispatch.on.apply(window.app.dispatch, arguments);
+};
+
+// 框架UI类
 class MaterialFramework extends React.Component {
     state = {
         loading: false,
