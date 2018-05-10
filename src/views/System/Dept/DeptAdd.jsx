@@ -18,7 +18,7 @@ class DeptAdd extends React.Component {
                 <Content>
                     <FormControl>
                         <FormLabel>上级机构</FormLabel>
-                        <Select value={1}>
+                        <Select value={this.state.PID} onChange={this.onSelectPDept.bind(this)}>
                             <MenuItem value={1}>中国石油集团</MenuItem>
                             <MenuItem value={2}>大庆油田分公司</MenuItem>
                             <MenuItem value={3}>胜利油田分公司</MenuItem>

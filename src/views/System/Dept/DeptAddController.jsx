@@ -1,6 +1,7 @@
 class DeptAddController {
     state = {
-        successMsgOpen: false
+        successMsgOpen: false,
+        PID: 1
     };
 
     handleOK() {
@@ -16,6 +17,12 @@ class DeptAddController {
     handleSuccessMsgClose() {
         this.setState({
             successMsgOpen: false
+        });
+    }
+
+    onSelectPDept(event) {
+        this.setState({
+            PID: event.target.value
         });
     }
 }

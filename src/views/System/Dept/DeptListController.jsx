@@ -32,7 +32,8 @@ const deptData = [{
 
 class DeptListController {
     state = {
-        deptAddOpen: false
+        deptAddOpen: false,
+        PID: 1
     };
 
     deptData = deptData;
@@ -46,6 +47,12 @@ class DeptListController {
     handleDeptAddClose() {
         this.setState({
             deptAddOpen: false
+        });
+    }
+
+    onSelectPDept(event) {
+        this.setState({
+            PID: event.target.value
         });
     }
 }

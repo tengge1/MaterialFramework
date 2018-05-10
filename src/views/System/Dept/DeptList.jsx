@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-    With, Tree, Card, AppBar, Toolbar, CardActions, IconButton,
-    FormControl, FormLabel, Input, Button
+    With, Tree, Card, AppBar, Toolbar, CardActions, FlatButton,
+    FormControl, FormLabel, Input, Button, Divider, Select, MenuItem
 } from '../../../components/Components';
 import { Add, Delete } from '../../../components/Icons';
 import DeptListController from './DeptListController';
@@ -54,20 +54,26 @@ class DeptList extends React.Component {
                         <Toolbar>组织机构</Toolbar>
                     </AppBar>
                     <CardActions>
-                        <IconButton title={'添加'} onClick={this.handleAddClick.bind(this)}>
-                            <Add />
-                        </IconButton>
-                        <IconButton title={'删除'}>
-                            <Delete />
-                        </IconButton>
+                        <Button size={'small'} onClick={this.handleAddClick.bind(this)}>
+                            添加
+                        </Button>
+                        <Button size={'small'} title={'删除'}>
+                            删除
+                        </Button>
                     </CardActions>
+                    <Divider />
                     <Tree data={this.deptData} className={classes.tree} />
                 </Card>
                 <div className={classes.rightPanel}>
                     <div className={classes.editForm}>
                         <FormControl>
                             <FormLabel>上级部门</FormLabel>
-                            <Input />
+                            <Select value={this.state.PID} onChange={this.onSelectPDept.bind(this)}>
+                                <MenuItem value={1}>中国石油集团</MenuItem>
+                                <MenuItem value={2}>大庆油田分公司</MenuItem>
+                                <MenuItem value={3}>胜利油田分公司</MenuItem>
+                                <MenuItem value={4}>江苏油田分公司</MenuItem>
+                            </Select>
                         </FormControl>
                         <FormControl>
                             <FormLabel>部门编号</FormLabel>
