@@ -1,0 +1,29 @@
+{
+    "title": "Material Framework文档",
+    "description": "Material Framework开发文档",
+    "plugins": [],
+    "pluginsConfig": {
+        "theme-default": {
+            "showLevel": true
+        }
+    },
+    "variables": {},
+    "links": {
+        "sidebar": {
+            "Custom link name": "https://customlink.com"
+        }
+    },
+    "pdf": {
+        "pageNumbers": true,
+        "fontSize": 12,
+        "paperSize": "a4",
+        "margin": {
+            "right": 62,
+            "left": 62,
+            "top": 36,
+            "bottom": 36
+        },
+        "headerTemplate": null,
+        "footerTemplate": null
+    }
+}
