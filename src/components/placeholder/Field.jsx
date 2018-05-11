@@ -1,5 +1,5 @@
 import React from 'react';
-import Placeholder from './Placeholder';
+import Placeholder from './Placeholder.jsx';
 
 class Field extends React.Component {
     render() {

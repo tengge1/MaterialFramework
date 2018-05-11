@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withStyles from '../style/withStyles';
-import IconButton from '../button/IconButton';
-import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '../icon/Icons';
+import withStyles from '../style/withStyles.jsx';
+import IconButton from '../button/IconButton.jsx';
+import { FirstPage as FirstPageIcon, KeyboardArrowLeft, KeyboardArrowRight, LastPage as LastPageIcon } from '../icon/Icons.jsx';
 
 const actionsStyles = theme => ({
     root: {

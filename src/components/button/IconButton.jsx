@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { IconButton as MuiIconButton } from 'material-ui';
-import withStyles from '../style/withStyles';
-import { Home } from '../icon/Icons';
+import withStyles from '../style/withStyles.jsx';
+import { Home } from '../icon/Icons.jsx';
 
 const styles = theme => ({
     root: {

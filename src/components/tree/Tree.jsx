@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import withStyles from '../style/withStyles';
-import Collapse from '../transition/Collapse';
-import { KeyboardArrowRight, KeyboardArrowDown } from '../icon/Icons';
+import withStyles from '../style/withStyles.jsx';
+import Collapse from '../transition/Collapse.jsx';
+import { KeyboardArrowRight, KeyboardArrowDown } from '../icon/Icons.jsx';
 
 const styles = theme => ({
     root: {

@@ -1,10 +1,10 @@
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import withStyles from '../style/withStyles';
-import AppBar from '../toolbar/AppBar';
-import Tabs from './Tabs';
-import Tab from './Tab';
-import Text from '../text/Text';
+import withStyles from '../style/withStyles.jsx';
+import AppBar from '../toolbar/AppBar.jsx';
+import Tabs from './Tabs.jsx';
+import Tab from './Tab.jsx';
+import Text from '../text/Text.jsx';
 
 function TabContainer({ children, dir }) {
     return (

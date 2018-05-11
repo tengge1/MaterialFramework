@@ -1,5 +1,5 @@
 import React from 'react';
-import Placeholder from './Placeholder';
+import Placeholder from './Placeholder.jsx';
 
 class BottomBar extends React.Component {
     render() {

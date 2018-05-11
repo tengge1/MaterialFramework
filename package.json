@@ -2,7 +2,7 @@
   "name": "materialframework.web",
   "version": "1.0.0",
   "private": true,
-  "description": "A web framework using material design and asp.net.",
+  "description": "A web framework using material-ui.",
   "main": "index.js",
   "dependencies": {
     "classnames": "^2.2.5",
@@ -17,16 +17,28 @@
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-popper": "^0.10.1",
-    "react-scripts": "1.1.1",
     "react-swipeable-views": "^0.12.13"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "react-scripts": "1.1.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "book": "gitbook build docs"
+    "book": "gitbook build docs",
+    "rollup": "rollup -c"
   },
   "repository": {
     "type": "git",

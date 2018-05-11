@@ -1,5 +1,5 @@
 import React from 'react';
-import Placeholder from './Placeholder';
+import Placeholder from './Placeholder.jsx';
 
 class SearchForm extends React.Component {
     render() {

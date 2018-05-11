@@ -1,6 +1,6 @@
 import React from 'react';
-import Snackbar from '../toolbar/Snackbar';
-import Slide from '../transition/Slide';
+import Snackbar from '../toolbar/Snackbar.jsx';
+import Slide from '../transition/Slide.jsx';
 
 class Msg extends React.Component {
     handleClose = () => {

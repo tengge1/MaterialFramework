@@ -1,12 +1,12 @@
 import React from 'react';
-import Dialog from '../dialog/Dialog';
-import DialogHead from '../dialog/DialogHead';
-import DialogBody from '../dialog/DialogBody';
-import DialogActions from '../dialog/DialogActions';
-import Header from '../placeholder/Header';
-import Content from '../placeholder/Content';
-import Action from '../placeholder/Action';
-import withStyles from '../style/withStyles';
+import Dialog from '../dialog/Dialog.jsx';
+import DialogHead from '../dialog/DialogHead.jsx';
+import DialogBody from '../dialog/DialogBody.jsx';
+import DialogActions from '../dialog/DialogActions.jsx';
+import Header from '../placeholder/Header.jsx';
+import Content from '../placeholder/Content.jsx';
+import Action from '../placeholder/Action.jsx';
+import withStyles from '../style/withStyles.jsx';
 
 const styles = theme => ({
     root: {

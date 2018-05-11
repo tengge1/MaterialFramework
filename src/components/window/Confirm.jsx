@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import Dialog from '../dialog/Dialog';
-import DialogTitle from '../dialog/DialogTitle';
-import DialogContent from '../dialog/DialogContent';
-import DialogActions from '../dialog/DialogActions';
-import Button from '../button/Button';
-import withStyles from '../style/withStyles';
+import Dialog from '../dialog/Dialog.jsx';
+import DialogTitle from '../dialog/DialogTitle.jsx';
+import DialogContent from '../dialog/DialogContent.jsx';
+import DialogActions from '../dialog/DialogActions.jsx';
+import Button from '../button/Button.jsx';
+import withStyles from '../style/withStyles.jsx';
 
 const styles = theme => ({
     root: {

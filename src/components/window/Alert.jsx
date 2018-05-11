@@ -1,9 +1,9 @@
 import React from 'react';
-import Dialog from '../dialog/Dialog';
-import DialogTitle from '../dialog/DialogTitle';
-import DialogContent from '../dialog/DialogContent';
-import DialogActions from '../dialog/DialogActions';
-import Button from '../button/Button';
+import Dialog from '../dialog/Dialog.jsx';
+import DialogTitle from '../dialog/DialogTitle.jsx';
+import DialogContent from '../dialog/DialogContent.jsx';
+import DialogActions from '../dialog/DialogActions.jsx';
+import Button from '../button/Button.jsx';
 
 class Alert extends React.Component {
     onClose() {

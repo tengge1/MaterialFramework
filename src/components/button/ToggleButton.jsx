@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Button from './Button.jsx';
-import withStyles from '../style/withStyles';
+import withStyles from '../style/withStyles.jsx';
 
 const styles = theme => ({
     root: {

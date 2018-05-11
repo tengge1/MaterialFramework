@@ -1,26 +1,26 @@
 import React from 'react';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui';
-import CardActions from '../card/CardActions';
-import Paper from '../paper/Paper';
-import Checkbox from '../form/Checkbox';
-import Table from './Table';
-import TableHead from './TableHead';
-import TableBody from './TableBody';
-import TableRow from './TableRow';
-import TableCell from './TableCell';
-import TableFooter from './TableFooter';
-import TablePagination from './TablePagination';
-import TablePaginationActions from './TablePaginationActions';
-import Collapse from '../transition/Collapse';
+import CardActions from '../card/CardActions.jsx';
+import Paper from '../paper/Paper.jsx';
+import Checkbox from '../form/Checkbox.jsx';
+import Table from './Table.jsx';
+import TableHead from './TableHead.jsx';
+import TableBody from './TableBody.jsx';
+import TableRow from './TableRow.jsx';
+import TableCell from './TableCell.jsx';
+import TableFooter from './TableFooter.jsx';
+import TablePagination from './TablePagination.jsx';
+import TablePaginationActions from './TablePaginationActions.jsx';
+import Collapse from '../transition/Collapse.jsx';
 
-import TopBar from '../placeholder/TopBar';
-import BottomBar from '../placeholder/BottomBar';
-import Columns from '../placeholder/Columns';
-import SearchForm from '../placeholder/SearchForm';
-import Column from '../placeholder/Column';
-import CheckboxColumn from '../placeholder/CheckboxColumn';
-import RowNumber from '../placeholder/RowNumber';
+import TopBar from '../placeholder/TopBar.jsx';
+import BottomBar from '../placeholder/BottomBar.jsx';
+import Columns from '../placeholder/Columns.jsx';
+import SearchForm from '../placeholder/SearchForm.jsx';
+import Column from '../placeholder/Column.jsx';
+import CheckboxColumn from '../placeholder/CheckboxColumn.jsx';
+import RowNumber from '../placeholder/RowNumber.jsx';
 
 const styles = theme => ({
     root: {

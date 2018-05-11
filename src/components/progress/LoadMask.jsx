@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import CircularProgress from './CircularProgress';
-import withStyles from '../style/withStyles';
+import CircularProgress from './CircularProgress.jsx';
+import withStyles from '../style/withStyles.jsx';
 
 const msgColor = 'rgba(255, 255, 255, 0.3)';
 

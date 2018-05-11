@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from './Typography';
+import Typography from './Typography.jsx';
 
 class Text extends React.Component {
     render() {

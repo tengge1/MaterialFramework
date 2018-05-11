@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import classNames from 'classnames';
-import AppBar from '../toolbar/AppBar';
-import Toolbar from '../toolbar/Toolbar';
-import Text from '../text/Text';
-import { Close } from '../icon/Icons';
-import withStyles from '../style/withStyles';
+import AppBar from '../toolbar/AppBar.jsx';
+import Toolbar from '../toolbar/Toolbar.jsx';
+import Text from '../text/Text.jsx';
+import { Close } from '../icon/Icons.jsx';
+import withStyles from '../style/withStyles.jsx';
 
 const styles = theme => ({
     root: {

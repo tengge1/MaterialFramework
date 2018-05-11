@@ -1,6 +1,6 @@
 import React from 'react';
-import withStyles from '../style/withStyles';
-import withTheme from '../style/withTheme';
+import withStyles from '../style/withStyles.jsx';
+import withTheme from '../style/withTheme.jsx';
 
 /**
  * 用于给控件添加选项（例如：样式、主题、控制器）

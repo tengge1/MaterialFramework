@@ -1,5 +1,5 @@
 import React from 'react';
-import Column from './Column';
+import Column from './Column.jsx';
 
 class RowNumber extends React.Component {
     render() {
