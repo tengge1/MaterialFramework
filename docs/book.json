@@ -7,12 +7,6 @@
             "showLevel": true
         }
     },
-    "variables": {},
-    "links": {
-        "sidebar": {
-            "Custom link name": "https://customlink.com"
-        }
-    },
     "pdf": {
         "pageNumbers": true,
         "fontSize": 12,
