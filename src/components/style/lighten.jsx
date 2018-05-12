@@ -1,3 +1,3 @@
-import { lighten } from 'material-ui/styles';
+import { lighten } from 'material-ui';
 
 export default lighten;

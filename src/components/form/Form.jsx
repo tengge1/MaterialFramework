@@ -9,4 +9,4 @@ class Form extends React.Component {
     }
 }
 
-export { Form };
+export default Form;

@@ -5,6 +5,7 @@
   "description": "A web framework using material-ui.",
   "main": "index.js",
   "dependencies": {
+    "babel-plugin-react-css-modules": "^3.4.0",
     "classnames": "^2.2.5",
     "codemirror": "^5.37.0",
     "d3-dispatch": "^1.0.3",
@@ -25,12 +26,16 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
     "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "react-scripts": "1.1.1",
     "rollup": "^0.58.2",
-    "rollup-plugin-babel": "^3.0.4"
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.6.1"
   },
   "scripts": {
     "start": "react-scripts start",

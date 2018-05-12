@@ -1,6 +1,6 @@
 // color and style
 export * from './color/Colors.jsx';
-export { default as lighten } from './style/lighten.jsx';
+// export { default as lighten } from './style/lighten.jsx';
 export { default as createMuiTheme } from './style/createMuiTheme.jsx';
 export { default as withStyles } from './style/withStyles.jsx';
 export { default as withTheme } from './style/withTheme.jsx';
